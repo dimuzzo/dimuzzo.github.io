@@ -5,47 +5,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Socials - dimuzzo</title>
   <link rel="stylesheet" href="style.css" />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    crossorigin="anonymous"
-  />
+  <style>
+    main {
+      max-width: 400px;
+      margin: 2rem auto;
+      text-align: center;
+    }
+    .social-badges a {
+      display: block;
+      margin: 15px auto;
+      width: 220px; /* dimensione media, puoi adattare */
+      max-width: 90vw;
+      transition: transform 0.2s ease;
+    }
+    .social-badges a:hover {
+      transform: scale(1.05);
+    }
+  </style>
 </head>
 <body>
   <nav>
     <ul>
       <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
       <li><a href="projects.html"><i class="fa fa-code"></i> Projects</a></li>
-      <li><a href="socials.html" class="active"><i class="fa fa-user"></i> Social</a></li>
+      <li><a href="socials.html" class="active"><i class="fa fa-user"></i> Socials</a></li>
       <li><a href="techstack.html"><i class="fa fa-cogs"></i> Tech Stack</a></li>
     </ul>
   </nav>
 
   <main>
-    <h1>Social Profiles</h1>
-    <section class="social-list">
-      <a href="https://github.com/dimuzzo" target="_blank" rel="noopener noreferrer" class="social-item github">
-        <i class="fab fa-github fa-3x"></i>
-        <p>GitHub</p>
-        <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" />
-      </a>
+    <h1>Find me on</h1>
 
-      <a href="https://www.linkedin.com/in/dimuzzo" target="_blank" rel="noopener noreferrer" class="social-item linkedin">
-        <i class="fab fa-linkedin fa-3x"></i>
-        <p>LinkedIn</p>
-        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" />
+    <div class="social-badges">
+      <a href="https://github.com/dimuzzo" target="_blank" rel="noopener noreferrer">
+        <img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white" alt="GitHub" />
       </a>
-
-      <a href="https://twitter.com/dimuzzo" target="_blank" rel="noopener noreferrer" class="social-item twitter">
-        <i class="fab fa-twitter fa-3x"></i>
-        <p>Twitter</p>
-        <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" />
+      <a href="https://www.linkedin.com/in/alessandro-demo-b844a8301" target="_blank" rel="noopener noreferrer">
+        <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white" alt="LinkedIn" />
       </a>
-    </section>
+      <a href="https://t.me/dimuzzo" target="_blank" rel="noopener noreferrer">
+        <img src="https://img.shields.io/badge/Telegram-0088CC?style=flat&logo=telegram&logoColor=white" alt="Telegram" />
+      </a>
+      <a href="https://leetcode.com/dimuzzo/" target="_blank" rel="noopener noreferrer">
+        <img src="https://img.shields.io/badge/LeetCode-FFA116?style=flat&logo=leetcode&logoColor=white" alt="LeetCode" />
+      </a>
+      <a href="https://letterboxd.com/dimuzzo/" target="_blank" rel="noopener noreferrer">
+        <img src="https://img.shields.io/badge/Letterboxd-202830?style=flat&logo=letterboxd&logoColor=white" alt="Letterboxd" />
+      </a>
+      <a href="https://instagram.com/_aledemo" target="_blank" rel="noopener noreferrer">
+        <img src="https://img.shields.io/badge/Instagram-E4405F?style=flat&logo=instagram&logoColor=white" alt="Instagram" />
+      </a>
+    </div>
   </main>
 
-  <footer>
-    <p>© 2025 dimuzzo | Let’s connect</p>
+  <footer class="footer">
+    <p>© 2025 dimuzzo | All rights reserved</p>
   </footer>
 </body>
 </html>
