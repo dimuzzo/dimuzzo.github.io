@@ -283,20 +283,21 @@ body.light-mode .about-text p { color: var(--lm-text-secondary); }
 .about-list li {
   font-size: 1rem;
   margin-bottom: 1rem;
-  display: flex;
-  align-items: flex-start; /* Allinea icona e testo */
+  display: flex; /* Mantiene l'icona e il div.list-item-text-content affiancati */
+  align-items: flex-start; 
 }
 .about-list li .icon-bullet {
   color: var(--color-accent);
   margin-right: 0.8rem;
-  margin-top: 0.2rem; /* Per allineare meglio con il testo */
+  margin-top: 0.2rem; 
   font-size: 1.2rem;
 }
+
 .about-list li em {
-  display: block;
+  display: block; /* Fa andare a capo il testo em */
   font-size: 0.9rem;
   opacity: 0.8;
-  margin-top: 0.2rem;
+  margin-top: 0.4rem; /* Leggermente aumentato per più spazio dalla riga sopra */
 }
 body.dark-mode .about-list li { color: var(--dm-text-primary); }
 body.light-mode .about-list li { color: var(--lm-text-primary); }
@@ -644,18 +645,10 @@ body.light-mode .toggle-theme .fa-moon { display: none; } /* Nascondi luna in li
   border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
-  mix-blend-mode: difference; /* Mantenuto, è un effetto interessante */
+  mix-blend-mode: difference; 
   transition: transform 0.1s ease-out, width 0.2s ease-out, height 0.2s ease-out; /* Transizione più fluida */
   transform: translate(-50%, -50%);
 }
-/* Potenziale effetto hover per il cursore, da testare
-body:has(a:hover) .cursor, body:has(button:hover) .cursor {
-  width: 20px;
-  height: 20px;
-  mix-blend-mode: normal;
-  background-color: rgba(231, 76, 60, 0.5);
-}
-*/
 
 /* KEYFRAMES ANIMATIONS */
 @keyframes fadeInDown {
