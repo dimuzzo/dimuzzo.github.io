@@ -4,6 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Projects - dimuzzo</title>
+  <meta name="description" content="Scopri i progetti di Alessandro 'dimuzzo' Demo, inclusi NBA Score Prediction e Spatial DB Benchmarking." />
+  <meta property="og:title" content="Projects - dimuzzo" />
+  <meta property="og:description" content="Scopri i progetti di Alessandro 'dimuzzo' Demo, inclusi NBA Score Prediction e Spatial DB Benchmarking." />
+  <meta property="og:image" content="https://www.dreamstime.com/photos-images/programming-project.html" />
+  <meta property="og:url" content="https://dimuzzo.github.io/" />
+  <meta property="og:type" content="website" />
   <link rel="stylesheet" href="style.css" />
   <link
     rel="stylesheet"
@@ -23,8 +29,8 @@
     </ul>
   </nav>
 
-  <button id="toggle-theme" class="toggle-theme">
-  🌓 Toggle Theme
+  <button id="toggle-theme" class="toggle-theme" aria-label="Toggle Light/Dark Theme">
+  🌓
   </button>
   
   <main>
@@ -32,10 +38,15 @@
     <section class="projects-list">
 
       <article class="project-card">
-        <img src="https://images7.alphacoders.com/856/thumb-1920-856240.jpg" alt="NBA Score Prediction" />
+        <img src="https://images7.alphacoders.com/856/thumb-1920-856240.jpg" alt="Rappresentazione visiva del progetto NBA Score Prediction - campo da basket" />
         <div class="project-info">
-          <h2>NBA Score Prediction</h2>
-          <p>Using Python, machine learning models and data analysis to predict NBA game outcomes.</p>
+          <div>
+            <h2>NBA Score Prediction</h2>
+            <p class="project-description">Using Python, machine learning models and data analysis to predict NBA game outcomes. This project explores various algorithms to achieve accurate predictions.</p>
+            <div class="project-tech">
+              <strong>Tecnologie:</strong> Python, Scikit-learn, Pandas
+            </div>
+          </div>
           <a href="https://github.com/dimuzzo/nba-score-prediction" target="_blank" rel="noopener noreferrer" class="btn-link">
             <i class="fab fa-github"></i> View on GitHub
           </a>
@@ -43,26 +54,28 @@
       </article>
 
       <article class="project-card">
-        <img src="https://geospatialworld.net/wp-content/uploads/2023/05/global-network-connection-covering-earth-with-lines-innovative-perception_31965-29244.jpg" alt="Spatial DB Benchmarking" />
+        <img src="https://geospatialworld.net/wp-content/uploads/2023/05/global-network-connection-covering-earth-with-lines-innovative-perception_31965-29244.jpg" alt="Rappresentazione visiva del progetto Spatial DB Benchmarking - globo con connessioni dati" />
         <div class="project-info">
-          <h2>Spatial DB Benchmarking</h2>
-          <p>Benchmark tests on DuckDB spatial extension with geospatial data and city maps.</p>
+          <div>
+            <h2>Spatial DB Benchmarking</h2>
+            <p class="project-description">Benchmark tests on DuckDB spatial extension with geospatial data and city maps. Focus on performance analysis of spatial queries.</p>
+            <div class="project-tech">
+              <strong>Tecnologie:</strong> Python, DuckDB, GeoPandas
+            </div>
+          </div>
           <a href="https://github.com/dimuzzo/testing-project" target="_blank" rel="noopener noreferrer" class="btn-link">
             <i class="fab fa-github"></i> View on GitHub
           </a>
         </div>
       </article>
 
-      <!-- Puoi aggiungere altri progetti qui -->
-
-    </section>
+      </section>
   </main>
 
   <footer>
     <p>© 2025 dimuzzo | All rights reserved</p>
   </footer>
 
-  <div class="cursor"></div>
   <script src="script.js"></script>
 </body>
 </html>

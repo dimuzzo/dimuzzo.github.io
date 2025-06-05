@@ -75,13 +75,20 @@ nav ul li a::after {
 }
 
 nav ul li a:hover::after,
-nav ul li a.active::after {
+nav ul li a.active::after,
+nav ul li a:focus::after { /* Aggiunto :focus */
   transform: translateX(-50%) scaleX(1);
 }
 
 nav ul li a:hover,
-nav ul li a.active {
+nav ul li a.active,
+nav ul li a:focus { /* Aggiunto :focus */
   color: var(--color-accent);
+  outline: 2px solid transparent; /* Rende l'outline invisibile di default per non sovrapporsi se non necessario */
+  outline-offset: 2px;
+}
+nav ul li a:focus-visible { /* Stile di focus visibile solo per navigazione da tastiera */
+    outline: 2px dashed var(--color-accent); /* Esempio di outline per focus, personalizzabile */
 }
 
 /* MAIN */
@@ -184,19 +191,33 @@ h1 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  flex-grow: 1; /* Aggiunto per far sì che il contenitore prenda lo spazio disponibile */
+}
+
+.project-info > div { /* Contenitore per testo e tecnologie */
+  margin-bottom: 1.5rem; /* Spazio prima del bottone GitHub */
 }
 
 .project-info h2 {
   color: var(--color-accent);
   font-size: 1.9rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem; /* Ridotto un po' */
 }
 
-.project-info p {
+.project-info p.project-description { /* Classe aggiunta per la descrizione */
   font-size: 1.1rem;
   line-height: 1.5;
   color: var(--color-light-muted);
-  margin-bottom: 1.8rem;
+  margin-bottom: 1rem; /* Spazio prima delle tecnologie */
+}
+
+.project-tech {
+  font-size: 0.95rem;
+  color: var(--color-light-muted);
+}
+
+.project-tech strong {
+  color: var(--color-light);
 }
 
 .btn-link {
@@ -417,6 +438,22 @@ body.light-mode .btn-link {
   background-color: white;
   color: var(--color-text-dark);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode nav ul li a:focus-visible { /* Stile focus per light mode se necessario diverso */
+    outline: 2px dashed var(--color-accent);
+}
+
+body.light-mode .project-info p.project-description,
+body.light-mode .project-tech {
+  color: #555; /* Testo più scuro per light mode */
+}
+body.light-mode .project-tech strong {
+  color: var(--color-text-dark);
+}
+
+body.light-mode .tech-icons img.tech-img {
+  filter: invert(0) drop-shadow(0 0 2px var(--color-accent)); /* Per icone SVG in light mode */
 }
 
 /* CURSORE ANIMATO */
