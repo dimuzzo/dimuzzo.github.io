@@ -7,9 +7,11 @@
   <meta name="description" content="Connettiti con Alessandro 'dimuzzo' Demo su GitHub, LinkedIn, Telegram e altre piattaforme social." />
   <meta property="og:title" content="Socials - dimuzzo" />
   <meta property="og:description" content="Connettiti con Alessandro 'dimuzzo' Demo su GitHub, LinkedIn, Telegram e altre piattaforme social." />
-  <meta property="og:image" content="https://www.canva.com/photos/s/social-media/" />
-  <meta property="og:url" content="https://dimuzzo.github.io/" />
+  <meta property="og:image" content="https://www.canva.com/photos/s/social-media/" /> <meta property="og:url" content="https://dimuzzo.github.io/" />
   <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
   <link
     rel="stylesheet"
@@ -21,64 +23,51 @@
 <body class="dark-mode">
   <div class="cursor"></div>
   <nav>
-    <ul>
-      <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
-      <li><a href="projects.html"><i class="fa fa-code"></i> Projects</a></li>
-      <li><a href="socials.html" class="active"><i class="fa fa-user"></i> Socials</a></li>
-      <li><a href="techstack.html"><i class="fa fa-cogs"></i> Tech Stack</a></li>
-    </ul>
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">dimuzzo</a>
+      <ul>
+        <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
+        <li><a href="projects.html"><i class="fa fa-code"></i> Projects</a></li>
+        <li><a href="socials.html" class="active" aria-current="page"><i class="fa fa-user"></i> Socials</a></li>
+        <li><a href="techstack.html"><i class="fa fa-cogs"></i> Tech Stack</a></li>
+      </ul>
+    </div>
   </nav>
 
   <button id="toggle-theme" class="toggle-theme" aria-label="Toggle Light/Dark Theme">
-  🌓
+    <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
   </button>
 
-  <main>
-    <h1>Find me on</h1>
-    <section class="social-list">
-      <div class="social-item">
-        <a href="https://github.com/dimuzzo" target="_blank" rel="noopener noreferrer">
-          <i class="fa-brands fa-github"></i>
-          <p>GitHub</p>
-        </a>
-      </div>
-      <div class="social-item">
-        <a href="https://www.linkedin.com/in/alessandro-demo-b844a8301" target="_blank" rel="noopener noreferrer">
-          <i class="fa-brands fa-linkedin"></i>
-          <p>LinkedIn</p>
-        </a>
-      </div>
-      <div class="social-item">
-        <a href="https://t.me/dimuzzo" target="_blank" rel="noopener noreferrer">
-          <i class="fa-brands fa-telegram"></i>
-          <p>Telegram</p>
-        </a>
-      </div>
-      <div class="social-item">
-        <a href="https://leetcode.com/dimuzzo/" target="_blank" rel="noopener noreferrer">
-          <i class="fa-solid fa-file-code"></i>
-          <p>LeetCode</p>
-        </a>
-      </div>
-      <div class="social-item">
-        <a href="https://letterboxd.com/dimuzzo/" target="_blank" rel="noopener noreferrer">
-          <i class="fa-solid fa-film"></i>
-          <p>Letterboxd</p>
-        </a>
-      </div>
-      <div class="social-item">
-        <a href="https://instagram.com/_aledemo" target="_blank" rel="noopener noreferrer">
-          <i class="fa-brands fa-square-instagram"></i>
-          <p>Instagram</p>
-        </a>
-      </div>
+  <main class="section-padding">
+    <h1 class="page-title">Find me on</h1>
+    <section class="social-grid">
+      <a href="https://github.com/dimuzzo" target="_blank" rel="noopener noreferrer" class="social-card">
+        <i class="fa-brands fa-github"></i>
+        <span>GitHub</span>
+      </a>
+      <a href="https://www.linkedin.com/in/alessandro-demo-b844a8301" target="_blank" rel="noopener noreferrer" class="social-card">
+        <i class="fa-brands fa-linkedin"></i>
+        <span>LinkedIn</span>
+      </a>
+      <a href="https://t.me/dimuzzo" target="_blank" rel="noopener noreferrer" class="social-card">
+        <i class="fa-brands fa-telegram"></i>
+        <span>Telegram</span>
+      </a>
+      <a href="https://leetcode.com/dimuzzo/" target="_blank" rel="noopener noreferrer" class="social-card">
+        <i class="fa-solid fa-code"></i> <span>LeetCode</span>
+      </a>
+      <a href="https://letterboxd.com/dimuzzo/" target="_blank" rel="noopener noreferrer" class="social-card">
+        <i class="fa-solid fa-film"></i>
+        <span>Letterboxd</span>
+      </a>
+      <a href="https://instagram.com/_aledemo" target="_blank" rel="noopener noreferrer" class="social-card">
+        <i class="fa-brands fa-instagram"></i> <span>Instagram</span>
+      </a>
     </section>
   </main>
 
-  <footer class="footer">
-    <p>© 2025 dimuzzo | All rights reserved</p>
+  <footer>
+    <p>© <span id="current-year"></span> dimuzzo | All rights reserved</p>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>

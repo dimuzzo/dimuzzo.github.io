@@ -10,6 +10,9 @@
   <meta property="og:image" content="https://www.dreamstime.com/photos-images/programming-project.html" />
   <meta property="og:url" content="https://dimuzzo.github.io/" />
   <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
   <link
     rel="stylesheet"
@@ -21,31 +24,34 @@
 <body class="dark-mode">
   <div class="cursor"></div>
   <nav>
-    <ul>
-      <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
-      <li><a href="projects.html" class="active"><i class="fa fa-code"></i> Projects</a></li>
-      <li><a href="socials.html"><i class="fa fa-user"></i> Socials</a></li>
-      <li><a href="techstack.html"><i class="fa fa-cogs"></i> Tech Stack</a></li>
-    </ul>
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">dimuzzo</a>
+      <ul>
+        <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
+        <li><a href="projects.html" class="active" aria-current="page"><i class="fa fa-code"></i> Projects</a></li>
+        <li><a href="socials.html"><i class="fa fa-user"></i> Socials</a></li>
+        <li><a href="techstack.html"><i class="fa fa-cogs"></i> Tech Stack</a></li>
+      </ul>
+    </div>
   </nav>
 
   <button id="toggle-theme" class="toggle-theme" aria-label="Toggle Light/Dark Theme">
-  🌓
+    <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
   </button>
-  
-  <main>
-    <h1>My Projects</h1>
-    <section class="projects-list">
+
+  <main class="section-padding">
+    <h1 class="page-title">My Projects</h1>
+    <section class="projects-grid">
 
       <article class="project-card">
-        <img src="https://images7.alphacoders.com/856/thumb-1920-856240.jpg" alt="Rappresentazione visiva del progetto NBA Score Prediction - campo da basket" />
+        <div class="project-image-container">
+          <img src="https://images7.alphacoders.com/856/thumb-1920-856240.jpg" alt="Campo da basket illuminato, rappresentazione visiva del progetto NBA Score Prediction" class="project-image" />
+        </div>
         <div class="project-info">
-          <div>
-            <h2>NBA Score Prediction</h2>
-            <p class="project-description">Using Python, machine learning models and data analysis to predict NBA game outcomes. This project explores various algorithms to achieve accurate predictions.</p>
-            <div class="project-tech">
-              <strong>Tecnologie:</strong> Python, Scikit-learn, Pandas
-            </div>
+          <h2 class="project-title">NBA Score Prediction</h2>
+          <p class="project-description">Using Python, machine learning models and data analysis to predict NBA game outcomes. This project explores various algorithms to achieve accurate predictions.</p>
+          <div class="project-tech">
+            <strong>Tecnologie:</strong> Python, Scikit-learn, Pandas
           </div>
           <a href="https://github.com/dimuzzo/nba-score-prediction" target="_blank" rel="noopener noreferrer" class="btn-link">
             <i class="fab fa-github"></i> View on GitHub
@@ -54,14 +60,14 @@
       </article>
 
       <article class="project-card">
-        <img src="https://geospatialworld.net/wp-content/uploads/2023/05/global-network-connection-covering-earth-with-lines-innovative-perception_31965-29244.jpg" alt="Rappresentazione visiva del progetto Spatial DB Benchmarking - globo con connessioni dati" />
+        <div class="project-image-container">
+            <img src="https://geospatialworld.net/wp-content/uploads/2023/05/global-network-connection-covering-earth-with-lines-innovative-perception_31965-29244.jpg" alt="Globo terrestre con connessioni dati, rappresentazione visiva del progetto Spatial DB Benchmarking" class="project-image"/>
+        </div>
         <div class="project-info">
-          <div>
-            <h2>Spatial DB Benchmarking</h2>
-            <p class="project-description">Benchmark tests on DuckDB spatial extension with geospatial data and city maps. Focus on performance analysis of spatial queries.</p>
-            <div class="project-tech">
-              <strong>Tecnologie:</strong> Python, DuckDB, GeoPandas
-            </div>
+          <h2 class="project-title">Spatial DB Benchmarking</h2>
+          <p class="project-description">Benchmark tests on DuckDB spatial extension with geospatial data and city maps. Focus on performance analysis of spatial queries.</p>
+          <div class="project-tech">
+            <strong>Tecnologie:</strong> Python, DuckDB, GeoPandas
           </div>
           <a href="https://github.com/dimuzzo/testing-project" target="_blank" rel="noopener noreferrer" class="btn-link">
             <i class="fab fa-github"></i> View on GitHub
@@ -73,9 +79,7 @@
   </main>
 
   <footer>
-    <p>© 2025 dimuzzo | All rights reserved</p>
+    <p>© <span id="current-year"></span> dimuzzo | All rights reserved</p>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
