@@ -109,6 +109,21 @@ h1 {
   animation: fadeInDown 0.8s ease both;
 }
 
+/* HERO SECTION STYLES*/
+.hero {
+  display: flex;
+  flex-direction: column; /* Elementi in colonna (immagine sopra, testo sotto) */
+  align-items: center;   /* Centra orizzontalmente gli elementi figli */
+  text-align: center;    /* Centra il testo all'interno di .hero-text */
+  padding: 2rem 0;       /* Spazio verticale opzionale */
+}
+
+.hero img {
+  max-width: 100%; /* Immagine responsiva, non più larga del contenitore */
+  height: auto;    /* Mantiene le proporzioni */
+  margin-bottom: 1.5rem; /* Spazio tra immagine e testo */
+}
+
 /* SOCIALS PAGE */
 .social-list {
   display: flex;
