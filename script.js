@@ -53,9 +53,6 @@ if (yearSpan) {
 }
 
 // Active Nav Link Highlighter (Optional, if you want to make sure it's robust)
-// The CSS :focus-visible should handle keyboard focus well.
-// aria-current="page" is good for screen readers.
-// The .active class is set manually in HTML, which is fine for a static site.
 document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('nav ul li a');
     const currentPath = window.location.pathname.split("/").pop();

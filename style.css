@@ -14,7 +14,7 @@
 :root {
   --font-primary: 'Poppins', sans-serif;
 
-  --color-accent: #e74c3c; /* Rosso più vibrante */
+  --color-accent: #e74c3c;
   --color-accent-darker: #c0392b;
   --color-accent-shadow: rgba(231, 76, 60, 0.3);
 
@@ -62,7 +62,7 @@ body.light-mode {
 
 /* UTILITY CLASSES */
 .section-padding {
-  padding: 4rem 2rem; /* Più spazio verticale */
+  padding: 4rem 2rem;
 }
 
 .page-title, .section-title {
@@ -106,11 +106,11 @@ nav {
   position: sticky;
   top: 0;
   z-index: 1000;
-  padding: 0.8rem 0; /* Ridotto padding verticale per un look più snello */
+  padding: 0.8rem 0; 
   transition: background-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
 }
 body.dark-mode nav {
-  background-color: rgba(30, 30, 30, 0.85); /* Sfondo semi-trasparente per effetto profondità */
+  background-color: rgba(30, 30, 30, 0.85); 
   backdrop-filter: blur(10px);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
@@ -143,12 +143,12 @@ body.light-mode .nav-logo { color: var(--lm-text-primary); }
 nav ul {
   display: flex;
   list-style: none;
-  gap: 1.5rem; /* Leggermente aumentato per più spazio */
+  gap: 1.5rem; 
 }
 
 nav ul li a {
   text-decoration: none;
-  font-weight: 500; /* Leggermente più leggero per un look moderno */
+  font-weight: 500; 
   font-size: 1rem;
   padding: 0.5rem 0.8rem;
   border-radius: var(--border-radius);
@@ -170,16 +170,16 @@ nav ul li a:focus-visible {
 }
 
 nav ul li a.active {
-  font-weight: 600; /* Più enfasi al link attivo */
+  font-weight: 600; 
 }
 
-nav ul li a::after { /* Sottolineatura animata */
+nav ul li a::after { 
   content: '';
   position: absolute;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%) scaleX(0);
-  width: calc(100% - 1.6rem); /* Non copre il padding */
+  width: calc(100% - 1.6rem); 
   height: 2px;
   background-color: var(--color-accent);
   transition: transform var(--transition-speed) cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -195,23 +195,23 @@ nav ul li a.active::after {
 /* MAIN CONTENT AREA */
 main {
   flex-grow: 1;
-  max-width: 1200px; /* Aumentata larghezza massima */
+  max-width: 1200px; 
   width:100%;
   margin: 0 auto;
-  padding: 0; /* Il padding è gestito da .section-padding */
+  padding: 0; 
 }
 
 /* HERO SECTION */
 .hero {
-  height: 70vh; /* Altezza maggiore */
+  height: 70vh;
   min-height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   position: relative;
-  overflow: hidden; /* Per contenere l'immagine di sfondo */
-  color: #fff; /* Testo sempre bianco sull'hero */
+  overflow: hidden; 
+  color: #fff; 
 }
 
 .hero-background-image {
@@ -223,7 +223,7 @@ main {
   background-size: cover;
   background-position: center;
   z-index: 1;
-  filter: brightness(0.6); /* Scurisce l'immagine per contrasto */
+  filter: brightness(0.6);
 }
 
 .hero-overlay {
@@ -232,7 +232,7 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(45deg, rgba(0,0,0,0.7), rgba(0,0,0,0.4)); /* Overlay gradiente */
+  background: linear-gradient(45deg, rgba(0,0,0,0.7), rgba(0,0,0,0.4));
   z-index: 2;
 }
 
@@ -244,13 +244,13 @@ main {
 }
 
 .hero h1 {
-  font-size: 3.5rem; /* Più grande */
+  font-size: 3.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  color: #fff; /* H1 sempre bianco */
+  color: #fff;
 }
 .hero h1 span {
-  color: var(--color-accent); /* Span con colore accento */
+  color: var(--color-accent); 
 }
 .hero .subtitle {
   font-size: 1.3rem;
@@ -283,7 +283,7 @@ body.light-mode .about-text p { color: var(--lm-text-secondary); }
 .about-list li {
   font-size: 1rem;
   margin-bottom: 1rem;
-  display: flex; /* Mantiene l'icona e il div.list-item-text-content affiancati */
+  display: flex; 
   align-items: flex-start; 
 }
 .about-list li .icon-bullet {
@@ -294,10 +294,10 @@ body.light-mode .about-text p { color: var(--lm-text-secondary); }
 }
 
 .about-list li em {
-  display: block; /* Fa andare a capo il testo em */
+  display: block; 
   font-size: 0.9rem;
   opacity: 0.8;
-  margin-top: 0.4rem; /* Leggermente aumentato per più spazio dalla riga sopra */
+  margin-top: 0.4rem; 
 }
 body.dark-mode .about-list li { color: var(--dm-text-primary); }
 body.light-mode .about-list li { color: var(--lm-text-primary); }
@@ -319,7 +319,7 @@ body.light-mode .about-list li em { color: var(--lm-text-secondary); }
   border-radius: var(--border-radius);
   text-decoration: none;
   display: flex;
-  flex-direction: column; /* Icona sopra, testo sotto */
+  flex-direction: column; 
   align-items: center;
   text-align: center;
   gap: 0.8rem;
@@ -337,7 +337,7 @@ body.light-mode .blog-link-card {
 }
 
 .blog-link-card i {
-  font-size: 2.5rem; /* Icone più grandi */
+  font-size: 2.5rem;
   color: var(--color-accent);
   margin-bottom: 0.5rem;
   transition: transform var(--transition-speed) ease;
@@ -355,15 +355,15 @@ body.dark-mode .blog-link-card:hover { background-color: var(--color-accent); co
 body.light-mode .blog-link-card:hover { background-color: var(--color-accent); color: #fff; }
 .blog-link-card:hover i {
   transform: scale(1.1);
-  color: #fff; /* L'icona diventa bianca al hover sulla card rossa */
+  color: #fff; 
 }
 
 
 /* PROJECTS PAGE */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Card più larghe e responsive */
-  gap: 2.5rem; /* Più spazio tra le card */
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem; 
 }
 
 .project-card {
@@ -371,7 +371,7 @@ body.light-mode .blog-link-card:hover { background-color: var(--color-accent); c
   overflow: hidden;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   display: flex;
-  flex-direction: column; /* Immagine sopra, info sotto */
+  flex-direction: column; 
 }
 body.dark-mode .project-card {
   background-color: var(--dm-bg-secondary);
@@ -390,7 +390,7 @@ body.light-mode .project-card:hover { box-shadow: 0 10px 25px var(--color-accent
 
 
 .project-image-container {
-  height: 220px; /* Altezza fissa per l'immagine */
+  height: 220px;
   overflow: hidden;
 }
 .project-image {
@@ -400,14 +400,14 @@ body.light-mode .project-card:hover { box-shadow: 0 10px 25px var(--color-accent
   transition: transform 0.4s ease;
 }
 .project-card:hover .project-image {
-  transform: scale(1.05); /* Leggero zoom sull'immagine all'hover */
+  transform: scale(1.05); 
 }
 
 .project-info {
   padding: 1.8rem;
   display: flex;
   flex-direction: column;
-  flex-grow: 1; /* Assicura che l'area info occupi lo spazio rimanente */
+  flex-grow: 1; 
 }
 .project-title {
   font-size: 1.6rem;
@@ -419,7 +419,7 @@ body.light-mode .project-card:hover { box-shadow: 0 10px 25px var(--color-accent
   font-size: 1rem;
   line-height: 1.6;
   margin-bottom: 1.2rem;
-  flex-grow: 1; /* Fa sì che la descrizione occupi spazio spingendo il bottone in basso */
+  flex-grow: 1; 
 }
 body.dark-mode .project-description { color: var(--dm-text-secondary); }
 body.light-mode .project-description { color: var(--lm-text-secondary); }
@@ -438,15 +438,15 @@ body.light-mode .project-tech strong { color: var(--lm-text-primary); }
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  padding: 0.7rem 1.5rem; /* Padding leggermente aumentato */
+  padding: 0.7rem 1.5rem; 
   background-color: var(--color-accent);
-  color: white !important; /* Testo sempre bianco per contrasto */
+  color: white !important;
   border-radius: var(--border-radius);
   text-decoration: none;
   font-weight: 600;
   font-size: 1rem;
   transition: background-color var(--transition-speed) ease, transform 0.2s ease;
-  align-self: flex-start; /* Allinea il bottone a sinistra */
+  align-self: flex-start; 
 }
 .btn-link:hover {
   background-color: var(--color-accent-darker);
@@ -467,14 +467,14 @@ body.light-mode .project-tech strong { color: var(--lm-text-primary); }
 }
 
 .social-card {
-  padding: 1.8rem 1.5rem; /* Più padding verticale */
+  padding: 1.8rem 1.5rem; 
   border-radius: var(--border-radius);
   text-decoration: none;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 1rem; /* Spazio tra icona e testo */
+  gap: 1rem; 
   transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, background-color var(--transition-speed) ease;
 }
 body.dark-mode .social-card {
@@ -489,7 +489,7 @@ body.light-mode .social-card {
 }
 
 .social-card i {
-  font-size: 2.8rem; /* Icone social più grandi */
+  font-size: 2.8rem; 
   color: var(--color-accent);
   transition: transform var(--transition-speed) ease;
 }
@@ -510,7 +510,7 @@ body.light-mode .social-card:hover {
     box-shadow: 0 6px 15px var(--color-accent-shadow);
 }
 .social-card:hover i {
-  transform: scale(1.15) rotate(5deg); /* Effetto più dinamico */
+  transform: scale(1.15) rotate(5deg); 
 }
 
 /* TECH STACK PAGE */
@@ -540,7 +540,7 @@ body.light-mode .tech-item { color: var(--lm-text-secondary); }
   color: var(--color-accent);
 }
 body.dark-mode .tech-item:hover {
-  background-color: var(--dm-bg-secondary); /* Sfondo leggero al hover */
+  background-color: var(--dm-bg-secondary); 
 }
 body.light-mode .tech-item:hover {
   background-color: var(--lm-bg-secondary);
@@ -548,20 +548,20 @@ body.light-mode .tech-item:hover {
 
 
 .tech-item i, .tech-item .tech-img {
-  font-size: 4rem; /* Icone grandi e uniformi */
+  font-size: 4rem; 
   filter: drop-shadow(0 0 3px var(--color-accent-shadow));
   transition: filter var(--transition-speed) ease;
 }
 .tech-item .tech-img {
-  width: 64px; /* Dimensione per SVG/immagini */
+  width: 64px; 
   height: 64px;
   object-fit: contain;
 }
 body.dark-mode .tech-item .tech-img {
-  filter: invert(1) drop-shadow(0 0 3px var(--color-accent-shadow)); /* Inverti per tema scuro se SVG nero */
+  filter: invert(1) drop-shadow(0 0 3px var(--color-accent-shadow)); 
 }
 body.light-mode .tech-item .tech-img {
-  filter: drop-shadow(0 0 3px var(--color-accent-shadow)); /* Nessun invert per tema chiaro */
+  filter: drop-shadow(0 0 3px var(--color-accent-shadow)); 
 }
 
 
@@ -583,7 +583,7 @@ footer {
   text-align: center;
   padding: 2rem 1rem;
   font-size: 0.9rem;
-  margin-top: auto; /* Spinge il footer in basso */
+  margin-top: auto; 
   transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, border-top var(--transition-speed) ease;
 }
 body.dark-mode footer {
@@ -601,16 +601,16 @@ body.light-mode footer {
 /* THEME TOGGLE BUTTON */
 .toggle-theme {
   position: fixed;
-  bottom: 1.5rem; /* Cambiato da top a bottom */
+  bottom: 1.5rem; 
   right: 1.5rem;
   border: none;
-  padding: 0.8rem; /* Reso quadrato */
-  border-radius: 50%; /* Cerchio */
+  padding: 0.8rem;
+  border-radius: 50%; 
   cursor: pointer;
   z-index: 1001;
-  font-size: 1.2rem; /* Dimensione icona */
+  font-size: 1.2rem; 
   transition: all var(--transition-speed) ease;
-  display: flex; /* Per centrare l'icona */
+  display: flex; 
   align-items: center;
   justify-content: center;
 }
@@ -631,15 +631,15 @@ body.light-mode .toggle-theme {
   transform: scale(1.1) rotate(15deg);
 }
 
-.toggle-theme .fa-sun { display: none; } /* Nascondi sole di default */
-body.light-mode .toggle-theme .fa-sun { display: block; } /* Mostra sole in light mode */
-body.light-mode .toggle-theme .fa-moon { display: none; } /* Nascondi luna in light mode */
+.toggle-theme .fa-sun { display: none; } 
+body.light-mode .toggle-theme .fa-sun { display: block; } 
+body.light-mode .toggle-theme .fa-moon { display: none; } 
 
 
 /* ANIMATED CURSOR */
 .cursor {
   position: fixed;
-  width: 10px; /* Leggermente più piccolo */
+  width: 10px; 
   height: 10px;
   background-color: var(--color-accent);
   border-radius: 50%;
@@ -686,10 +686,10 @@ body.light-mode .toggle-theme .fa-moon { display: none; } /* Nascondi luna in li
   .section-title { font-size: 1.8rem; margin-bottom: 2rem;}
 
   .projects-grid, .social-grid, .tech-stack-grid, .blog-links {
-    grid-template-columns: 1fr; /* Stack su mobile */
+    grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  .project-card { max-width: 400px; margin: 0 auto; } /* Limita larghezza card progetto */
+  .project-card { max-width: 400px; margin: 0 auto; } 
 
   .toggle-theme {
     bottom: 1rem;
@@ -701,8 +701,8 @@ body.light-mode .toggle-theme .fa-moon { display: none; } /* Nascondi luna in li
 
 @media (max-width: 480px) { /* Mobile small */
     .section-padding { padding: 2.5rem 1rem; }
-    .nav-container { flex-direction: column; gap: 0.5rem; } /* Logo sopra, link sotto */
-    nav ul { justify-content: center; flex-wrap: wrap; } /* Permetti wrap dei link nav */
+    .nav-container { flex-direction: column; gap: 0.5rem; } 
+    nav ul { justify-content: center; flex-wrap: wrap; } 
 
     .hero h1 { font-size: 1.8rem; }
     .hero .subtitle { font-size: 0.9rem; }
