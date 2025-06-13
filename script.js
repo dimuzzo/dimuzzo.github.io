@@ -36,15 +36,6 @@ toggleBtn.addEventListener("click", () => {
   }
 });
 
-// Animated Cursor
-const cursor = document.querySelector(".cursor");
-if (cursor) { // Check if cursor element exists
-    document.addEventListener("mousemove", (e) => {
-    cursor.style.top = `${e.pageY}px`; // Use pageY for correct positioning during scroll
-    cursor.style.left = `${e.pageX}px`; // Use pageX
-    });
-}
-
 
 // Update Copyright Year
 const yearSpan = document.getElementById("current-year");
@@ -52,14 +43,14 @@ if (yearSpan) {
     yearSpan.textContent = new Date().getFullYear();
 }
 
-// Active Nav Link Highlighter (Optional, if you want to make sure it's robust)
+// Active Nav Link Highlighter
 document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('nav ul li a');
-    const currentPath = window.location.pathname.split("/").pop();
+    const currentPath = window.location.pathname.split("/").pop() || 'index.html';
 
     navLinks.forEach(link => {
         const linkPath = link.getAttribute('href').split("/").pop();
-        if (linkPath === currentPath || (currentPath === '' && linkPath === 'index.html')) {
+        if (linkPath === currentPath) {
             link.classList.add('active');
             link.setAttribute('aria-current', 'page');
         } else {
@@ -68,3 +59,48 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+// On-Scroll Animations
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        }
+    });
+}, {
+    threshold: 0.1
+});
+
+const hiddenElements = document.querySelectorAll('.hidden');
+hiddenElements.forEach((el) => observer.observe(el));
+
+
+// Card Tilt 3D Effect
+document.querySelectorAll('.project-card, .social-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const width = card.offsetWidth;
+        const height = card.offsetHeight;
+
+        const rotateX = (y / height - 0.5) * -20;
+        const rotateY = (x / width - 0.5) * 20;
+
+        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = 'rotateX(0deg) rotateY(0deg)';
+    });
+});
+
+
+// Hero Parallax Effect
+const heroBg = document.querySelector('.hero-background-image');
+if (heroBg) {
+    window.addEventListener('scroll', () => {
+        const scrollValue = window.scrollY;
+        heroBg.style.transform = `translateY(${scrollValue * 0.4}px)`;
+    });
+}
