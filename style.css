@@ -10,7 +10,7 @@
 /* FONT IMPORT */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-/* VARIABILI COLORI */
+/* COLOR SECTIONS */
 :root {
   --font-primary: 'Poppins', sans-serif;
 
@@ -38,7 +38,7 @@
   --shadow-dark: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* BODY E GENERALI */
+/* BODY AND GENERALITIES */
 body {
   font-family: var(--font-primary);
   line-height: 1.7;
@@ -70,7 +70,6 @@ body.light-mode {
   margin-bottom: 3rem;
   font-weight: 700;
   letter-spacing: 1px;
-  animation: fadeInDown 0.8s ease-out;
   position: relative;
 }
 body.dark-mode .page-title, body.dark-mode .section-title {
@@ -224,6 +223,7 @@ main {
   background-position: center;
   z-index: 1;
   filter: brightness(0.6);
+  will-change: transform; 
 }
 
 .hero-overlay {
@@ -240,7 +240,6 @@ main {
   position: relative;
   z-index: 3;
   padding: 2rem;
-  animation: fadeInUp 1s ease-out 0.3s both;
 }
 
 .hero h1 {
@@ -364,14 +363,16 @@ body.light-mode .blog-link-card:hover { background-color: var(--color-accent); c
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2.5rem; 
+  perspective: 1000px; 
 }
 
 .project-card {
   border-radius: var(--border-radius);
   overflow: hidden;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
+  transform-style: preserve-3d; 
+  transition: transform 0.2s ease-out; 
 }
 body.dark-mode .project-card {
   background-color: var(--dm-bg-secondary);
@@ -383,10 +384,8 @@ body.light-mode .project-card {
 }
 
 .project-card:hover {
-  transform: translateY(-8px);
+  box-shadow: 0 10px 30px var(--color-accent-shadow);
 }
-body.dark-mode .project-card:hover { box-shadow: 0 10px 25px var(--color-accent-shadow); }
-body.light-mode .project-card:hover { box-shadow: 0 10px 25px var(--color-accent-shadow); }
 
 
 .project-image-container {
@@ -464,6 +463,7 @@ body.light-mode .project-tech strong { color: var(--lm-text-primary); }
   gap: 1.5rem;
   max-width: 900px;
   margin: 0 auto;
+  perspective: 1000px;
 }
 
 .social-card {
@@ -475,7 +475,8 @@ body.light-mode .project-tech strong { color: var(--lm-text-primary); }
   align-items: center;
   text-align: center;
   gap: 1rem; 
-  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, background-color var(--transition-speed) ease;
+  transform-style: preserve-3d;
+  transition: transform 0.2s ease-out, box-shadow var(--transition-speed) ease, background-color var(--transition-speed) ease;
 }
 body.dark-mode .social-card {
   background-color: var(--dm-bg-secondary);
@@ -499,15 +500,13 @@ body.light-mode .social-card {
 }
 
 .social-card:hover {
-  transform: translateY(-6px);
+  box-shadow: 0 6px 15px var(--color-accent-shadow);
 }
 body.dark-mode .social-card:hover {
     background-color: var(--dm-bg-primary);
-    box-shadow: 0 6px 15px var(--color-accent-shadow);
 }
 body.light-mode .social-card:hover {
     background-color: #fff;
-    box-shadow: 0 6px 15px var(--color-accent-shadow);
 }
 .social-card:hover i {
   transform: scale(1.15) rotate(5deg); 
@@ -636,19 +635,18 @@ body.light-mode .toggle-theme .fa-sun { display: block; }
 body.light-mode .toggle-theme .fa-moon { display: none; } 
 
 
-/* ANIMATED CURSOR */
-.cursor {
-  position: fixed;
-  width: 10px; 
-  height: 10px;
-  background-color: var(--color-accent);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  mix-blend-mode: difference; 
-  transition: transform 0.1s ease-out, width 0.2s ease-out, height 0.2s ease-out; /* Transizione più fluida */
-  transform: translate(-50%, -50%);
+/* ON-SCROLL ANIMATIONS */
+.hidden {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
 /* KEYFRAMES ANIMATIONS */
 @keyframes fadeInDown {
@@ -673,7 +671,7 @@ body.light-mode .toggle-theme .fa-moon { display: none; }
   .nav-container { padding: 0 1.5rem; }
   
   .nav-logo { font-size: 1.5rem; }
-  nav ul { gap: 0.5rem; /* Riduci gap per più link */ }
+  nav ul { gap: 0.5rem; }
   nav ul li a { font-size: 0.9rem; padding: 0.4rem 0.6rem; }
   nav ul li a i { margin-right: 0.3rem; font-size: 0.9em; }
 
