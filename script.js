@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- DOM Elements ---
   const canvas = document.getElementById('universe-canvas');
   const labelsContainer = document.getElementById('labels-container');
-  const loader = document.getElementById('loader');
   const contentPanel = document.getElementById('content-panel');
   const contentDisplay = document.getElementById('content-display');
   const closeBtn = document.getElementById('close-btn');
@@ -23,20 +22,16 @@ document.addEventListener('DOMContentLoaded', () => {
   labelRenderer.setSize(window.innerWidth, window.innerHeight);
   labelsContainer.appendChild(labelRenderer.domElement);
 
+  // --- Universe Objects ---
   const pointLight = new THREE.PointLight(0xffffff, 1.5);
   scene.add(pointLight);
   const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
   scene.add(ambientLight);
-
-  // --- Universe Objects ---
   let planets = [];
   const raycaster = new THREE.Raycaster();
   const mouse = new THREE.Vector2();
 
-  const sun = new THREE.Mesh(
-    new THREE.SphereGeometry(2, 32, 32),
-    new THREE.MeshBasicMaterial({ color: 0xe74c3c, wireframe: true })
-  );
+  const sun = new THREE.Mesh(new THREE.SphereGeometry(2, 32, 32), new THREE.MeshBasicMaterial({ color: 0xe74c3c, wireframe: true }));
   scene.add(sun);
   
   const planetData = [
@@ -47,10 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
   ];
 
   planetData.forEach((data, index) => {
-    const planet = new THREE.Mesh(
-        new THREE.SphereGeometry(data.size, 32, 32),
-        new THREE.MeshStandardMaterial({ color: data.color, roughness: 0.5 })
-    );
+    const planet = new THREE.Mesh( new THREE.SphereGeometry(data.size, 32, 32), new THREE.MeshStandardMaterial({ color: data.color, roughness: 0.5 }) );
     const labelDiv = document.createElement('div');
     labelDiv.className = 'planet-label';
     labelDiv.textContent = data.name;
@@ -76,14 +68,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- Theme Management ---
   function applyTheme(theme) {
-    const rootStyles = document.documentElement.style;
     if (theme === 'white-space') {
       document.body.classList.add('white-space');
-      starMesh.material.color.set(getComputedStyle(document.body).getPropertyValue('--star-color'));
     } else {
       document.body.classList.remove('white-space');
-      starMesh.material.color.set(getComputedStyle(document.body).getPropertyValue('--star-color'));
     }
+    // Update star color based on CSS variable
+    const starColor = getComputedStyle(document.body).getPropertyValue('--star-color').trim();
+    starMesh.material.color.set(starColor);
   }
 
   themeToggle.addEventListener('click', () => {
@@ -92,11 +84,10 @@ document.addEventListener('DOMContentLoaded', () => {
     applyTheme(newTheme);
   });
   
-  // Load saved theme
   const savedTheme = localStorage.getItem('theme') || 'dark-space';
   applyTheme(savedTheme);
 
-  // --- Interactivity (functions are unchanged) ---
+  // --- Interactivity ---
   async function loadContent(planet) {
     if (!planet.userData.contentFile) return;
     try {
@@ -104,24 +95,39 @@ document.addEventListener('DOMContentLoaded', () => {
       const text = await response.text();
       const parser = new DOMParser();
       const doc = parser.parseFromString(text, 'text/html');
-      // Logic to find the correct content section
       const contentToLoad = (planet.userData.id === 'News') ? doc.querySelector('.explore') : doc.querySelector('main');
       if (contentToLoad) {
         contentDisplay.innerHTML = contentToLoad.innerHTML;
         showPanel(planet);
+        // ADDED: Initialize tilt effect for newly loaded project cards
+        initializeCardTilt();
       }
-    } catch (error) {
-      console.error('Error loading content:', error);
-      contentDisplay.innerHTML = `<p>Could not load the ${planet.userData.id} section.</p>`;
-      showPanel(planet);
-    }
+    } catch (error) { console.error('Error loading content:', error); }
+  }
+  
+  // CORRECTED: Added function to initialize 3D tilt effect on cards
+  function initializeCardTilt() {
+      document.querySelectorAll('#content-display .project-card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const { width, height } = rect;
+            const rotateX = (y / height - 0.5) * -20;
+            const rotateY = (x / width - 0.5) * 20;
+            card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'rotateX(0deg) rotateY(0deg)';
+        });
+    });
   }
 
   function showPanel(targetPlanet) {
     const targetPosition = new THREE.Vector3();
     targetPlanet.getWorldPosition(targetPosition);
     gsap.to(camera.position, { duration: 1.5, x: targetPosition.x, y: targetPosition.y, z: targetPosition.z + 3, ease: 'power3.inOut' });
-    gsap.to(contentPanel, { duration: 1, opacity: 1, delay: 0.5, onStart: () => { contentPanel.classList.add('visible'); contentPanel.scrollTop = 0; } });
+    gsap.to(contentPanel, { duration: 1, opacity: 1, delay: 0.5, onStart: () => contentPanel.classList.add('visible') });
   }
 
   function hidePanel() {
@@ -146,8 +152,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const rotY = (x / window.innerWidth - 0.5) * 2;
     gsap.to(camera.rotation, { duration: 0.5, x: -rotX * 0.2, y: -rotY * 0.2, ease: 'power1.out' });
   }
-  window.addEventListener('mousemove', (event) => handleCameraMove(event.clientX, event.clientY));
-  window.addEventListener('touchmove', (event) => { if (event.touches.length > 0) handleCameraMove(event.touches[0].clientX, event.touches[0].clientY); });
+  window.addEventListener('mousemove', (e) => handleCameraMove(e.clientX, e.clientY));
+  window.addEventListener('touchmove', (e) => { if (e.touches.length > 0) handleCameraMove(e.touches[0].clientX, e.touches[0].clientY); });
 
   // --- Window Management & Animation Loop ---
   window.addEventListener('resize', () => {
@@ -155,7 +161,6 @@ document.addEventListener('DOMContentLoaded', () => {
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
     labelRenderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   });
 
   function animate() {
@@ -167,9 +172,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --- Start ---
-  setTimeout(() => {
-    gsap.to(loader, { opacity: 0, onComplete: () => loader.style.display = 'none' });
-  }, 1000);
+  document.getElementById('loader').style.opacity = 0;
+  document.getElementById('loader').style.display = 'none';
   
   animate();
 });
