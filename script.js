@@ -75,8 +75,8 @@ const hiddenElements = document.querySelectorAll('.hidden');
 hiddenElements.forEach((el) => observer.observe(el));
 
 
-// Card Tilt 3D Effect
-document.querySelectorAll('.project-card, .social-card').forEach(card => {
+// Card Tilt 3D Effect (APPLICATO SOLO ALLE SOCIAL CARDS)
+document.querySelectorAll('.social-card').forEach(card => {
     card.addEventListener('mousemove', (e) => {
         const rect = card.getBoundingClientRect();
         const x = e.clientX - rect.left;
