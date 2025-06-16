@@ -1,56 +1,17 @@
 import { CSS2DRenderer, CSS2DObject } from 'https://cdn.skypack.dev/three@0.128.0/examples/jsm/renderers/CSS2DRenderer.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-
-  // --- TEMA GLOBALE (per tutte le pagine) ---
-  function applyGlobalTheme(theme) {
-    if (theme === 'white-space') {
-      document.body.classList.add('white-space');
-    } else {
-      document.body.classList.remove('white-space');
-    }
-  }
-
-  function initializeThemeToggle() {
-    // Selettore universale per i pulsanti tema
-    const themeToggle = document.getElementById('theme-toggle') || document.getElementById('toggle-theme');
-    
-    if (themeToggle) {
-      themeToggle.addEventListener('click', () => {
-        const newTheme = document.body.classList.contains('white-space') ? 'dark-space' : 'white-space';
-        localStorage.setItem('theme', newTheme);
-        applyGlobalTheme(newTheme);
-        
-        // Aggiorna colore stelle se presente (solo nella pagina principale)
-        if (typeof starMesh !== 'undefined') {
-          const starColor = getComputedStyle(document.body).getPropertyValue('--star-color').trim();
-          starMesh.material.color.set(starColor);
-        }
-      });
-    }
-    
-    // Applica tema salvato
-    const savedTheme = localStorage.getItem('theme') || 'dark-space';
-    applyGlobalTheme(savedTheme);
-  }
-
-  // Inizializza il tema per tutte le pagine
-  initializeThemeToggle();
-
-  // --- LOGICA SPECIFICA PER INDEX.HTML (3D Universe) ---
   const canvas = document.getElementById('universe-canvas');
-  if (!canvas) {
-    // Non siamo nella pagina principale, inizializza solo animazioni base
-    initializePageAnimations();
-    return;
-  }
+  if (!canvas) return; // Exit if not on the main 3D page
 
-  // --- 3D Scene Setup ---
+  // --- DOM Elements ---
   const labelsContainer = document.getElementById('labels-container');
   const contentPanel = document.getElementById('content-panel');
   const contentDisplay = document.getElementById('content-display');
   const closeBtn = document.getElementById('close-btn');
+  const themeToggle = document.getElementById('theme-toggle');
   
+  // --- 3D Scene Setup ---
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
   camera.position.z = 15;
@@ -106,9 +67,25 @@ document.addEventListener('DOMContentLoaded', () => {
   const starMesh = new THREE.Points(starGeometry, starMaterial);
   scene.add(starMesh);
 
-  // Applica colore stelle iniziale
-  const starColor = getComputedStyle(document.body).getPropertyValue('--star-color').trim();
-  starMesh.material.color.set(starColor);
+  // --- Theme Management ---
+  function applyTheme(theme) {
+    if (theme === 'white-space') {
+      document.body.classList.add('white-space');
+    } else {
+      document.body.classList.remove('white-space');
+    }
+    const starColor = getComputedStyle(document.body).getPropertyValue('--star-color').trim();
+    starMesh.material.color.set(starColor);
+  }
+
+  themeToggle.addEventListener('click', () => {
+    const newTheme = document.body.classList.contains('white-space') ? 'dark-space' : 'white-space';
+    localStorage.setItem('theme', newTheme);
+    applyTheme(newTheme);
+  });
+  
+  const savedTheme = localStorage.getItem('theme') || 'dark-space';
+  applyTheme(savedTheme);
 
   // --- Interactivity ---
   async function loadContent(planet) {
@@ -116,50 +93,26 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       const response = await fetch(planet.userData.contentFile);
       const text = await response.text();
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(text, 'text/html');
-      const contentToLoad = (planet.userData.id === 'News') ? doc.querySelector('.explore') : doc.querySelector('main');
-      if (contentToLoad) {
-        contentDisplay.innerHTML = contentToLoad.innerHTML;
-        showPanel(planet);
-        // Inizializza effetti per i contenuti caricati
-        initializeLoadedContent();
-      }
+      contentDisplay.innerHTML = text; // Inject the raw content
+      showPanel(planet);
+      initializeCardTilt();
     } catch (error) { console.error('Error loading content:', error); }
   }
   
-  // Inizializza contenuti caricati dinamicamente
-  function initializeLoadedContent() {
-    // Effetto tilt per project cards
-    document.querySelectorAll('#content-display .project-card').forEach(card => {
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const { width, height } = rect;
-        const rotateX = (y / height - 0.5) * -10; // Ridotto per un effetto più sottile
-        const rotateY = (x / width - 0.5) * 10;
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(20px)`;
-      });
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
-      });
-    });
-
-    // Assicura che i link nei progetti funzionino
-    document.querySelectorAll('#content-display .btn-link').forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.stopPropagation(); // Previene interferenze
-      });
-    });
-
-    // Animazione di entrata per le card
-    gsap.from('#content-display .project-card, #content-display .social-card, #content-display .tech-item, #content-display .blog-link-card', {
-      duration: 0.6,
-      y: 30,
-      opacity: 0,
-      stagger: 0.1,
-      ease: 'power2.out'
+  function initializeCardTilt() {
+      document.querySelectorAll('#content-display .project-card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const { width, height } = rect;
+            const rotateX = (y / height - 0.5) * -15; // Softer effect
+            const rotateY = (x / width - 0.5) * 15;
+            card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'rotateX(0deg) rotateY(0deg)';
+        });
     });
   }
 
@@ -178,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
   closeBtn.addEventListener('click', hidePanel);
   
   window.addEventListener('click', (event) => {
-    if (contentPanel.classList.contains('visible') || event.target.closest('#theme-toggle')) return;
+    if (contentPanel.classList.contains('visible') || themeToggle.contains(event.target)) return;
     mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
     mouse.y = - (event.clientY / window.innerHeight) * 2 + 1;
     raycaster.setFromCamera(mouse, camera);
@@ -195,7 +148,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('mousemove', (e) => handleCameraMove(e.clientX, e.clientY));
   window.addEventListener('touchmove', (e) => { if (e.touches.length > 0) handleCameraMove(e.touches[0].clientX, e.touches[0].clientY); });
 
-  // --- Window Management & Animation Loop ---
   window.addEventListener('resize', () => {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
@@ -210,55 +162,6 @@ document.addEventListener('DOMContentLoaded', () => {
     renderer.render(scene, camera);
     labelRenderer.render(scene, camera);
   }
-
-  // --- Start ---
-  document.getElementById('loader').style.opacity = 0;
-  document.getElementById('loader').style.display = 'none';
   
   animate();
-
-  // --- FUNZIONI PER PAGINE SEPARATE ---
-  function initializePageAnimations() {
-    // Animazioni per le pagine separate
-    const projectsGrid = document.querySelector('.projects-grid');
-    const socialGrid = document.querySelector('.social-grid');
-    const techGrid = document.querySelector('.tech-stack-grid');
-
-    // Rimuovi classe hidden e anima
-    [projectsGrid, socialGrid, techGrid].forEach(grid => {
-      if (grid) {
-        grid.classList.remove('hidden');
-        gsap.from(grid.children, {
-          duration: 0.8,
-          y: 50,
-          opacity: 0,
-          stagger: 0.15,
-          ease: 'power2.out',
-          delay: 0.2
-        });
-      }
-    });
-
-    // Effetto hover per project cards nelle pagine separate
-    document.querySelectorAll('.project-card').forEach(card => {
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const { width, height } = rect;
-        const rotateX = (y / height - 0.5) * -8;
-        const rotateY = (x / width - 0.5) * 8;
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
-      });
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
-      });
-    });
-
-    // Aggiorna anno corrente nel footer
-    const currentYearSpan = document.getElementById('current-year');
-    if (currentYearSpan) {
-      currentYearSpan.textContent = new Date().getFullYear();
-    }
-  }
 });

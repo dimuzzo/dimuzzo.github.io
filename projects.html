@@ -1,100 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Projects - dimuzzo</title>
-  <meta name="description" content="Scopri i progetti di Alessandro 'dimuzzo' Demo, inclusi NBA Score Prediction, Spatial DB Benchmarking e Quiz App." />
-  <meta property="og:title" content="Projects - dimuzzo" />
-  <meta property="og:description" content="Scopri i progetti di Alessandro 'dimuzzo' Demo, inclusi NBA Score Prediction, Spatial DB Benchmarking e Quiz App." />
-  <meta property="og:image" content="https://www.dreamstime.com/photos-images/programming-project.html" />
-  <meta property="og:url" content="https://dimuzzo.github.io/" />
-  <meta property="og:type" content="website" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    crossorigin="anonymous"
-  />
-  <script defer src="script.js"></script>
-</head>
-<body class="dark-mode">
-  <nav>
-    <div class="nav-container">
-      <a href="index.html" class="nav-logo">dimuzzo</a>
-      <ul>
-        <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
-        <li><a href="projects.html" class="active" aria-current="page"><i class="fa fa-code"></i> Projects</a></li>
-        <li><a href="socials.html"><i class="fa fa-user"></i> Socials</a></li>
-        <li><a href="techstack.html"><i class="fa fa-cogs"></i> Tech Stack</a></li>
-      </ul>
+<h1 class="page-title">My Projects</h1>
+<section class="projects-grid">
+  <article class="project-card">
+    <div class="project-image-container">
+      <img src="https://images7.alphacoders.com/856/thumb-1920-856240.jpg" alt="NBA logos" class="project-image" />
     </div>
-  </nav>
-
-  <button id="toggle-theme" class="toggle-theme" aria-label="Toggle Light/Dark Theme">
-    <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
-  </button>
-
-  <main class="section-padding">
-    <h1 class="page-title">My Projects</h1>
-    <section class="projects-grid hidden">
-
-      <article class="project-card">
-        <div class="project-image-container">
-          <img src="https://images7.alphacoders.com/856/thumb-1920-856240.jpg" alt="NBA logos" class="project-image" />
-        </div>
-        <div class="project-info">
-          <h2 class="project-title">NBA Score Prediction</h2>
-          <p class="project-description">Using Python, machine learning models and data analysis to predict NBA game outcomes. This project explores various algorithms to achieve accurate predictions.</p>
-          <div class="project-tech">
-            <strong>Technologies:</strong> Python, Scikit-learn, Pandas
-          </div>
-          <a href="https://github.com/dimuzzo/nba-score-prediction" target="_blank" rel="noopener noreferrer" class="btn-link">
-            <i class="fab fa-github"></i> View on GitHub
-          </a>
-        </div>
-      </article>
-
-      <article class="project-card">
-        <div class="project-image-container">
-            <img src="https://geospatialworld.net/wp-content/uploads/2023/05/global-network-connection-covering-earth-with-lines-innovative-perception_31965-29244.jpg" alt="Earth image with connections around it" class="project-image"/>
-        </div>
-        <div class="project-info">
-          <h2 class="project-title">Spatial DB Benchmarking</h2>
-          <p class="project-description">Benchmark tests on DuckDB spatial extension with geospatial data and city maps. Focus on performance analysis of spatial queries.</p>
-          <div class="project-tech">
-            <strong>Technologies:</strong> Python, DuckDB, GeoPandas
-          </div>
-          <a href="https://github.com/dimuzzo/testing-project" target="_blank" rel="noopener noreferrer" class="btn-link">
-            <i class="fab fa-github"></i> View on GitHub
-          </a>
-        </div>
-      </article>
-
-      <article class="project-card">
-        <div class="project-image-container">
-          <img src="https://imgs.search.brave.com/u8TbqE8eO3XWNIi0tCTlaMdzjC0x_qMjnY_SZOJDjd0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTM4/ODI3NTc5Mi9waG90/by9xdWVzdGlvbi1t/YXJrLXVuY2VydGFp/bnR5LXVua25vd24t/ZmVhci1pbnF1aXJ5/LWludmVzdGlnYXRp/b24tZXhhbWluYXRp/b24taW50ZXJyb2dh/dGlvbi5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9alM4Q21O/UWRocm1qN1RMN1Iz/QjdaXzNibFFKc25C/LWNyMWFtN0VMRnZ1/Zz0" alt="Quiz visual" class="project-image"/>
-        </div>
-        <div class="project-info">
-          <h2 class="project-title">Quiz App</h2>
-          <p class="project-description">An interactive quiz application designed to test knowledge on various topics. Built with modern web technologies for a responsive user experience.</p>
-          <div class="project-tech">
-            <strong>Technologies:</strong> HTML, CSS, JavaScript
-          </div>
-          <a href="https://github.com/dimuzzo/quiz-app" target="_blank" rel="noopener noreferrer" class="btn-link">
-            <i class="fab fa-github"></i> View on GitHub
-          </a>
-        </div>
-      </article>
-
-      </section>
-  </main>
-
-  <footer>
-    <p>© <span id="current-year"></span> dimuzzo | All rights reserved</p>
-  </footer>
-</body>
-</html>
+    <div class="project-info">
+      <h2 class="project-title">NBA Score Prediction</h2>
+      <p>Using Python, machine learning models and data analysis to predict NBA game outcomes.</p>
+      <a href="https://github.com/dimuzzo/nba-score-prediction" target="_blank" rel="noopener noreferrer" class="btn-link"><i class="fab fa-github"></i> View on GitHub</a>
+    </div>
+  </article>
+  <article class="project-card">
+    <div class="project-image-container">
+      <img src="https://geospatialworld.net/wp-content/uploads/2023/05/global-network-connection-covering-earth-with-lines-innovative-perception_31965-29244.jpg" alt="Earth with connections" class="project-image"/>
+    </div>
+    <div class="project-info">
+      <h2 class="project-title">Spatial DB Benchmarking</h2>
+      <p>Benchmark tests on DuckDB spatial extension with geospatial data and city maps.</p>
+      <a href="https://github.com/dimuzzo/testing-project" target="_blank" rel="noopener noreferrer" class="btn-link"><i class="fab fa-github"></i> View on GitHub</a>
+    </div>
+  </article>
+  <article class="project-card">
+    <div class="project-image-container">
+      <img src="https://imgs.search.brave.com/u8TbqE8eO3XWNIi0tCTlaMdzjC0x_qMjnY_SZOJDjd0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTM4/ODI3NTc5Mi9waG90/by9xdWVzdGlvbi1t/YXJrLXVuY2VydGFp/bnR5LXVua25vd24t/ZmVhci1pbnF1aXJ5/LWludmVzdGlnYXRp/b24tZXhhbWluYXRp/b24taW50ZXJyb2dh/dGlvbi5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9alM4Q21O/UWRocm1qN1RMN1Iz/QjdaXzNibFFKc25C/LWNyMWFtN0VMRnZ1/Zz0" alt="Quiz visual" class="project-image"/>
+    </div>
+    <div class="project-info">
+      <h2 class="project-title">Quiz App</h2>
+      <p>An interactive quiz application designed to test knowledge on various topics.</p>
+      <a href="https://github.com/dimuzzo/quiz-app" target="_blank" rel="noopener noreferrer" class="btn-link"><i class="fab fa-github"></i> View on GitHub</a>
+    </div>
+  </article>
+</section>
