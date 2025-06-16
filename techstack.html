@@ -1,23 +1,70 @@
-<h1 class="page-title">My Tech Stack</h1>
-<section class="tech-stack-grid">
-    <div class="tech-item">
-        <i class="fab fa-python"></i>
-        <p>Python</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tech Stack - dimuzzo</title>
+  <meta name="description" content="Esplora le tecnologie utilizzate da Alessandro 'dimuzzo' Demo, tra cui Python, Java, PostgreSQL e altre." />
+  <meta property="og:title" content="Tech Stack - dimuzzo" />
+  <meta property="og:description" content="Esplora le tecnologie utilizzate da Alessandro 'dimuzzo' Demo, tra cui Python, Java, PostgreSQL e altre." />
+  <meta property="og:image" content="https://st.depositphotos.com/1756445/4385/i/950/depositphotos_43853639-stock-photo-word-cloud-programming-languages-or.jpg" />
+  <meta property="og:url" content="https://dimuzzo.github.io/" />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    crossorigin="anonymous"
+  />
+  <script defer src="script.js"></script>
+</head>
+<body class="dark-mode">
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">dimuzzo</a>
+      <ul>
+        <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
+        <li><a href="projects.html"><i class="fa fa-code"></i> Projects</a></li>
+        <li><a href="socials.html"><i class="fa fa-user"></i> Socials</a></li>
+        <li><a href="techstack.html" class="active" aria-current="page"><i class="fa fa-cogs"></i> Tech Stack</a></li>
+      </ul>
     </div>
-    <div class="tech-item">
-        <i class="fab fa-java"></i>
-        <p>Java</p>
-    </div>
-    <div class="tech-item">
-        <i class="fas fa-database"></i>
-        <p>PostgreSQL</p>
-    </div>
-    <div class="tech-item">
-      <img src="https://simpleicons.org/icons/jupyter.svg" alt="Jupyter Icon" class="tech-img" />
-      <p>Jupyter</p>
-    </div>
-    <div class="tech-item">
-      <img src="https://simpleicons.org/icons/arduino.svg" alt="Arduino Icon" class="tech-img" />
-      <p>Arduino</p>
-    </div>
-</section>
+  </nav>
+
+  <button id="toggle-theme" class="toggle-theme" aria-label="Toggle Light/Dark Theme">
+    <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
+  </button>
+
+  <main class="section-padding">
+    <h1 class="page-title">My Tech Stack</h1>
+    <section class="tech-stack-grid hidden">
+        <div class="tech-item">
+            <i class="fab fa-python"></i>
+            <p>Python</p>
+        </div>
+        <div class="tech-item">
+            <i class="fab fa-java"></i>
+            <p>Java</p>
+        </div>
+        <div class="tech-item">
+            <i class="fas fa-database"></i> <p>PostgreSQL</p>
+        </div>
+        <div class="tech-item">
+          <img src="https://simpleicons.org/icons/jupyter.svg" alt="Jupyter Notebook Icon" class="tech-img" />
+          <p>Jupyter</p>
+        </div>
+        <div class="tech-item">
+          <img src="https://simpleicons.org/icons/arduino.svg" alt="Arduino Icon" class="tech-img" />
+          <p>Arduino</p>
+        </div>
+        </section>
+  </main>
+
+  <footer>
+    <p>© <span id="current-year"></span> dimuzzo | All rights reserved</p>
+  </footer>
+</body>
+</html>

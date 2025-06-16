@@ -1,167 +1,106 @@
-import { CSS2DRenderer, CSS2DObject } from 'https://cdn.skypack.dev/three@0.128.0/examples/jsm/renderers/CSS2DRenderer.js';
+// Dark/Light Mode Toggle
+const toggleBtn = document.getElementById("toggle-theme");
+const body = document.body;
+const moonIcon = toggleBtn.querySelector('.fa-moon');
+const sunIcon = toggleBtn.querySelector('.fa-sun');
 
-document.addEventListener('DOMContentLoaded', () => {
-  const canvas = document.getElementById('universe-canvas');
-  if (!canvas) return; // Exit if not on the main 3D page
-
-  // --- DOM Elements ---
-  const labelsContainer = document.getElementById('labels-container');
-  const contentPanel = document.getElementById('content-panel');
-  const contentDisplay = document.getElementById('content-display');
-  const closeBtn = document.getElementById('close-btn');
-  const themeToggle = document.getElementById('theme-toggle');
-  
-  // --- 3D Scene Setup ---
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-  camera.position.z = 15;
-  const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-  const labelRenderer = new CSS2DRenderer();
-  labelRenderer.setSize(window.innerWidth, window.innerHeight);
-  labelsContainer.appendChild(labelRenderer.domElement);
-
-  // --- Universe Objects ---
-  const pointLight = new THREE.PointLight(0xffffff, 1.5);
-  scene.add(pointLight);
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
-  scene.add(ambientLight);
-  let planets = [];
-  const raycaster = new THREE.Raycaster();
-  const mouse = new THREE.Vector2();
-
-  const sun = new THREE.Mesh(new THREE.SphereGeometry(2, 32, 32), new THREE.MeshBasicMaterial({ color: 0xe74c3c, wireframe: true }));
-  scene.add(sun);
-  
-  const planetData = [
-    { name: 'Projects', color: 0x9b59b6, distance: 6, size: 0.7, contentFile: 'projects.html' },
-    { name: 'Tech Stack', color: 0x2ecc71, distance: 9, size: 0.6, contentFile: 'techstack.html' },
-    { name: 'Socials', color: 0xf1c40f, distance: 12, size: 0.5, contentFile: 'socials.html' },
-    { name: 'News', color: 0x3498db, distance: 15, size: 0.4, contentFile: 'news.html' }
-  ];
-
-  planetData.forEach((data, index) => {
-    const planet = new THREE.Mesh( new THREE.SphereGeometry(data.size, 32, 32), new THREE.MeshStandardMaterial({ color: data.color, roughness: 0.5 }) );
-    const labelDiv = document.createElement('div');
-    labelDiv.className = 'planet-label';
-    labelDiv.textContent = data.name;
-    const label = new CSS2DObject(labelDiv);
-    label.position.set(0, data.size + 0.3, 0);
-    planet.add(label);
-    const pivot = new THREE.Object3D();
-    scene.add(pivot);
-    pivot.add(planet);
-    planet.position.x = data.distance;
-    planet.userData = { id: data.name, contentFile: data.contentFile };
-    planets.push({ mesh: planet, pivot: pivot, speed: 0.001 + index * 0.0005 });
-  });
-
-  const starMaterial = new THREE.PointsMaterial({ size: 0.05 });
-  const starGeometry = new THREE.BufferGeometry();
-  const starCount = 5000;
-  const posArray = new Float32Array(starCount * 3);
-  for(let i = 0; i < starCount * 3; i++) posArray[i] = (Math.random() - 0.5) * 200;
-  starGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-  const starMesh = new THREE.Points(starGeometry, starMaterial);
-  scene.add(starMesh);
-
-  // --- Theme Management ---
-  function applyTheme(theme) {
-    if (theme === 'white-space') {
-      document.body.classList.add('white-space');
-    } else {
-      document.body.classList.remove('white-space');
-    }
-    const starColor = getComputedStyle(document.body).getPropertyValue('--star-color').trim();
-    starMesh.material.color.set(starColor);
+function setTheme(theme) {
+  if (theme === "light") {
+    body.classList.remove("dark-mode");
+    body.classList.add("light-mode");
+    moonIcon.style.display = 'block';
+    sunIcon.style.display = 'none';
+    localStorage.setItem("theme", "light");
+  } else {
+    body.classList.remove("light-mode");
+    body.classList.add("dark-mode");
+    moonIcon.style.display = 'none';
+    sunIcon.style.display = 'block';
+    localStorage.setItem("theme", "dark");
   }
+}
 
-  themeToggle.addEventListener('click', () => {
-    const newTheme = document.body.classList.contains('white-space') ? 'dark-space' : 'white-space';
-    localStorage.setItem('theme', newTheme);
-    applyTheme(newTheme);
-  });
-  
-  const savedTheme = localStorage.getItem('theme') || 'dark-space';
-  applyTheme(savedTheme);
+// Initialize theme based on localStorage or default to dark
+const currentTheme = localStorage.getItem("theme");
+if (currentTheme) {
+  setTheme(currentTheme);
+} else {
+  setTheme("dark"); // Default theme
+}
 
-  // --- Interactivity ---
-  async function loadContent(planet) {
-    if (!planet.userData.contentFile) return;
-    try {
-      const response = await fetch(planet.userData.contentFile);
-      const text = await response.text();
-      contentDisplay.innerHTML = text; // Inject the raw content
-      showPanel(planet);
-      initializeCardTilt();
-    } catch (error) { console.error('Error loading content:', error); }
+toggleBtn.addEventListener("click", () => {
+  if (body.classList.contains("dark-mode")) {
+    setTheme("light");
+  } else {
+    setTheme("dark");
   }
-  
-  function initializeCardTilt() {
-      document.querySelectorAll('#content-display .project-card').forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            const { width, height } = rect;
-            const rotateX = (y / height - 0.5) * -15; // Softer effect
-            const rotateY = (x / width - 0.5) * 15;
-            card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-        });
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'rotateX(0deg) rotateY(0deg)';
-        });
-    });
-  }
-
-  function showPanel(targetPlanet) {
-    const targetPosition = new THREE.Vector3();
-    targetPlanet.getWorldPosition(targetPosition);
-    gsap.to(camera.position, { duration: 1.5, x: targetPosition.x, y: targetPosition.y, z: targetPosition.z + 3, ease: 'power3.inOut' });
-    gsap.to(contentPanel, { duration: 1, opacity: 1, delay: 0.5, onStart: () => contentPanel.classList.add('visible') });
-  }
-
-  function hidePanel() {
-    gsap.to(contentPanel, { duration: 0.5, opacity: 0, onComplete: () => contentPanel.classList.remove('visible') });
-    gsap.to(camera.position, { duration: 1.5, x: 0, y: 0, z: 15, ease: 'power3.inOut' });
-  }
-
-  closeBtn.addEventListener('click', hidePanel);
-  
-  window.addEventListener('click', (event) => {
-    if (contentPanel.classList.contains('visible') || themeToggle.contains(event.target)) return;
-    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-    mouse.y = - (event.clientY / window.innerHeight) * 2 + 1;
-    raycaster.setFromCamera(mouse, camera);
-    const intersects = raycaster.intersectObjects(planets.map(p => p.mesh));
-    if (intersects.length > 0) loadContent(intersects[0].object);
-  });
-
-  function handleCameraMove(x, y) {
-    if (contentPanel.classList.contains('visible')) return;
-    const rotX = (y / window.innerHeight - 0.5) * 2;
-    const rotY = (x / window.innerWidth - 0.5) * 2;
-    gsap.to(camera.rotation, { duration: 0.5, x: -rotX * 0.2, y: -rotY * 0.2, ease: 'power1.out' });
-  }
-  window.addEventListener('mousemove', (e) => handleCameraMove(e.clientX, e.clientY));
-  window.addEventListener('touchmove', (e) => { if (e.touches.length > 0) handleCameraMove(e.touches[0].clientX, e.touches[0].clientY); });
-
-  window.addEventListener('resize', () => {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    labelRenderer.setSize(window.innerWidth, window.innerHeight);
-  });
-
-  function animate() {
-    requestAnimationFrame(animate);
-    sun.rotation.y += 0.001;
-    planets.forEach(p => { p.pivot.rotation.y += p.speed; p.mesh.rotation.y += 0.01; });
-    renderer.render(scene, camera);
-    labelRenderer.render(scene, camera);
-  }
-  
-  animate();
 });
+
+
+// Update Copyright Year
+const yearSpan = document.getElementById("current-year");
+if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+}
+
+// Active Nav Link Highlighter
+document.addEventListener('DOMContentLoaded', () => {
+    const navLinks = document.querySelectorAll('nav ul li a');
+    const currentPath = window.location.pathname.split("/").pop() || 'index.html';
+
+    navLinks.forEach(link => {
+        const linkPath = link.getAttribute('href').split("/").pop();
+        if (linkPath === currentPath) {
+            link.classList.add('active');
+            link.setAttribute('aria-current', 'page');
+        } else {
+            link.classList.remove('active');
+            link.removeAttribute('aria-current');
+        }
+    });
+});
+
+// On-Scroll Animations
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        }
+    });
+}, {
+    threshold: 0.1
+});
+
+const hiddenElements = document.querySelectorAll('.hidden');
+hiddenElements.forEach((el) => observer.observe(el));
+
+
+// Card Tilt 3D Effect
+document.querySelectorAll('.project-card, .social-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const width = card.offsetWidth;
+        const height = card.offsetHeight;
+
+        const rotateX = (y / height - 0.5) * -20;
+        const rotateY = (x / width - 0.5) * 20;
+
+        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = 'rotateX(0deg) rotateY(0deg)';
+    });
+});
+
+
+// Hero Parallax Effect
+const heroBg = document.querySelector('.hero-background-image');
+if (heroBg) {
+    window.addEventListener('scroll', () => {
+        const scrollValue = window.scrollY;
+        heroBg.style.transform = `translateY(${scrollValue * 0.4}px)`;
+    });
+}
