@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const contentDisplay = document.getElementById('content-display');
   const closeBtn = document.getElementById('close-btn');
   const themeToggle = document.getElementById('theme-toggle');
-  const themeText = document.getElementById('theme-text');
   
   // --- 3D Scene Setup ---
   const scene = new THREE.Scene();
@@ -66,25 +65,24 @@ document.addEventListener('DOMContentLoaded', () => {
     planets.push({ mesh: planet, pivot: pivot, speed: 0.001 + index * 0.0005 });
   });
 
+  const starMaterial = new THREE.PointsMaterial({ size: 0.05 });
   const starGeometry = new THREE.BufferGeometry();
   const starCount = 5000;
   const posArray = new Float32Array(starCount * 3);
   for(let i = 0; i < starCount * 3; i++) posArray[i] = (Math.random() - 0.5) * 200;
   starGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-  const starMaterial = new THREE.PointsMaterial({ size: 0.05 });
   const starMesh = new THREE.Points(starGeometry, starMaterial);
   scene.add(starMesh);
 
   // --- Theme Management ---
   function applyTheme(theme) {
+    const rootStyles = document.documentElement.style;
     if (theme === 'white-space') {
       document.body.classList.add('white-space');
-      themeText.textContent = 'White Space';
-      starMesh.material.color.set('#000000');
+      starMesh.material.color.set(getComputedStyle(document.body).getPropertyValue('--star-color'));
     } else {
       document.body.classList.remove('white-space');
-      themeText.textContent = 'Dark Space';
-      starMesh.material.color.set('#ffffff');
+      starMesh.material.color.set(getComputedStyle(document.body).getPropertyValue('--star-color'));
     }
   }
 
@@ -98,44 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const savedTheme = localStorage.getItem('theme') || 'dark-space';
   applyTheme(savedTheme);
 
-  // --- Interactivity ---
-  async function loadContent(planet) { /* ... (rest of the code is unchanged) ... */ }
-  function showPanel(targetPlanet) { /* ... */ }
-  function hidePanel() { /* ... */ }
-  closeBtn.addEventListener('click', hidePanel);
-  window.addEventListener('click', (event) => { /* ... */ });
-  function handleCameraMove(x, y) { /* ... */ }
-  window.addEventListener('mousemove', (event) => handleCameraMove(event.clientX, event.clientY));
-  window.addEventListener('touchmove', (event) => { if (event.touches.length > 0) handleCameraMove(event.touches[0].clientX, event.touches[0].clientY); });
-
-  // --- Window Management & Animation Loop ---
-  window.addEventListener('resize', () => {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    labelRenderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-  });
-
-  function animate() {
-    requestAnimationFrame(animate);
-    sun.rotation.y += 0.001;
-    planets.forEach(p => {
-      p.pivot.rotation.y += p.speed;
-      p.mesh.rotation.y += 0.01;
-    });
-    renderer.render(scene, camera);
-    labelRenderer.render(scene, camera);
-  }
-
-  // --- Start ---
-  setTimeout(() => {
-    gsap.to(loader, { opacity: 0, onComplete: () => loader.style.display = 'none' });
-  }, 1000);
-  
-  animate();
-
-  // --- Re-pasting the functions that were omitted for brevity ---
+  // --- Interactivity (functions are unchanged) ---
   async function loadContent(planet) {
     if (!planet.userData.contentFile) return;
     try {
@@ -143,6 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const text = await response.text();
       const parser = new DOMParser();
       const doc = parser.parseFromString(text, 'text/html');
+      // Logic to find the correct content section
       const contentToLoad = (planet.userData.id === 'News') ? doc.querySelector('.explore') : doc.querySelector('main');
       if (contentToLoad) {
         contentDisplay.innerHTML = contentToLoad.innerHTML;
@@ -167,12 +129,47 @@ document.addEventListener('DOMContentLoaded', () => {
     gsap.to(camera.position, { duration: 1.5, x: 0, y: 0, z: 15, ease: 'power3.inOut' });
   }
 
+  closeBtn.addEventListener('click', hidePanel);
+  
   window.addEventListener('click', (event) => {
-    if (contentPanel.classList.contains('visible')) return;
+    if (contentPanel.classList.contains('visible') || themeToggle.contains(event.target)) return;
     mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
     mouse.y = - (event.clientY / window.innerHeight) * 2 + 1;
     raycaster.setFromCamera(mouse, camera);
     const intersects = raycaster.intersectObjects(planets.map(p => p.mesh));
     if (intersects.length > 0) loadContent(intersects[0].object);
   });
+
+  function handleCameraMove(x, y) {
+    if (contentPanel.classList.contains('visible')) return;
+    const rotX = (y / window.innerHeight - 0.5) * 2;
+    const rotY = (x / window.innerWidth - 0.5) * 2;
+    gsap.to(camera.rotation, { duration: 0.5, x: -rotX * 0.2, y: -rotY * 0.2, ease: 'power1.out' });
+  }
+  window.addEventListener('mousemove', (event) => handleCameraMove(event.clientX, event.clientY));
+  window.addEventListener('touchmove', (event) => { if (event.touches.length > 0) handleCameraMove(event.touches[0].clientX, event.touches[0].clientY); });
+
+  // --- Window Management & Animation Loop ---
+  window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    labelRenderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  });
+
+  function animate() {
+    requestAnimationFrame(animate);
+    sun.rotation.y += 0.001;
+    planets.forEach(p => { p.pivot.rotation.y += p.speed; p.mesh.rotation.y += 0.01; });
+    renderer.render(scene, camera);
+    labelRenderer.render(scene, camera);
+  }
+
+  // --- Start ---
+  setTimeout(() => {
+    gsap.to(loader, { opacity: 0, onComplete: () => loader.style.display = 'none' });
+  }, 1000);
+  
+  animate();
 });
