@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Projects - dimuzzo</title>
-  <meta name="description" content="Scopri i progetti di Alessandro 'dimuzzo' Demo, inclusi NBA Score Prediction, Spatial DB Benchmarking e Quiz App." />
-  <meta property="og:title" content="Projects - dimuzzo" />
-  <meta property="og:description" content="Scopri i progetti di Alessandro 'dimuzzo' Demo, inclusi NBA Score Prediction, Spatial DB Benchmarking e Quiz App." />
+  <title>Projects | Alessandro Demo</title>
+  <meta name="description" content="Discover the projects of Alessandro Demo, including predictive analysis on NBA data, spatial database benchmarking, and web applications." />
+  <meta property="og:title" content="Projects | Alessandro Demo" />
+  <meta property="og:description" content="Discover the projects of Alessandro Demo, including predictive analysis on NBA data, spatial database benchmarking, and web applications." />
   <meta property="og:image" content="https://www.dreamstime.com/photos-images/programming-project.html" />
   <meta property="og:url" content="https://dimuzzo.github.io/" />
   <meta property="og:type" content="website" />
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -30,6 +31,7 @@
         <li><a href="projects.html" class="active" aria-current="page"><i class="fa fa-code"></i> Projects</a></li>
         <li><a href="socials.html"><i class="fa fa-user"></i> Socials</a></li>
         <li><a href="techstack.html"><i class="fa fa-cogs"></i> Tech Stack</a></li>
+        <li><a href="assets/CV_Alessandro_Demo_EN.pdf" target="_blank" class="nav-cv-link"><i class="fa fa-file-pdf"></i> CV</a></li>
       </ul>
     </div>
   </nav>
@@ -48,9 +50,10 @@
         </div>
         <div class="project-info">
           <h2 class="project-title">NBA Score Prediction</h2>
-          <p class="project-description">Using Python, machine learning models and data analysis to predict NBA game outcomes. This project explores various algorithms to achieve accurate predictions.</p>
-          <div class="project-tech">
-            <strong>Technologies:</strong> Python, Scikit-learn, Pandas
+          <div class="project-description">
+            <p><strong>Objective:</strong> To develop and evaluate a machine learning model to predict the outcome of NBA games based on historical team data.</p>
+            <p><strong>Technologies:</strong> Python, Pandas for data analysis and cleaning, Scikit-learn for creating and training models (e.g., Logistic Regression, Random Forest).</p>
+            <p><strong>Challenges & Results:</strong> The main challenge was feature engineering to identify the most influential statistics. The final model achieved a predictive accuracy of 71%, demonstrating the effectiveness of an analytical approach in sports.</p>
           </div>
           <a href="https://github.com/dimuzzo/nba-score-prediction" target="_blank" rel="noopener noreferrer" class="btn-link">
             <i class="fab fa-github"></i> View on GitHub
@@ -64,9 +67,10 @@
         </div>
         <div class="project-info">
           <h2 class="project-title">Spatial DB Benchmarking</h2>
-          <p class="project-description">Benchmark tests on DuckDB spatial extension with geospatial data and city maps. Focus on performance analysis of spatial queries.</p>
-          <div class="project-tech">
-            <strong>Technologies:</strong> Python, DuckDB, GeoPandas
+          <div class="project-description">
+            <p><strong>Objective:</strong> To compare the performance of DuckDB with its spatial extension against PostGIS, analyzing the execution times of complex geospatial queries on OpenStreetMap data.</p>
+            <p><strong>Technologies:</strong> Python, DuckDB, GeoPandas, PostgreSQL/PostGIS, Jupyter Notebook for results analysis.</p>
+            <p><strong>Challenges & Results:</strong> Setting up a consistent testing environment was crucial. The results highlighted DuckDB's remarkable speed for in-process analytical workloads, providing useful data for choosing a DB in future projects.</p>
           </div>
           <a href="https://github.com/dimuzzo/testing-project" target="_blank" rel="noopener noreferrer" class="btn-link">
             <i class="fab fa-github"></i> View on GitHub
@@ -80,9 +84,10 @@
         </div>
         <div class="project-info">
           <h2 class="project-title">Quiz App</h2>
-          <p class="project-description">An interactive quiz application designed to test knowledge on various topics. Built with modern web technologies for a responsive user experience.</p>
-          <div class="project-tech">
-            <strong>Technologies:</strong> HTML, CSS, JavaScript
+          <div class="project-description">
+            <p><strong>Objective:</strong> To create an interactive and responsive web application to test users' knowledge on various topics, with immediate feedback on their answers.</p>
+            <p><strong>Technologies:</strong> HTML5, CSS3, JavaScript (ES6). Special attention was given to DOM manipulation for a dynamic user experience.</p>
+            <p><strong>Challenges & Results:</strong> Managing the application's state (score, current question) in pure JavaScript was a formative challenge. The result is a lightweight, functional, and easily extendable app with new questions.</p>
           </div>
           <a href="https://github.com/dimuzzo/quiz-app" target="_blank" rel="noopener noreferrer" class="btn-link">
             <i class="fab fa-github"></i> View on GitHub
@@ -90,11 +95,14 @@
         </div>
       </article>
 
-      </section>
+    </section>
   </main>
 
   <footer>
-    <p>© <span id="current-year"></span> dimuzzo | All rights reserved</p>
+    <div class="footer-content">
+        <a href="mailto:your-professional-email@example.com" class="contact-link">your-professional-email@example.com</a>
+        <p>© <span id="current-year"></span> Alessandro Demo (dimuzzo) | All rights reserved</p>
+    </div>
   </footer>
 </body>
 </html>
