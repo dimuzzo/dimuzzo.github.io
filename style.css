@@ -958,12 +958,19 @@ body.light-mode .project-card {
   font-size: 0.8rem;
   font-weight: 600;
   text-transform: uppercase;
+  white-space: nowrap; /* <-- MODIFICA AGGIUNTA QUI */
 }
 
 .status-badge.completed {
   background: rgba(39, 174, 96, 0.2);
   color: #27ae60;
   border: 1px solid rgba(39, 174, 96, 0.3);
+}
+
+.status-badge.in-progress {
+  background: rgba(243, 156, 18, 0.2);
+  color: #f39c12;
+  border: 1px solid rgba(243, 156, 18, 0.3);
 }
 
 .project-description {
