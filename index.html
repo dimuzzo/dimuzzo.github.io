@@ -3,35 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Alessandro Demo (dimuzzo) | Computer Science Student</title>
-  <meta name="description" content="Portfolio of Alessandro Demo (dimuzzo), a Computer Science student passionate about AI, software development, and geospatial data. Discover my projects." />
-  <meta property="og:title" content="Alessandro Demo | Portfolio" />
-  <meta property="og:description" content="Portfolio of Alessandro Demo, a Computer Science student passionate about AI, software development, and geospatial data." />
+  <title>Alessandro Demo (dimuzzo) | Full-Stack Developer & CS Graduate</title>
+  <meta name="description" content="Alessandro Demo - Full-Stack Developer learning and specializing in AI, geospatial applications, and modern web technologies. Available for hire. View portfolio and projects." />
+  <meta name="keywords" content="full-stack developer, python developer, web developer, AI engineer, software engineer, hire developer, portfolio" />
+  <meta property="og:title" content="Alessandro Demo | Full-Stack Developer Portfolio" />
+  <meta property="og:description" content="Experienced Full-Stack Developer specializing in AI, Python, and modern web technologies. Available for exciting opportunities." />
   <meta property="og:image" content="https://c4.wallpaperflare.com/wallpaper/121/540/894/evangelion-neon-genesis-evangelion-evangelion-unit-01-wallpaper-thumb.jpg" />
   <meta property="og:url" content="https://dimuzzo.github.io/" />
   <meta property="og:type" content="website" />
-  <link rel="icon" type="image/png" href="assets/favicon.png">  
+  <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    crossorigin="anonymous"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" />
   <script defer src="script.js"></script>
 </head>
 <body class="dark-mode">
+  <!-- Loading Screen -->
+  <div id="loading-screen" class="loading-screen">
+    <div class="loading-content">
+      <div class="loading-spinner"></div>
+      <p>Loading Portfolio...</p>
+    </div>
+  </div>
+
   <nav>
     <div class="nav-container">
-      <a href="index.html" class="nav-logo">dimuzzo</a>
+      <a href="index.html" class="nav-logo">
+        <i class="fas fa-code"></i>
+        <span>dimuzzo</span>
+      </a>
       <ul>
         <li><a href="index.html" class="active" aria-current="page"><i class="fa fa-home"></i> Home</a></li>
         <li><a href="projects.html"><i class="fa fa-code"></i> Projects</a></li>
-        <li><a href="socials.html"><i class="fa fa-user"></i> Socials</a></li>
-        <li><a href="techstack.html"><i class="fa fa-cogs"></i> Tech Stack</a></li>
+        <li><a href="socials.html"><i class="fa fa-user"></i> Contact</a></li>
+        <li><a href="techstack.html"><i class="fa fa-cogs"></i> Skills</a></li>
       </ul>
+      <div class="nav-toggle" id="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
   </nav>
 
@@ -44,50 +57,309 @@
       <div class="hero-background-image" style="background-image: url('https://c4.wallpaperflare.com/wallpaper/121/540/894/evangelion-neon-genesis-evangelion-evangelion-unit-01-wallpaper-thumb.jpg');"></div>
       <div class="hero-overlay"></div>
       <div class="hero-content">
-        <h1>Alessandro Demo <br><span>aka dimuzzo</span></h1>
-        <p class="subtitle">Computer Science student with a passion for software development, artificial intelligence and geospatial applications.</p>
-        <a href="assets/CV_Alessandro_Demo_EN.pdf" target="_blank" class="btn-primary hero-btn">
-            <i class="fas fa-download"></i> Download My CV
-        </a>
+        <div class="hero-badge">
+          <i class="fas fa-circle"></i>
+          <span>Available for hire</span>
+        </div>
+        <h1>Alessandro Demo <br><span class="typewriter">Full-Stack Developer</span></h1>
+        <p class="subtitle">Transforming ideas into elegant code. Specializing in AI applications, modern web technologies, and scalable solutions that drive business success.</p>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn-primary hero-btn">
+            <i class="fas fa-envelope"></i> Hire Me
+          </a>
+          <a href="projects.html" class="btn-secondary hero-btn">
+            <i class="fas fa-eye"></i> View Portfolio
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-number" data-target="11">0</span>
+            <span class="stat-label">Projects</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="3">0</span>
+            <span class="stat-label">Years Experience</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="8">0</span>
+            <span class="stat-label">Technologies</span>
+          </div>
+        </div>
       </div>
     </header>
 
     <section class="about section-padding hidden">
-      <h2 class="section-title">About Me</h2>
-      <div class="about-content-grid">
-        <div class="about-photo-container">
-          <img src="assets/profile-picture.jpg" alt="Profile picture of Alessandro Demo" class="about-photo">
-        </div>
-        <div class="about-text">
-          <p>I am a soon to be Computer Science graduate with a strong interest in developing efficient software solutions and applying artificial intelligence algorithms to solve real-world problems. My curiosity drives me to constantly explore new technologies, with a special focus on the world of geospatial data and artificial intelligence.</p>
-          <p>I am a methodical and results-oriented person, used to working with music to aid my concentration (The Weeknd and Daft Punk are my top choices). I am seeking opportunities where I can contribute with my skills and continue to grow as a developer.</p>
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content-grid">
+          <div class="about-text">
+            <div class="about-intro">
+              <h3>Building the Future, One Line at a Time</h3>
+              <p class="lead">I'm a passionate Computer Science soon to be graduate with a proven track record of developing innovative software solutions that solve real-world problems. My expertise spans from AI-driven applications to scalable web platforms.</p>
+            </div>
+            
+            <div class="about-highlights">
+              <div class="highlight-item">
+                <i class="fas fa-brain"></i>
+                <div>
+                  <h4>AI & Machine Learning</h4>
+                  <p>Now learning how to develope predictive models and how to implement AI algorithms for practical applications.</p>
+                </div>
+              </div>
+              <div class="highlight-item">
+                <i class="fas fa-globe"></i>
+                <div>
+                  <h4>Geospatial Applications</h4>
+                  <p>Working right now with geospatial data, spatial databases, and location-based services.</p>
+                </div>
+              </div>
+              <div class="highlight-item">
+                <i class="fas fa-rocket"></i>
+                <div>
+                  <h4>Performance Optimization</h4>
+                  <p>Passionate about writing efficient code and optimizing applications for maximum performance.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="about-quote">
+              <blockquote>
+                "Every project is an opportunity to create something meaningful."
+              </blockquote>
+            </div>
+          </div>
+          
+          <div class="about-visual">
+            <div class="profile-card">
+              <div class="profile-image">
+                <i class="fas fa-user-tie"></i>
+              </div>
+              <div class="profile-info">
+                <h4>Alessandro Demo</h4>
+                <p>Full-Stack Developer</p>
+                <div class="profile-skills">
+                  <span class="skill-tag">Python</span>
+                  <span class="skill-tag">Java</span>
+                  <span class="skill-tag">AI/ML</span>
+                  <span class="skill-tag">SQL/NoSQL</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="explore section-padding hidden">
-      <h2 class="section-title">Explore the Web</h2>
-      <div class="blog-links">
-        <a href="https://ai.googleblog.com/" target="_blank" rel="noopener noreferrer" class="blog-link-card">
-          <i class="fas fa-robot"></i>
-          <span>Google AI Blog</span>
-        </a>
-        <a href="https://towardsdatascience.com/" target="_blank" rel="noopener noreferrer" class="blog-link-card">
-          <i class="fas fa-brain"></i>
-          <span>Towards Data Science</span>
-        </a>
-        <a href="https://duckdb.org/news/" target="_blank" rel="noopener noreferrer" class="blog-link-card">
-          <i class="fas fa-database"></i>
-          <span>DuckDB News</span>
-        </a>
+    <section class="skills section-padding hidden">
+      <div class="container">
+        <h2 class="section-title">Core Competencies</h2>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h3><i class="fas fa-code"></i> Programming Languages</h3>
+            <div class="skill-items">
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span>Python</span>
+                  <span>75%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-width="75"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span>JavaScript</span>
+                  <span>70%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-width="70"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span>Java</span>
+                  <span>90%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-width="90"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3><i class="fas fa-brain"></i> AI & Data Science</h3>
+            <div class="skill-items">
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span>Machine Learning</span>
+                  <span>70%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-width="70"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span>Data Analysis</span>
+                  <span>80%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-width="80"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span>Pandas/NumPy</span>
+                  <span>80%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-width="80"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3><i class="fas fa-database"></i> Databases & Tools</h3>
+            <div class="skill-items">
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span>PostgreSQL</span>
+                  <span>85%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-width="85"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span>Git & Version Control</span>
+                  <span>90%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-width="90"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span>Geospatial Tools</span>
+                  <span>75%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-width="75"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta section-padding">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Ready to Build Something Amazing Together?</h2>
+          <p>I'm currently available for exciting opportunities. Let's discuss how I can contribute to your team's success.</p>
+          <div class="cta-buttons">
+            <a href="#contact" class="btn-primary">
+              <i class="fas fa-handshake"></i> Let's Talk
+            </a>
+            <a href="assets/CV_Alessandro_Demo_EN.pdf" target="_blank" class="btn-secondary">
+              <i class="fas fa-download"></i> Download CV
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact section-padding hidden" id="contact">
+      <div class="container">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h3>Let's Start a Conversation</h3>
+            <p>I'm always excited to discuss new opportunities, innovative projects, or just chat about technology. Drop me a message and I'll get back to you as soon as possible.</p>
+            
+            <div class="contact-methods">
+              <div class="contact-method">
+                <i class="fas fa-envelope"></i>
+                <div>
+                  <h4>Email</h4>
+                  <a href="mailto:will.be.updated@gmail.com">will.be.updated@gmail.com</a>
+                </div>
+              </div>
+              <div class="contact-method">
+                <i class="fas fa-phone"></i>
+                <div>
+                  <h4>Quick Response</h4>
+                  <p>Usually responds within 24 hours</p>
+                </div>
+              </div>
+              <div class="contact-method">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                  <h4>Location</h4>
+                  <p>Available for remote work worldwide</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <form class="contact-form" id="contact-form">
+            <div class="form-group">
+              <label for="name">Full Name *</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="company">Company/Organization</label>
+              <input type="text" id="company" name="company">
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject *</label>
+              <select id="subject" name="subject" required>
+                <option value="">Select a subject</option>
+                <option value="job-opportunity">Job Opportunity</option>
+                <option value="freelance-project">Freelance Project</option>
+                <option value="collaboration">Collaboration</option>
+                <option value="consultation">Consultation</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Message *</label>
+              <textarea id="message" name="message" rows="5" required placeholder="Tell me about your project or opportunity..."></textarea>
+            </div>
+            <button type="submit" class="btn-primary form-submit">
+              <i class="fas fa-paper-plane"></i>
+              Send Message
+            </button>
+          </form>
+        </div>
       </div>
     </section>
   </main>
 
   <footer>
     <div class="footer-content">
-        <a href="mailto:will.be.updated@gmail.com" class="contact-link">will.be.updated@gmail.com</a>
-        <p>© <span id="current-year"></span> dimuzzo | All rights reserved</p>
+      <div class="footer-info">
+        <div class="footer-brand">
+          <h3>Alessandro Demo</h3>
+          <p>Full-Stack Developer & AI Enthusiast</p>
+        </div>
+        <div class="footer-links">
+          <a href="projects.html">Projects</a>
+          <a href="techstack.html">Skills</a>
+          <a href="socials.html">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="current-year"></span> Alessandro Demo. All rights reserved. | Built with passion for innovation</p>
+      </div>
     </div>
   </footer>
 </body>

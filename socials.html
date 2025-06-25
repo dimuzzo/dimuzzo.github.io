@@ -3,35 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact & Socials | Alessandro Demo</title>
-  <meta name="description" content="Connect with Alessandro Demo on GitHub, LinkedIn, Telegram, and other professional and social platforms." />
-  <meta property="og:title" content="Contact & Socials | Alessandro Demo" />
-  <meta property="og:description" content="Connect with Alessandro Demo on GitHub, LinkedIn, Telegram, and other platforms." />
-  <meta property="og:image" content="https://www.canva.com/photos/s/social-media/" /> 
-  <meta property="og:url" content="https://dimuzzo.github.io/" />
+  <title>Contact & Professional Network | Alessandro Demo</title>
+  <meta name="description" content="Connect with Alessandro Demo - Full-Stack Developer. Available for hire. Reach out via LinkedIn, GitHub, or email for collaboration opportunities." />
+  <meta name="keywords" content="contact developer, hire programmer, professional network, collaboration, freelance developer" />
+  <meta property="og:title" content="Contact Alessandro Demo | Available for Hire" />
+  <meta property="og:description" content="Professional developer available for exciting opportunities. Connect via LinkedIn, GitHub, or direct contact." />
+  <meta property="og:image" content="https://via.placeholder.com/1200x630/e74c3c/ffffff?text=Contact+Alessandro" />
+  <meta property="og:url" content="https://dimuzzo.github.io/socials.html" />
   <meta property="og:type" content="website" />
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    crossorigin="anonymous"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" />
   <script defer src="script.js"></script>
 </head>
 <body class="dark-mode">
   <nav>
     <div class="nav-container">
-      <a href="index.html" class="nav-logo">dimuzzo</a>
+      <a href="index.html" class="nav-logo">
+        <i class="fas fa-code"></i>
+        <span>dimuzzo</span>
+      </a>
       <ul>
         <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
         <li><a href="projects.html"><i class="fa fa-code"></i> Projects</a></li>
-        <li><a href="socials.html" class="active" aria-current="page"><i class="fa fa-user"></i> Socials</a></li>
-        <li><a href="techstack.html"><i class="fa fa-cogs"></i> Tech Stack</a></li>
+        <li><a href="socials.html" class="active" aria-current="page"><i class="fa fa-user"></i> Contact</a></li>
+        <li><a href="techstack.html"><i class="fa fa-cogs"></i> Skills</a></li>
       </ul>
+      <div class="nav-toggle" id="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
   </nav>
 
@@ -40,34 +45,278 @@
   </button>
 
   <main class="section-padding">
-    <h1 class="page-title">Find Me Online</h1>
-    <section class="social-grid hidden">
-      <a href="https://github.com/dimuzzo" target="_blank" rel="noopener noreferrer" class="social-card">
-        <i class="fa-brands fa-github"></i>
-        <span>GitHub</span>
-      </a>
-      <a href="https://www.linkedin.com/in/alessandro-demo-b844a8301" target="_blank" rel="noopener noreferrer" class="social-card">
-        <i class="fa-brands fa-linkedin"></i>
-        <span>LinkedIn</span>
-      </a>
-      <a href="https://t.me/dimuzzo" target="_blank" rel="noopener noreferrer" class="social-card">
-        <i class="fa-brands fa-telegram"></i>
-        <span>Telegram</span>
-      </a>
-      <a href="https://leetcode.com/dimuzzo/" target="_blank" rel="noopener noreferrer" class="social-card">
-        <i class="fa-solid fa-code"></i> <span>LeetCode</span>
-      </a>
-      <a href="https://letterboxd.com/dimuzzo/" target="_blank" rel="noopener noreferrer" class="social-card">
-        <i class="fa-solid fa-film"></i>
-        <span>Letterboxd</span>
-      </a>
-    </section>
+    <div class="container">
+      <div class="page-header">
+        <h1 class="page-title">Let's Connect</h1>
+        <p class="page-subtitle">I'm always open to discussing new opportunities, innovative projects, or simply connecting with fellow developers and potential collaborators.</p>
+        <div class="availability-status">
+          <div class="status-indicator">
+            <i class="fas fa-circle available"></i>
+            <span>Available for new projects</span>
+          </div>
+          <div class="response-time">
+            <i class="fas fa-clock"></i>
+            <span>Usually responds within 24 hours</span>
+          </div>
+        </div>
+      </div>
+
+      <section class="contact-methods hidden">
+        <h2 class="section-title">Professional Network</h2>
+        <div class="social-grid">
+          <a href="https://github.com/dimuzzo" target="_blank" rel="noopener noreferrer" class="social-card professional">
+            <div class="card-header">
+              <i class="fa-brands fa-github"></i>
+              <div class="card-badges">
+                <span class="badge primary">Code</span>
+              </div>
+            </div>
+            <div class="card-content">
+              <h3>GitHub</h3>
+              <p>Explore my repositories, contributions, and open-source projects</p>
+              <div class="card-stats">
+                <span><i class="fas fa-code-branch"></i> 10+ Repos</span>
+              </div>
+            </div>
+            <div class="card-action">
+              <span>View Profile <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </a>
+
+          <a href="https://www.linkedin.com/in/alessandro-demo-b844a8301" target="_blank" rel="noopener noreferrer" class="social-card professional">
+            <div class="card-header">
+              <i class="fa-brands fa-linkedin"></i>
+              <div class="card-badges">
+                <span class="badge professional">Business</span>
+              </div>
+            </div>
+            <div class="card-content">
+              <h3>LinkedIn</h3>
+              <p>Connect professionally and view my career journey</p>
+              <div>
+                <span><i class="fas fa-briefcase"></i> Open to Work</span>
+              </div>
+            </div>
+            <div class="card-action">
+              <span>Connect <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </a>
+
+          <a href="mailto:will.be.updated@gmail.com" class="social-card professional">
+            <div class="card-header">
+              <i class="fas fa-envelope"></i>
+              <div class="card-badges">
+                <span class="badge urgent">Direct</span>
+              </div>
+            </div>
+            <div class="card-content">
+              <h3>Email</h3>
+              <p>For business inquiries, job opportunities, or collaborations</p>
+              <div class="card-stats">
+                <span><i class="fas fa-reply"></i> Quick Response</span>
+                <span><i class="fas fa-shield-alt"></i> Professional</span>
+              </div>
+            </div>
+            <div class="card-action">
+              <span>Send Email <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </a>
+
+          <a href="https://t.me/dimuzzo" target="_blank" rel="noopener noreferrer" class="social-card">
+            <div class="card-header">
+              <i class="fa-brands fa-telegram"></i>
+              <div class="card-badges">
+                <span class="badge secondary">Chat</span>
+              </div>
+            </div>
+            <div class="card-content">
+              <h3>Telegram</h3>
+              <p>Quick messages and informal discussions</p>
+              <div class="card-stats">
+                <span><i class="fas fa-bolt"></i> Instant</span>
+                <span><i class="fas fa-comments"></i> Casual</span>
+              </div>
+            </div>
+            <div class="card-action">
+              <span>Message <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </a>
+
+          <a href="https://leetcode.com/dimuzzo/" target="_blank" rel="noopener noreferrer" class="social-card">
+            <div class="card-header">
+              <i class="fa-solid fa-code"></i>
+              <div class="card-badges">
+                <span class="badge skills">Skills</span>
+              </div>
+            </div>
+            <div class="card-content">
+              <h3>LeetCode</h3>
+              <p>Check out my problem-solving skills and algorithms</p>
+              <div class="card-stats">
+                <span><i class="fas fa-puzzle-piece"></i> 100+ Problems</span>
+                <span><i class="fas fa-trophy"></i> Active</span>
+              </div>
+            </div>
+            <div class="card-action">
+              <span>View Solutions <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </a>
+
+          <a href="https://letterboxd.com/dimuzzo/" target="_blank" rel="noopener noreferrer" class="social-card personal">
+            <div class="card-header">
+              <i class="fa-solid fa-film"></i>
+              <div class="card-badges">
+                <span class="badge personal">Personal</span>
+              </div>
+            </div>
+            <div class="card-content">
+              <h3>Letterboxd</h3>
+              <p>My film reviews and recommendations</p>
+              <div class="card-stats">
+                <span><i class="fas fa-star"></i> Film Lover</span>
+                <span><i class="fas fa-eye"></i> Creative Side</span>
+              </div>
+            </div>
+            <div class="card-action">
+              <span>View Reviews <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <section class="contact-form-section hidden">
+        <h2 class="section-title">Send a Direct Message</h2>
+        <div class="form-container">
+          <form class="contact-form enhanced" id="enhanced-contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contact-name">Full Name *</label>
+                <input type="text" id="contact-name" name="name" required>
+                <div class="input-icon">
+                  <i class="fas fa-user"></i>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="contact-email">Email Address *</label>
+                <input type="email" id="contact-email" name="email" required>
+                <div class="input-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contact-company">Company/Organization</label>
+                <input type="text" id="contact-company" name="company">
+                <div class="input-icon">
+                  <i class="fas fa-building"></i>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="contact-subject">Inquiry Type *</label>
+                <select id="contact-subject" name="subject" required>
+                  <option value="">Select inquiry type</option>
+                  <option value="full-time">Full-time Position</option>
+                  <option value="freelance">Freelance Project</option>
+                  <option value="contract">Contract Work</option>
+                  <option value="collaboration">Collaboration</option>
+                  <option value="consultation">Technical Consultation</option>
+                  <option value="other">Other</option>
+                </select>
+                <div class="input-icon">
+                  <i class="fas fa-list"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="contact-budget">Project Budget (Optional)</label>
+              <select id="contact-budget" name="budget">
+                <option value="">Select budget range</option>
+                <option value="under-5k">Under $5,000</option>
+                <option value="5k-15k">$5,000 - $15,000</option>
+                <option value="15k-50k">$15,000 - $50,000</option>
+                <option value="over-50k">Over $50,000</option>
+                <option value="discuss">Let's discuss</option>
+              </select>
+              <div class="input-icon">
+                <i class="fas fa-dollar-sign"></i>
+              </div>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="contact-message">Project Details / Message *</label>
+              <textarea id="contact-message" name="message" rows="6" required 
+                placeholder="Tell me about your project, timeline, requirements, or any questions you have..."></textarea>
+            </div>
+
+            <div class="form-group full-width">
+              <label class="checkbox-label">
+                <input type="checkbox" id="urgent" name="urgent">
+                <span class="checkmark"></span>
+                This is urgent (I'll prioritize your message)
+              </label>
+            </div>
+
+            <button type="submit" class="btn-primary form-submit enhanced">
+              <span class="btn-text">
+                <i class="fas fa-paper-plane"></i>
+                Send Message
+              </span>
+              <span class="btn-loading">
+                <i class="fas fa-spinner fa-spin"></i>
+                Sending...
+              </span>
+            </button>
+          </form>
+
+          <div class="form-success" id="form-success">
+            <i class="fas fa-check-circle"></i>
+            <h3>Message Sent Successfully!</h3>
+            <p>Thank you for reaching out. I'll get back to you within 24 hours.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="collaboration-info">
+        <div class="info-grid">
+          <div class="info-card">
+            <i class="fas fa-handshake"></i>
+            <h3>Open to Opportunities</h3>
+            <p>Full-time positions, freelance projects, and exciting collaborations</p>
+          </div>
+          <div class="info-card">
+            <i class="fas fa-globe"></i>
+            <h3>Remote Friendly</h3>
+            <p>Available for remote work worldwide with flexible time zones</p>
+          </div>
+          <div class="info-card">
+            <i class="fas fa-rocket"></i>
+            <h3>Quick Turnaround</h3>
+            <p>Efficient delivery without compromising on quality</p>
+          </div>
+        </div>
+      </section>
+    </div>
   </main>
 
   <footer>
     <div class="footer-content">
-        <a href="mailto:will.be.updated@gmail.com" class="contact-link">will.be.updated@gmail.com</a>
-        <p>© <span id="current-year"></span> dimuzzo | All rights reserved</p>
+      <div class="footer-info">
+        <div class="footer-brand">
+          <h3>Alessandro Demo</h3>
+          <p>Full-Stack Developer & AI Enthusiast</p>
+        </div>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="projects.html">Projects</a>
+          <a href="techstack.html">Skills</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="current-year"></span> Alessandro Demo. All rights reserved. | Built with passion for innovation</p>
+      </div>
     </div>
   </footer>
 </body>
