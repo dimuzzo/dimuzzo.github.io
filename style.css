@@ -130,7 +130,7 @@ body.light-mode {
 .container {
   max-width: var(--container-max-width);
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 1.5rem; /* Increased padding for mobile */
 }
 
 .section-padding {
@@ -228,6 +228,8 @@ body.light-mode {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-align: center;
+  line-height: 1.2;
+  overflow-wrap: break-word;
 }
 
 .page-subtitle {
@@ -752,73 +754,6 @@ body.light-mode .skill-bar {
   transition: width 1s ease-in-out;
 }
 
-/* TESTIMONIALS */
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-}
-
-.testimonial-card {
-  padding: 2rem;
-  border-radius: var(--border-radius-lg);
-  transition: var(--transition);
-  position: relative;
-}
-
-body.dark-mode .testimonial-card {
-  background: var(--dm-bg-secondary);
-  border: 1px solid var(--dm-border);
-}
-
-body.light-mode .testimonial-card {
-  background: var(--lm-bg-secondary);
-  border: 1px solid var(--lm-border);
-  box-shadow: var(--shadow-md);
-}
-
-.testimonial-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-xl);
-}
-
-.testimonial-content {
-  margin-bottom: 1.5rem;
-}
-
-.testimonial-content .fa-quote-left {
-  color: var(--color-accent);
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-.testimonial-content p {
-  font-style: italic;
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
-
-.testimonial-author {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.author-info h4 {
-  margin-bottom: 0.25rem;
-  color: var(--color-accent);
-}
-
-.author-info p {
-  font-size: 0.9rem;
-  opacity: 0.8;
-  margin-bottom: 0.5rem;
-}
-
-.author-rating {
-  color: #f39c12;
-}
-
 /* PROJECTS SECTION */
 .page-header {
   text-align: center;
@@ -958,7 +893,7 @@ body.light-mode .project-card {
   font-size: 0.8rem;
   font-weight: 600;
   text-transform: uppercase;
-  white-space: nowrap; /* <-- MODIFICA AGGIUNTA QUI */
+  white-space: nowrap;
 }
 
 .status-badge.completed {
@@ -1137,7 +1072,10 @@ body.light-mode .contact-method {
   color: var(--color-accent);
 }
 
-/* CONTACT FORM */
+/* ---------------------------------- */
+/* ----- SEZIONE FORM CORRETTA ------ */
+/* ---------------------------------- */
+
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -1150,11 +1088,12 @@ body.light-mode .contact-method {
   gap: 1rem;
 }
 
+/* Il .form-group ora è l'ancora di posizionamento */
 .form-group {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  position: relative;
+  position: relative; /* MANTENUTO: serve come ancora per l'icona */
 }
 
 .form-group.full-width {
@@ -1177,6 +1116,7 @@ body.light-mode .contact-method {
   transition: var(--transition);
   background: transparent;
   font-family: inherit;
+  padding-right: 2.5rem; /* Fa spazio per l'icona */
 }
 
 body.dark-mode .form-group input,
@@ -1208,18 +1148,24 @@ body.light-mode .form-group textarea {
   min-height: 120px;
 }
 
+/* Regola per l'icona: la posiziona in modo stabile */
 .input-icon {
   position: absolute;
   right: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
+  /* Calcolo fisso: si posiziona a 2.7rem dall'alto del .form-group,
+     che corrisponde al centro verticale del campo di input.
+     Questo valore non cambia se un messaggio di errore appare sotto. */
+  top: 2.7rem;
+  transform: translateY(0); /* Rimosso translateY per semplicità */
   color: var(--color-accent);
   pointer-events: none;
 }
 
-.form-group.full-width .input-icon {
-  top: 2.5rem;
-  transform: translateY(-50%);
+
+/* Queste regole specifiche non sono più necessarie, la regola generale è sufficiente */
+.form-group.full-width .input-icon,
+.form-group select + .input-icon {
+   top: 2.7rem;
 }
 
 .checkbox-label {
@@ -1304,6 +1250,11 @@ body.light-mode .form-group textarea {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
 }
+
+/* ---------------------------------- */
+/* ------- FINE SEZIONE FORM -------- */
+/* ---------------------------------- */
+
 
 /* SOCIAL CARDS */
 .availability-status {
@@ -1538,6 +1489,7 @@ body.light-mode .stat-card {
   justify-content: center;
   color: white;
   font-size: 1.5rem;
+  flex-shrink: 0;
 }
 
 .stat-info h3 {
@@ -2071,7 +2023,7 @@ body.light-mode .modal-content {
 }
 
 /* RESPONSIVE DESIGN */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .nav-container ul {
     display: none;
   }
@@ -2141,10 +2093,6 @@ body.light-mode .modal-content {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .testimonials-grid {
-    grid-template-columns: 1fr;
-  }
-
   .social-grid {
     grid-template-columns: 1fr;
   }
@@ -2170,6 +2118,10 @@ body.light-mode .modal-content {
 
   .page-title {
     font-size: 2.5rem;
+  }
+
+  .page-subtitle {
+      font-size: 1.1rem;
   }
 
   .section-title {
@@ -2226,6 +2178,10 @@ body.light-mode .modal-content {
   .availability-status {
     flex-direction: column;
     gap: 1rem;
+  }
+
+  .page-title {
+    font-size: 2.2rem;
   }
 }
 
