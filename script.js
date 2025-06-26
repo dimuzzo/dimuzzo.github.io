@@ -28,8 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeProjectFilters();
     initializeModalSystem();
     updateCopyrightYear();
-    
-    // Hide loading screen after everything is loaded
+
     setTimeout(() => {
         hideLoadingScreen();
     }, 1000);
@@ -38,9 +37,9 @@ document.addEventListener('DOMContentLoaded', () => {
 // Theme Management
 function initializeTheme() {
     if (!toggleBtn) return;
-    
+
     setTheme(currentTheme);
-    
+
     toggleBtn.addEventListener("click", () => {
         currentTheme = currentTheme === "dark" ? "light" : "dark";
         setTheme(currentTheme);
@@ -80,17 +79,14 @@ function hideLoadingScreen() {
 
 // Navigation
 function initializeNavigation() {
-    // Mobile navigation toggle
     if (navToggle && navContainer) {
         navToggle.addEventListener('click', () => {
             navContainer.classList.toggle('active');
         });
     }
-    
-    // Active navigation highlighting
+
     highlightActiveNavLink();
-    
-    // Smooth scrolling for anchor links
+
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -123,12 +119,10 @@ function highlightActiveNavLink() {
 
 // Animations and Scroll Effects
 function initializeAnimations() {
-    // Intersection Observer for scroll animations
     animationObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('show');
-                // Trigger skill bar animations when skills section is visible
                 if (entry.target.classList.contains('skills')) {
                     animateSkillBars();
                 }
@@ -139,14 +133,11 @@ function initializeAnimations() {
         rootMargin: '0px 0px -50px 0px'
     });
 
-    // Observe all hidden elements
     const hiddenElements = document.querySelectorAll('.hidden');
     hiddenElements.forEach((el) => animationObserver.observe(el));
 
-    // Parallax effect for hero background
     initializeParallax();
-    
-    // 3D tilt effect for social cards
+
     initializeTiltEffect();
 }
 
@@ -163,7 +154,7 @@ function initializeParallax() {
 
 function initializeTiltEffect() {
     const socialCards = document.querySelectorAll('.social-card');
-    
+
     socialCards.forEach(card => {
         card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
@@ -224,7 +215,7 @@ function animateSkillBars() {
 // Counter Animation
 function initializeCounters() {
     const counters = document.querySelectorAll('.stat-number[data-target]');
-    
+
     const counterObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
@@ -233,7 +224,7 @@ function initializeCounters() {
                 const duration = 2000;
                 const increment = target / (duration / 16);
                 let current = 0;
-                
+
                 const updateCounter = () => {
                     current += increment;
                     if (current < target) {
@@ -243,30 +234,30 @@ function initializeCounters() {
                         counter.textContent = target;
                     }
                 };
-                
+
                 updateCounter();
                 counterObserver.unobserve(counter);
             }
         });
     }, { threshold: 0.5 });
-    
+
     counters.forEach(counter => counterObserver.observe(counter));
 }
 
 // Typewriter Effect
 function initializeTypewriter() {
     const typewriterElements = document.querySelectorAll('.typewriter');
-    
+
     typewriterElements.forEach(element => {
         const text = element.textContent;
         const phrases = [text, 'AI Enthusiast', 'Problem Solver', 'Innovation Driver'];
         let phraseIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
-        
+
         function typeWriter() {
             const currentPhrase = phrases[phraseIndex];
-            
+
             if (isDeleting) {
                 element.textContent = currentPhrase.substring(0, charIndex - 1);
                 charIndex--;
@@ -274,9 +265,9 @@ function initializeTypewriter() {
                 element.textContent = currentPhrase.substring(0, charIndex + 1);
                 charIndex++;
             }
-            
+
             let typeSpeed = isDeleting ? 50 : 100;
-            
+
             if (!isDeleting && charIndex === currentPhrase.length) {
                 typeSpeed = 2000;
                 isDeleting = true;
@@ -285,42 +276,36 @@ function initializeTypewriter() {
                 phraseIndex = (phraseIndex + 1) % phrases.length;
                 typeSpeed = 500;
             }
-            
+
             setTimeout(typeWriter, typeSpeed);
         }
-        
-        // Start typewriter effect after a delay
+
         setTimeout(typeWriter, 1000);
     });
 }
 
 // Form Handling
 function initializeForms() {
-    // Basic contact form
     if (contactForm) {
         contactForm.addEventListener('submit', handleFormSubmit);
     }
-    
-    // Enhanced contact form
+
     if (enhancedContactForm) {
         enhancedContactForm.addEventListener('submit', handleEnhancedFormSubmit);
     }
-    
-    // Form validation
+
     initializeFormValidation();
 }
 
 function handleFormSubmit(e) {
     e.preventDefault();
-    
+
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
-    
-    // Show loading state
+
     const submitBtn = e.target.querySelector('.form-submit');
     submitBtn.classList.add('loading');
-    
-    // Simulate form submission
+
     setTimeout(() => {
         submitBtn.classList.remove('loading');
         showFormSuccess();
@@ -330,15 +315,13 @@ function handleFormSubmit(e) {
 
 function handleEnhancedFormSubmit(e) {
     e.preventDefault();
-    
+
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
-    
-    // Show loading state
+
     const submitBtn = e.target.querySelector('.form-submit');
     submitBtn.classList.add('loading');
-    
-    // Simulate form submission
+
     setTimeout(() => {
         submitBtn.classList.remove('loading');
         showEnhancedFormSuccess();
@@ -359,11 +342,11 @@ function showFormSuccess() {
 function showEnhancedFormSuccess() {
     const form = document.querySelector('.form-container');
     const successElement = document.getElementById('form-success');
-    
+
     if (form && successElement) {
         form.style.display = 'none';
         successElement.classList.add('show');
-        
+
         setTimeout(() => {
             form.style.display = 'block';
             successElement.classList.remove('show');
@@ -373,10 +356,10 @@ function showEnhancedFormSuccess() {
 
 function initializeFormValidation() {
     const forms = document.querySelectorAll('form');
-    
+
     forms.forEach(form => {
         const inputs = form.querySelectorAll('input, textarea, select');
-        
+
         inputs.forEach(input => {
             input.addEventListener('blur', validateField);
             input.addEventListener('input', clearFieldError);
@@ -387,17 +370,14 @@ function initializeFormValidation() {
 function validateField(e) {
     const field = e.target;
     const value = field.value.trim();
-    
-    // Remove existing error styles
+
     field.classList.remove('error');
-    
-    // Validate required fields
+
     if (field.hasAttribute('required') && !value) {
         showFieldError(field, 'This field is required');
         return false;
     }
-    
-    // Validate email
+
     if (field.type === 'email' && value) {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(value)) {
@@ -405,34 +385,32 @@ function validateField(e) {
             return false;
         }
     }
-    
+
     return true;
 }
 
 function showFieldError(field, message) {
     field.classList.add('error');
-    
-    // Remove existing error message
+
     const existingError = field.parentNode.querySelector('.error-message');
     if (existingError) {
         existingError.remove();
     }
-    
-    // Add error message
+
     const errorElement = document.createElement('span');
     errorElement.className = 'error-message';
     errorElement.textContent = message;
     errorElement.style.color = 'var(--color-accent)';
     errorElement.style.fontSize = '0.8rem';
     errorElement.style.marginTop = '0.25rem';
-    
+
     field.parentNode.appendChild(errorElement);
 }
 
 function clearFieldError(e) {
     const field = e.target;
     field.classList.remove('error');
-    
+
     const errorMessage = field.parentNode.querySelector('.error-message');
     if (errorMessage) {
         errorMessage.remove();
@@ -443,19 +421,17 @@ function clearFieldError(e) {
 function initializeProjectFilters() {
     const filterBtns = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.project-card');
-    
+
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             const filter = btn.getAttribute('data-filter');
-            
-            // Update active button
+
             filterBtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-            
-            // Filter projects
+
             projectCards.forEach(card => {
                 const categories = card.getAttribute('data-category') || '';
-                
+
                 if (filter === 'all' || categories.includes(filter)) {
                     card.style.display = 'block';
                     card.style.animation = 'fadeIn 0.5s ease-in-out';
@@ -471,11 +447,11 @@ function initializeProjectFilters() {
 function initializeModalSystem() {
     const modal = document.getElementById('project-modal');
     const modalClose = document.querySelector('.modal-close');
-    
+
     if (modalClose) {
         modalClose.addEventListener('click', closeModal);
     }
-    
+
     if (modal) {
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {
@@ -483,8 +459,7 @@ function initializeModalSystem() {
             }
         });
     }
-    
-    // ESC key to close modal
+
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && modal && modal.classList.contains('show')) {
             closeModal();
@@ -495,13 +470,12 @@ function initializeModalSystem() {
 function showProjectDemo(projectId) {
     const modal = document.getElementById('project-modal');
     const modalBody = document.getElementById('modal-body');
-    
+
     if (!modal || !modalBody) return;
-    
-    // Demo content based on project
+
     const demoContent = getProjectDemoContent(projectId);
     modalBody.innerHTML = demoContent;
-    
+
     modal.classList.add('show');
     document.body.style.overflow = 'hidden';
 }
@@ -521,7 +495,7 @@ function getProjectDemoContent(projectId) {
             <div style="text-align: center; padding: 2rem;">
                 <div style="background: linear-gradient(135deg, #e74c3c, #c0392b); color: white; padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
                     <h3>Model Performance</h3>
-                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1rem;">
+                    <div class="modal-grid">
                         <div><strong>Accuracy:</strong><br>71%</div>
                         <div><strong>Precision:</strong><br>69%</div>
                         <div><strong>Recall:</strong><br>73%</div>
@@ -540,7 +514,7 @@ function getProjectDemoContent(projectId) {
             <div style="padding: 2rem;">
                 <div style="background: linear-gradient(135deg, #3498db, #2980b9); color: white; padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
                     <h3>Performance Comparison</h3>
-                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 1rem;">
+                    <div class="modal-grid">
                         <div>
                             <h4>DuckDB Spatial</h4>
                             <ul style="text-align: left; margin-top: 0.5rem;">
@@ -572,7 +546,7 @@ function getProjectDemoContent(projectId) {
             <div style="padding: 2rem;">
                 <div style="background: linear-gradient(135deg, #9b59b6, #8e44ad); color: white; padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
                     <h3>Features Demonstration</h3>
-                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 1rem;">
+                    <div class="modal-grid">
                         <div>
                             <h4>Interactive Elements</h4>
                             <ul style="text-align: left; margin-top: 0.5rem;">
@@ -600,7 +574,7 @@ function getProjectDemoContent(projectId) {
             </div>
         `
     };
-    
+
     return demos[projectId] || '<p>Demo content not available.</p>';
 }
 
@@ -625,7 +599,6 @@ function debounce(func, wait) {
 
 // Performance Optimization
 function optimizePerformance() {
-    // Lazy load images
     const images = document.querySelectorAll('img[data-src]');
     const imageObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -637,39 +610,33 @@ function optimizePerformance() {
             }
         });
     });
-    
+
     images.forEach(img => imageObserver.observe(img));
-    
-    // Optimize scroll events
+
     let ticking = false;
     const optimizedScrollHandler = () => {
         if (!ticking) {
             requestAnimationFrame(() => {
-                // Handle scroll events here
                 ticking = false;
             });
             ticking = true;
         }
     };
-    
+
     window.addEventListener('scroll', optimizedScrollHandler, { passive: true });
 }
 
 // Error Handling
 window.addEventListener('error', (e) => {
     console.error('JavaScript error:', e.error);
-    // Could implement error reporting here
 });
 
 window.addEventListener('unhandledrejection', (e) => {
     console.error('Unhandled promise rejection:', e.reason);
-    // Could implement error reporting here
 });
 
-// Initialize performance optimizations
 document.addEventListener('DOMContentLoaded', optimizePerformance);
 
-// Cleanup on page unload
 window.addEventListener('beforeunload', () => {
     if (animationObserver) {
         animationObserver.disconnect();
@@ -679,6 +646,5 @@ window.addEventListener('beforeunload', () => {
     }
 });
 
-// Export functions for global access
 window.showProjectDemo = showProjectDemo;
 window.closeModal = closeModal;
