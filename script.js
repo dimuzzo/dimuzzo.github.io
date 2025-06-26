@@ -13,7 +13,7 @@ const sunIcon = toggleBtn?.querySelector('.fa-sun');
 const navToggle = document.getElementById("nav-toggle");
 const navContainer = document.querySelector(".nav-container");
 const contactForm = document.getElementById("contact-form");
-const enhancedContactForm = document.getElementById("enhanced-contact-form");
+const socialsContactForm = document.getElementById("enhanced-contact-form"); 
 const yearSpan = document.getElementById("current-year");
 
 // Initialize Application
@@ -289,9 +289,9 @@ function initializeForms() {
     if (contactForm) {
         contactForm.addEventListener('submit', handleFormSubmit);
     }
-
-    if (enhancedContactForm) {
-        enhancedContactForm.addEventListener('submit', handleEnhancedFormSubmit);
+    
+    if (socialsContactForm) {
+        socialsContactForm.addEventListener('submit', handleFormSubmit); 
     }
 
     initializeFormValidation();
@@ -305,50 +305,37 @@ function handleFormSubmit(e) {
 
     const submitBtn = e.target.querySelector('.form-submit');
     submitBtn.classList.add('loading');
+    submitBtn.disabled = true; 
 
     setTimeout(() => {
         submitBtn.classList.remove('loading');
-        showFormSuccess();
+        submitBtn.disabled = false; 
+        
+        const formContainer = e.target.closest('.form-container, .contact-grid');
+        const successElement = formContainer.querySelector('.form-success');
+        if(successElement) {
+            e.target.style.display = 'none';
+            successElement.classList.add('show');
+            setTimeout(() => {
+                e.target.style.display = 'flex';
+                successElement.classList.remove('show');
+            }, 5000);
+        }
+        
         e.target.reset();
     }, 2000);
 }
 
-function handleEnhancedFormSubmit(e) {
-    e.preventDefault();
-
-    const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData);
-
-    const submitBtn = e.target.querySelector('.form-submit');
-    submitBtn.classList.add('loading');
-
-    setTimeout(() => {
-        submitBtn.classList.remove('loading');
-        showEnhancedFormSuccess();
-        e.target.reset();
-    }, 2000);
-}
-
-function showFormSuccess() {
-    const successElement = document.getElementById('form-success');
-    if (successElement) {
-        successElement.classList.add('show');
-        setTimeout(() => {
-            successElement.classList.remove('show');
-        }, 5000);
-    }
-}
-
-function showEnhancedFormSuccess() {
-    const form = document.querySelector('.form-container');
-    const successElement = document.getElementById('form-success');
-
-    if (form && successElement) {
+function showFormSuccess(form) {
+    const formContainer = form.closest('.form-container, .contact-grid');
+    const successElement = formContainer.querySelector('.form-success');
+    
+    if (formContainer && successElement) {
         form.style.display = 'none';
         successElement.classList.add('show');
 
         setTimeout(() => {
-            form.style.display = 'block';
+            form.style.display = 'flex'; 
             successElement.classList.remove('show');
         }, 5000);
     }

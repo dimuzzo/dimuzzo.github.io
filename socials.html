@@ -40,10 +40,6 @@
     </div>
   </nav>
 
-  <button id="toggle-theme" class="toggle-theme" aria-label="Toggle Light/Dark Theme">
-    <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
-  </button>
-
   <main class="section-padding">
     <div class="container">
       <div class="page-header">
@@ -188,7 +184,7 @@
       <section class="contact-form-section hidden">
         <h2 class="section-title">Send a Direct Message</h2>
         <div class="form-container">
-          <form class="contact-form enhanced" id="enhanced-contact-form">
+          <form class="contact-form" id="contact-form"> 
             <div class="form-row">
               <div class="form-group">
                 <label for="contact-name">Full Name *</label>
@@ -259,16 +255,10 @@
                 This is urgent (I'll prioritize your message)
               </label>
             </div>
-
-            <button type="submit" class="btn-primary form-submit enhanced">
-              <span class="btn-text">
-                <i class="fas fa-paper-plane"></i>
-                Send Message
-              </span>
-              <span class="btn-loading">
-                <i class="fas fa-spinner fa-spin"></i>
-                Sending...
-              </span>
+            
+            <button type="submit" class="btn-primary form-submit">
+              <i class="fas fa-paper-plane"></i>
+              Send Message
             </button>
           </form>
 
@@ -313,6 +303,9 @@
           <a href="index.html">Home</a>
           <a href="projects.html">Projects</a>
           <a href="techstack.html">Skills</a>
+          <button id="toggle-theme" class="toggle-theme" aria-label="Toggle Light/Dark Theme">
+            <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
+          </button>
         </div>
       </div>
       <div class="footer-bottom">
