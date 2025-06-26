@@ -411,6 +411,7 @@ body.light-mode .toggle-theme .fa-moon {
 
 /* HERO SECTION */
 .hero {
+  padding-top: 70px;
   height: 100vh;
   min-height: 700px;
   display: flex;
