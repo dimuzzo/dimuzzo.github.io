@@ -130,11 +130,11 @@ body.light-mode {
 .container {
   max-width: var(--container-max-width);
   margin: 0 auto;
-  padding: 0 1.5rem; /* Increased padding for mobile */
+  padding: 0 1.5rem;
 }
 
 .section-padding {
-  padding: 5rem 0;
+  padding: 8rem 0 5rem 0;
 }
 
 .hidden {
@@ -1072,10 +1072,6 @@ body.light-mode .contact-method {
   color: var(--color-accent);
 }
 
-/* ---------------------------------- */
-/* ----- SEZIONE FORM CORRETTA ------ */
-/* ---------------------------------- */
-
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -1088,12 +1084,11 @@ body.light-mode .contact-method {
   gap: 1rem;
 }
 
-/* Il .form-group ora è l'ancora di posizionamento */
 .form-group {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  position: relative; /* MANTENUTO: serve come ancora per l'icona */
+  position: relative; 
 }
 
 .form-group.full-width {
@@ -1116,7 +1111,7 @@ body.light-mode .contact-method {
   transition: var(--transition);
   background: transparent;
   font-family: inherit;
-  padding-right: 2.5rem; /* Fa spazio per l'icona */
+  padding-right: 2.5rem; 
 }
 
 body.dark-mode .form-group input,
@@ -1148,21 +1143,15 @@ body.light-mode .form-group textarea {
   min-height: 120px;
 }
 
-/* Regola per l'icona: la posiziona in modo stabile */
 .input-icon {
   position: absolute;
   right: 1rem;
-  /* Calcolo fisso: si posiziona a 2.7rem dall'alto del .form-group,
-     che corrisponde al centro verticale del campo di input.
-     Questo valore non cambia se un messaggio di errore appare sotto. */
   top: 2.7rem;
-  transform: translateY(0); /* Rimosso translateY per semplicità */
+  transform: translateY(0);
   color: var(--color-accent);
   pointer-events: none;
 }
 
-
-/* Queste regole specifiche non sono più necessarie, la regola generale è sufficiente */
 .form-group.full-width .input-icon,
 .form-group select + .input-icon {
    top: 2.7rem;
@@ -1250,11 +1239,6 @@ body.light-mode .form-group textarea {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
 }
-
-/* ---------------------------------- */
-/* ------- FINE SEZIONE FORM -------- */
-/* ---------------------------------- */
-
 
 /* SOCIAL CARDS */
 .availability-status {
@@ -2137,7 +2121,7 @@ body.light-mode .modal-content {
   }
 
   .section-padding {
-    padding: 3rem 0;
+    padding: 6rem 0 3rem 0;
   }
 
   .container {
