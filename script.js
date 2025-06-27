@@ -286,44 +286,46 @@ function initializeTypewriter() {
 
 // Form Handling
 function initializeForms() {
-    if (contactForm) {
-        contactForm.addEventListener('submit', handleFormSubmit);
-    }
+    const mainContactForm = document.getElementById("contact-form");
+    const socialsContactForm = document.getElementById("contact-form");
     
-    if (socialsContactForm) {
-        socialsContactForm.addEventListener('submit', handleFormSubmit); 
+    if (mainContactForm) {
+        mainContactForm.addEventListener('submit', handleFormSubmit);
     }
-
-    initializeFormValidation();
 }
 
-function handleFormSubmit(e) {
+async function handleFormSubmit(e) {
     e.preventDefault();
 
-    const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData);
-
-    const submitBtn = e.target.querySelector('.form-submit');
+    const form = e.target;
+    const formData = new FormData(form);
+    const submitBtn = form.querySelector('.form-submit');
+    
     submitBtn.classList.add('loading');
-    submitBtn.disabled = true; 
+    submitBtn.disabled = true;
 
-    setTimeout(() => {
-        submitBtn.classList.remove('loading');
-        submitBtn.disabled = false; 
-        
-        const formContainer = e.target.closest('.form-container, .contact-grid');
-        const successElement = formContainer.querySelector('.form-success');
-        if(successElement) {
-            e.target.style.display = 'none';
-            successElement.classList.add('show');
-            setTimeout(() => {
-                e.target.style.display = 'flex';
-                successElement.classList.remove('show');
-            }, 5000);
+    try {
+        const response = await fetch("https://formspree.io/f/manjaqoj", {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+        if (response.ok) {
+            showFormSuccess(form);
+            form.reset();
+        } else {
+            alert("Sorry, there was an error sending your message. Please try again later.");
         }
-        
-        e.target.reset();
-    }, 2000);
+
+    } catch (error) {
+        console.error("Form submission error:", error);
+        alert("A network error occurred. Please check your connection and try again.");
+    } finally {
+        submitBtn.classList.remove('loading');
+        submitBtn.disabled = false;
+    }
 }
 
 function showFormSuccess(form) {
@@ -338,6 +340,8 @@ function showFormSuccess(form) {
             form.style.display = 'flex'; 
             successElement.classList.remove('show');
         }, 5000);
+    } else {
+        alert("Thank you for your message!");
     }
 }
 
