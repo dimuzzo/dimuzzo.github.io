@@ -502,7 +502,7 @@ function getProjectDemoContent(projectId) {
         `,
         'spatial-db': `
             <h2>Spatial Database Benchmarking - Results</h2>
-            <div style="padding: 2rem;">
+            <div style="text-align: center; padding: 2rem;">
                 <div style="background: linear-gradient(135deg, #3498db, #2980b9); color: white; padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
                     <h3>Performance Comparison</h3>
                     <div class="modal-grid">
@@ -534,7 +534,7 @@ function getProjectDemoContent(projectId) {
         `,
         'quiz-app': `
             <h2>Interactive Quiz Application - Preview</h2>
-            <div style="padding: 2rem;">
+            <div style="text-align: center; padding: 2rem;">
                 <div style="background: linear-gradient(135deg, #9b59b6, #8e44ad); color: white; padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
                     <h3>Features Demonstration</h3>
                     <div class="modal-grid">
