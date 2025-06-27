@@ -1387,8 +1387,8 @@ body.light-mode .social-card {
 }
 
 .badge.primary {
-  background: rgba(230, 230, 230, 0.15);
-  color: #e6e6e6;                        
+  background: rgba(243, 156, 18, 0.2);
+  color: var(--color-warning);                        
 }
 
 .badge.professional {
