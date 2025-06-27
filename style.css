@@ -2193,3 +2193,9 @@ body.light-mode .modal-content {
   object-fit: cover; 
   border-radius: 50%;
 }
+
+.recaptcha-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px; 
+}
