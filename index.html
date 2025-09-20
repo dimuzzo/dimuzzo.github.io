@@ -15,13 +15,15 @@
 </head>
 <body class="dark-mode">
 
+  <div id="particles-js"></div>
+
   <header class="main-header">
     <nav>
       <div class="nav-container">
         <a href="#" class="nav-logo">dimuzzo</a>
         <div class="nav-links">
           <a href="#projects">Projects</a>
-          <a href="#skills">Technologies</a>
+          <a href="#skills">Skills</a>
           <a href="#contact">Contact</a>
         </div>
       </div>
@@ -31,7 +33,7 @@
   <main>
     <section class="hero">
       <div class="hero-content">
-        <h1 class="hero-title">Alessandro Demo</h1>
+        <h1 class="hero-title">Alessandro Demo aka dimuzzo</h1>
         <p class="hero-subtitle">A soon-to-be Computer Science graduate, eager to explore new experiences in programming and Artificial Intelligence.</p>
         <div class="hero-buttons">
           <a href="#projects" class="btn btn-secondary">My Projects</a>
@@ -88,7 +90,7 @@
 
           <div class="project-card">
             <div class="project-image-container">
-              <img src="https://imgs.search.brave.com/u8TbqE8eO3XWNIi0tCTlaMdzjC0x_qMjnY_SZOJDjd0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTM4/ODI3NTc5Mi9waG90/by9xdWVzdGlvbi1t/YXJrLXVuY2VydGFp/bnR5LXVua25vd24t/ZmVhci1pbnF1aXJ5/LWludmVzdGlnYXRp/b24tZXhhbWluYXRp/b24taW50ZXJyb2dh/dGlvbi5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9alM4Q21O/UWRocm1qN1RMN1Iz/QjdaXzNibFFKc25C/LWNyMWFtN0VMRnZ1/Zz0" alt="Quiz App Project" class="project-image">
+              <img src="https://imgs.search.brave.com/Zo_wdcyvL8WNWcLa_lxtwhQpNvheYVpTZ6_XiARdvac/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS12ZWN0b3Iv/cHVycGxlLWJhY2tn/cm91bmQtd2l0aC1x/dWl6LXdvcmQtY29s/b3JmdWwtcGVvcGxl/XzUyNjgzLTEyNi5q/cGc_c2VtdD1haXNf/aW5jb21pbmcmdz03/NDAmcT04MA" alt="Quiz App Project" class="project-image">
             </div>
             <div class="project-info">
               <h3 class="project-title">Interactive Quiz App</h3>
@@ -118,29 +120,37 @@
           <div class="skill-category">
             <h3 class="skill-category-title">Languages</h3>
             <ul>
+              <li>Java</li>
               <li>Python</li>
               <li>JavaScript</li>
-              <li>Java</li>
               <li>C</li>
               <li>SQL</li>
+              <li>HTML5 / CSS3</li>
+              <li>R</li>
+              <li>RISC-V</li>
             </ul>
           </div>
           <div class="skill-category">
-            <h3 class="skill-category-title">AI & Data</h3>
+            <h3 class="skill-category-title">Frameworks, AI & Data</h3>
             <ul>
-              <li>Pandas / NumPy</li>
-              <li>Scikit-learn</li>
-              <li>Jupyter</li>
-              <li>GeoPandas</li>
+                <li>Spring Boot</li>
+                <li>Scikit-learn</li>
+                <li>Pandas / NumPy</li>
+                <li>GeoPandas</li>
+                <li>Matplotlib</li>
+                <li>Jupyter Notebook</li>
+                <li>Handlebars</li>
             </ul>
           </div>
           <div class="skill-category">
             <h3 class="skill-category-title">Databases & Tools</h3>
             <ul>
-              <li>PostgreSQL</li>
+              <li>PostgreSQL / PostGIS</li>
+              <li>MongoDB</li>
               <li>DuckDB</li>
-              <li>Git / GitHub</li>
-              <li>Linux</li>
+              <li>Git / GitHub / GitLab</li>
+              <li>Unix</li>
+              <li>Makefile</li>
               <li>Arduino</li>
             </ul>
           </div>
@@ -175,6 +185,62 @@
       <p>&copy; <span id="current-year"></span> dimuzzo</p>
     </div>
   </footer>
+
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS('particles-js', {
+      "particles": {
+        "number": {
+          "value": 60,
+          "density": {
+            "enable": true,
+            "value_area": 800
+          }
+        },
+        "color": {
+          "value": "#ffffff"
+        },
+        "shape": {
+          "type": "circle"
+        },
+        "opacity": {
+          "value": 0.3,
+          "random": true
+        },
+        "size": {
+          "value": 2,
+          "random": true
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#ffffff",
+          "opacity": 0.2,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 1,
+          "direction": "none",
+          "random": true,
+          "straight": false,
+          "out_mode": "out"
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": {
+            "enable": false
+          },
+          "onclick": {
+            "enable": false
+          }
+        }
+      },
+      "retina_detect": true
+    });
+  </script>
 
 </body>
 </html>
