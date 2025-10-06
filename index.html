@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" />
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <script defer src="script.js"></script>
@@ -23,7 +23,8 @@
         <a href="#" class="nav-logo">dimuzzo</a>
         <div class="nav-links">
           <a href="#projects">Projects</a>
-          <a href="#skills">Skills</a>
+          <a href="#skills">Technologies</a>
+          <a href="#journey">My Timeline</a>
           <a href="#contact">Contact</a>
         </div>
       </div>
@@ -33,10 +34,11 @@
   <main>
     <section class="hero">
       <div class="hero-content">
-        <h1 class="hero-title">Alessandro Demo aka dimuzzo</h1>
-        <p class="hero-subtitle">A soon-to-be Computer Science graduate, eager to explore new experiences in programming and Artificial Intelligence.</p>
+        <h1 class="hero-title">Alessandro Demo</h1>
+        <p class="hero-subtitle">A soon-to-be Computer Science graduate, eager to explore new experiences in programming and data science.</p>
         <div class="hero-buttons">
           <a href="#projects" class="btn btn-secondary">My Projects</a>
+          <a href="#journey" class="btn btn-secondary">About Me</a>
           <a href="#contact" class="btn btn-secondary">Get In Touch</a>
         </div>
       </div>
@@ -46,8 +48,8 @@
       <div class="container">
         <h2 class="section-title">Selected Projects</h2>
         <div class="projects-grid">
-
-          <div class="project-card">
+          
+          <div class="project-card hidden">
             <div class="project-image-container">
               <img src="https://images7.alphacoders.com/856/thumb-1920-856240.jpg" alt="NBA Project" class="project-image">
             </div>
@@ -67,7 +69,7 @@
             </div>
           </div>
 
-          <div class="project-card">
+          <div class="project-card hidden">
             <div class="project-image-container">
               <img src="https://media.istockphoto.com/id/1433041100/it/foto/tecnologia-di-comunicazione-con-rete-internet-globale-connessa-in-europa-collegamenti-di.jpg?s=2048x2048&w=is&k=20&c=GdnOD2TCAyCe5n5JnUATSPMUtU1URXgVPsfhyUGxNCI=" alt="Spatial Database Project" class="project-image">
             </div>
@@ -88,7 +90,7 @@
             </div>
           </div>
 
-          <div class="project-card">
+          <div class="project-card hidden">
             <div class="project-image-container">
               <img src="https://imgs.search.brave.com/Zo_wdcyvL8WNWcLa_lxtwhQpNvheYVpTZ6_XiARdvac/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS12ZWN0b3Iv/cHVycGxlLWJhY2tn/cm91bmQtd2l0aC1x/dWl6LXdvcmQtY29s/b3JmdWwtcGVvcGxl/XzUyNjgzLTEyNi5q/cGc_c2VtdD1haXNf/aW5jb21pbmcmdz03/NDAmcT04MA" alt="Quiz App Project" class="project-image">
             </div>
@@ -115,64 +117,127 @@
     <section id="skills" class="skills-section">
       <div class="container">
         <h2 class="section-title">Technologies</h2>
-        <p class="section-subtitle">I have used a variety of tools and technologies to complete my projects.</p>
         <div class="skills-grid">
-          <div class="skill-category">
-            <h3 class="skill-category-title">Languages</h3>
-            <ul>
-              <li>Java</li>
-              <li>Python</li>
-              <li>JavaScript</li>
-              <li>C</li>
-              <li>SQL</li>
-              <li>HTML5 / CSS3</li>
-              <li>R</li>
-              <li>RISC-V</li>
-            </ul>
+            <div class="skill-category hidden">
+                <h3 class="skill-category-title"></i>Languages</h3>
+                <ul>
+                  <li>Java</li>
+                  <li>Python</li>
+                  <li>JavaScript</li>
+                  <li>C</li>
+                  <li>SQL</li>
+                  <li>HTML5 / CSS3</li>
+                  <li>R</li>
+                  <li>RISC-V</li>
+                </ul>
+              </div>
+              <div class="skill-category hidden">
+                <h3 class="skill-category-title"></i>Frameworks, AI & Data</h3>
+                <ul>
+                    <li>Spring Boot</li>
+                    <li>Scikit-learn</li>
+                    <li>Pandas / NumPy</li>
+                    <li>GeoPandas</li>
+                    <li>Matplotlib</li>
+                    <li>Jupyter Notebook</li>
+                    <li>Handlebars</li>
+                </ul>
+              </div>
+              <div class="skill-category hidden">
+                <h3 class="skill-category-title"></i>Databases & Tools</h3>
+                <ul>
+                  <li>PostgreSQL / PostGIS</li>
+                  <li>MongoDB</li>
+                  <li>DuckDB</li>
+                  <li>Git / GitHub / GitLab</li>
+                  <li>Unix</li>
+                  <li>Makefile</li>
+                  <li>Arduino</li>
+                </ul>
+              </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="journey" class="journey-section">
+      <div class="container">
+        <h2 class="section-title">My Tech Timeline</h2>
+        <p class="section-subtitle">A brief timeline of my academic and professional milestones.</p>
+        <div class="timeline-container">
+          
+          <div class="timeline-item hidden">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">November 2025</div>
+            <div class="timeline-content">
+              <h4>Expected Graduation in Computer Science at UniTo</h4>
+              <p>Completing my bachelor's degree with a focus on software engineering, machine learning, and data science principles. Ready to apply my academic knowledge to real-world jobs and to continue my studies.</p>
+            </div>
           </div>
-          <div class="skill-category">
-            <h3 class="skill-category-title">Frameworks, AI & Data</h3>
-            <ul>
-                <li>Spring Boot</li>
-                <li>Scikit-learn</li>
-                <li>Pandas / NumPy</li>
-                <li>GeoPandas</li>
-                <li>Matplotlib</li>
-                <li>Jupyter Notebook</li>
-                <li>Handlebars</li>
-            </ul>
+          
+          <div class="timeline-item hidden">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">Summer 2025</div>
+            <div class="timeline-content">
+              <h4>Internal University Internship</h4>
+              <p>Focused on a complex project for the completion of my thesis for the three-year degree course in Computer Science: the development of a comparative analysis of DuckDB, PostGIS, and GeoPandas for geospatial data (OpenStreetMap, vectorial, and raster) processing and analysis.</p>
+            </div>
           </div>
-          <div class="skill-category">
-            <h3 class="skill-category-title">Databases & Tools</h3>
-            <ul>
-              <li>PostgreSQL / PostGIS</li>
-              <li>MongoDB</li>
-              <li>DuckDB</li>
-              <li>Git / GitHub / GitLab</li>
-              <li>Unix</li>
-              <li>Makefile</li>
-              <li>Arduino</li>
-            </ul>
+          
+          <div class="timeline-item hidden">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">2023 - 2024</div>
+            <div class="timeline-content">
+              <h4>Deep Dive into Core Technologies</h4>
+              <p>Started exploring advanced topics in Java with Spring Boot and Python for data science. Contributed to my first open-source projects on GitHub.</p>
+            </div>
           </div>
+          
+          <div class="timeline-item hidden">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">September 2022</div>
+            <div class="timeline-content">
+              <h4>Beginning of University Studies at UniTo</h4>
+              <p>Enrolled in the Computer Science program, where I built a strong foundation in algorithms, data structures, and object-oriented programming.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item hidden">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">June 2022</div>
+            <div class="timeline-content">
+              <h4>Graduated from the ITIS G.B. Pininfarina in Electronics and Automation</h4>
+              <p>Learned the basics of Arduino, soldering, PLC, printed circuit boards and other electronics and automation concepts.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item hidden">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">July 2021</div>
+            <div class="timeline-content">
+              <h4>Summer Internship as a Technical Designer</h4>
+              <p>Technical designer of an E-Bike's electronic architecture draft at the company Interactive Fully Electrical Vehicles SRL (I-FEVS) during the summer internship period, where I learned the basics of MicroPython, extended my knowledge of Arduino with the Portenta H7 board and understood how to create technical documentation.</p>
+            </div>
+          </div>
+          
         </div>
       </div>
     </section>
 
     <section id="contact" class="contact-section">
       <div class="container">
-        <h2 class="section-title">Contact</h2>
+        <h2 class="section-title">Get In Touch</h2>
         <p class="section-subtitle">I'm always open to new ideas and collaborations. Feel free to reach out through any of the channels below.</p>
         <div class="contact-links">
-          <a href="mailto:will.be.updated@gmail.com" class="contact-link">
+          <a href="mailto:will.be.updated@gmail.com" class="contact-link hidden">
             <i class="fas fa-envelope"></i> Email
           </a>
-          <a href="https://github.com/dimuzzo" target="_blank" rel="noopener noreferrer" class="contact-link">
+          <a href="https://github.com/dimuzzo" target="_blank" rel="noopener noreferrer" class="contact-link hidden">
             <i class="fab fa-github"></i> GitHub
           </a>
-          <a href="https://www.linkedin.com/in/alessandro-demo-b844a8301" target="_blank" rel="noopener noreferrer" class="contact-link">
+          <a href="https://www.linkedin.com/in/alessandro-demo-b844a8301" target="_blank" rel="noopener noreferrer" class="contact-link hidden">
             <i class="fab fa-linkedin"></i> LinkedIn
           </a>
-          <a href="https://t.me/dimuzzo" target="_blank" rel="noopener noreferrer" class="contact-link">
+          <a href="https://t.me/dimuzzo" target="_blank" rel="noopener noreferrer" class="contact-link hidden">
             <i class="fab fa-telegram"></i> Telegram
           </a>
         </div>
@@ -188,58 +253,7 @@
 
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script>
-    particlesJS('particles-js', {
-      "particles": {
-        "number": {
-          "value": 60,
-          "density": {
-            "enable": true,
-            "value_area": 800
-          }
-        },
-        "color": {
-          "value": "#ffffff"
-        },
-        "shape": {
-          "type": "circle"
-        },
-        "opacity": {
-          "value": 0.3,
-          "random": true
-        },
-        "size": {
-          "value": 2,
-          "random": true
-        },
-        "line_linked": {
-          "enable": true,
-          "distance": 150,
-          "color": "#ffffff",
-          "opacity": 0.2,
-          "width": 1
-        },
-        "move": {
-          "enable": true,
-          "speed": 1,
-          "direction": "none",
-          "random": true,
-          "straight": false,
-          "out_mode": "out"
-        }
-      },
-      "interactivity": {
-        "detect_on": "canvas",
-        "events": {
-          "onhover": {
-            "enable": false
-          },
-          "onclick": {
-            "enable": false
-          }
-        }
-      },
-      "retina_detect": true
-    });
+    particlesJS('particles-js', { "particles": { "number": { "value": 60, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#ffffff" }, "shape": { "type": "circle" }, "opacity": { "value": 0.3, "random": true }, "size": { "value": 2, "random": true }, "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.2, "width": 1 }, "move": { "enable": true, "speed": 1, "direction": "none", "random": true, "straight": false, "out_mode": "out" } }, "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": false }, "onclick": { "enable": false } } }, "retina_detect": true });
   </script>
 
 </body>
