@@ -3,265 +3,150 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Alessandro Demo | Developer</title>
-  <meta name="description" content="Portfolio of Alessandro Demo, a developer focused on innovative projects and modern technologies." />
+  <title>A. Demo | AI & Data Engineering</title>
+  <meta name="description" content="Portfolio of Alessandro Demo - AI & Data Analytics Engineering Student" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="assets/mylogo.png">
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" />
-  <link rel="icon" type="image/png" href="assets/mylogo.png">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;600&display=swap" rel="stylesheet">
   <script defer src="script.js"></script>
 </head>
-<body class="dark-mode">
+<body>
 
-  <div id="particles-js"></div>
+  <div class="grid-background"></div>
 
-  <header class="main-header">
-    <nav>
-      <div class="nav-container">
-        <a href="#" class="nav-logo">dimuzzo</a>
-        <div class="nav-links">
-          <a href="#projects">Projects</a>
-          <a href="#skills">Technologies</a>
-          <a href="#journey">My Timeline</a>
-          <a href="#contact">Contact</a>
-        </div>
+  <header class="fixed-header">
+    <div class="header-inner">
+      <div class="logo">DIMUZZO_PORTFOLIO_V3</div>
+      <div class="status-indicator">
+        <span class="dot"></span> SYSTEM: ONLINE <span id="clock"></span>
       </div>
-    </nav>
+    </div>
   </header>
 
   <main>
-    <section class="hero">
-      <div class="hero-content">
-        <h1 class="hero-title">Alessandro Demo</h1>
-        <p class="hero-subtitle">Computer Science graduate, eager to explore new experiences in programming and data science.</p>
-        <div class="hero-buttons">
-          <a href="#projects" class="btn btn-secondary">My Projects</a>
-          <a href="#journey" class="btn btn-secondary">About Me</a>
-          <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+    <section class="hero-section">
+      <div class="grid-container">
+        <div class="col-12 hero-text">
+          <p class="label">/// IDENTITY_LOG</p>
+          <h1>ALESSANDRO DEMO</h1>
+          
+          <div class="academic-path">
+            <h2 class="role">M.Sc. STUDENT: AI & DATA ANALYTICS</h2>
+            <h3 class="sub-role">B.Sc. COMPUTER SCIENCE GRADUATE</h3>
+          </div>
+        </div>
+        
+        <div class="col-12 hero-specs">
+          <div class="spec-box">
+            <span class="spec-label">CURRENT FOCUS</span>
+            <span class="spec-value">ENGINEERING & DATA SCIENCE</span>
+          </div>
+          <div class="spec-box">
+            <span class="spec-label">CORE STACK</span>
+            <span class="spec-value">JAVA / PYTHON / SQL</span>
+          </div>
+          <div class="spec-box">
+            <span class="spec-label">HARDWARE EXP</span>
+            <span class="spec-value">ARDUINO / EMBEDDED</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="projects" class="projects-section">
-      <div class="container">
-        <h2 class="section-title">Selected Projects</h2>
-        <div class="projects-grid">
-          
-          <div class="project-card hidden">
-            <div class="project-image-container">
-              <img src="https://images7.alphacoders.com/856/thumb-1920-856240.jpg" alt="NBA Project" class="project-image">
-            </div>
-            <div class="project-info">
-              <h3 class="project-title">NBA Score Prediction</h3>
-              <p class="project-description">A machine learning model to predict NBA game outcomes by analyzing historical team performance data.</p>
-              <div class="project-tech">
-                <span>Python</span>
-                <span>Scikit-learn</span>
-                <span>Pandas</span>
-              </div>
-              <div class="project-links">
-                <a href="https://github.com/dimuzzo/nba-score-prediction" target="_blank" rel="noopener noreferrer" class="project-link">
-                  <i class="fab fa-github"></i> GitHub
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-card hidden">
-            <div class="project-image-container">
-              <img src="https://media.istockphoto.com/id/1433041100/it/foto/tecnologia-di-comunicazione-con-rete-internet-globale-connessa-in-europa-collegamenti-di.jpg?s=2048x2048&w=is&k=20&c=GdnOD2TCAyCe5n5JnUATSPMUtU1URXgVPsfhyUGxNCI=" alt="Spatial Database Project" class="project-image">
-            </div>
-            <div class="project-info">
-              <h3 class="project-title">Geospatial Benchmarking</h3>
-              <p class="project-description">A comparative performance analysis between DuckDB (with its spatial extension), PostGIS and GeoPandas for geospatial operations on geospatial data.</p>
-              <div class="project-tech">
-                <span>Python</span>
-                <span>DuckDB</span>
-                <span>PostGIS</span>
-                <span>GeoPandas</span>
-              </div>
-              <div class="project-links">
-                <a href="https://github.com/dimuzzo/testing-project" target="_blank" rel="noopener noreferrer" class="project-link">
-                  <i class="fab fa-github"></i> GitHub
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-card hidden">
-            <div class="project-image-container">
-              <img src="https://imgs.search.brave.com/Zo_wdcyvL8WNWcLa_lxtwhQpNvheYVpTZ6_XiARdvac/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS12ZWN0b3Iv/cHVycGxlLWJhY2tn/cm91bmQtd2l0aC1x/dWl6LXdvcmQtY29s/b3JmdWwtcGVvcGxl/XzUyNjgzLTEyNi5q/cGc_c2VtdD1haXNf/aW5jb21pbmcmdz03/NDAmcT04MA" alt="Quiz App Project" class="project-image">
-            </div>
-            <div class="project-info">
-              <h3 class="project-title">Interactive Quiz App</h3>
-              <p class="project-description">A responsive web app for interactive quizzes, built with vanilla JavaScript for DOM manipulation and state management.</p>
-              <div class="project-tech">
-                <span>JavaScript</span>
-                <span>HTML5</span>
-                <span>CSS3</span>
-              </div>
-              <div class="project-links">
-                <a href="https://github.com/dimuzzo/quiz-app" target="_blank" rel="noopener noreferrer" class="project-link">
-                  <i class="fab fa-github"></i> GitHub
-                </a>
-              </div>
-            </div>
-          </div>
-
+    <section id="projects" class="content-section">
+      <div class="grid-container">
+        <div class="col-12 section-header">
+          <p class="label">/// INDEX_01: SELECTED PROJECTS</p>
         </div>
+
+        <article class="project-row">
+          <div class="col-4 project-meta">
+            <span class="p-id">01</span>
+            <h3>SPATIAL BENCHMARK</h3>
+            <p class="tech-stack">[DUCKDB, POSTGIS, GEOPANDAS]</p>
+          </div>
+          <div class="col-8 project-detail">
+            <p class="description">Comparative performance analysis of geospatial database engines. Measured query execution time and memory footprint on large vector datasets (OpenStreetMap).</p>
+            <a href="https://github.com/dimuzzo/testing-project" target="_blank" class="btn-text">READ ANALYSIS -></a>
+          </div>
+        </article>
+
+        <article class="project-row">
+            <div class="col-4 project-meta">
+              <span class="p-id">02</span>
+              <h3>QUIZ APP ENGINE</h3>
+              <p class="tech-stack">[JS VANILLA, DOM, CSS3]</p>
+            </div>
+            <div class="col-8 project-detail">
+              <p class="description">A responsive, state-managed interactive quiz application built without frameworks to demonstrate core JavaScript proficiency and DOM manipulation.</p>
+              <div class="btn-group">
+                  <a href="https://dimuzzo.github.io/quiz-app/" target="_blank" class="btn-text highlight">INITIALIZE DEMO -></a>
+                  <a href="https://github.com/dimuzzo/quiz-app" target="_blank" class="btn-text">SOURCE CODE -></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-row">
+          <div class="col-4 project-meta">
+            <span class="p-id">03</span>
+            <h3>NBA PREDICTOR</h3>
+            <p class="tech-stack">[PYTHON, SCIKIT-LEARN, PANDAS]</p>
+          </div>
+          <div class="col-8 project-detail">
+            <p class="description">Machine learning model designed to predict NBA game outcomes by analyzing historical team performance data. Optimized using Random Forest classifiers.</p>
+            <a href="https://github.com/dimuzzo/nba-score-prediction" target="_blank" class="btn-text">VIEW REPOSITORY -></a>
+          </div>
+        </article>
+
       </div>
     </section>
 
-    <section id="skills" class="skills-section">
-      <div class="container">
-        <h2 class="section-title">Technologies</h2>
-        <div class="skills-grid">
-            <div class="skill-category hidden">
-                <h3 class="skill-category-title"></i>Languages</h3>
-                <ul>
-                  <li>Java</li>
-                  <li>Python</li>
-                  <li>C</li>
-                  <li>SQL</li>
-                  <li>HTML5 / CSS3</li>
-                  <li>R</li>
-                  <li>RISC-V</li>
-                </ul>
-              </div>
-              <div class="skill-category hidden">
-                <h3 class="skill-category-title"></i>Frameworks, AI & Data</h3>
-                <ul>
-                    <li>Spring Boot</li>
-                    <li>NumPy</li>
-                    <li>Pandas</li>
-                    <li>GeoPandas</li>
-                    <li>Matplotlib</li>
-                    <li>Jupyter Notebook</li>
-                </ul>
-              </div>
-              <div class="skill-category hidden">
-                <h3 class="skill-category-title"></i>Databases & Tools</h3>
-                <ul>
-                  <li>PostgreSQL / PostGIS</li>
-                  <li>MongoDB</li>
-                  <li>DuckDB</li>
-                  <li>Git / GitHub / GitLab</li>
-                  <li>Unix</li>
-                  <li>Makefile</li>
-                  <li>Arduino</li>
-                </ul>
-              </div>
+    <section id="skills" class="content-section">
+        <div class="grid-container">
+            <div class="col-12 section-header">
+                <p class="label">/// INDEX_02: TECHNICAL ARSENAL</p>
+            </div>
+            
+            <div class="col-12 skill-matrix">
+                <div class="skill-row">
+                    <span class="skill-cat">CORE STACK</span>
+                    <div class="skill-list">JAVA / PYTHON / SQL</div>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-cat">DATA SCIENCE</span>
+                    <div class="skill-list">JUPYTER / PANDAS / NUMPY / SCIKIT / R</div>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-cat">HARDWARE / OS</span>
+                    <div class="skill-list">ARDUINO / C / RISC-V / UNIX / MAKEFILE</div>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-cat">INFRASTRUCTURE</span>
+                    <div class="skill-list">POSTGIS / DUCKDB / GIT</div>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
-    <section id="journey" class="journey-section">
-      <div class="container">
-        <h2 class="section-title">My Tech Timeline</h2>
-        <p class="section-subtitle">A brief timeline of my academic and professional milestones.</p>
-        <div class="timeline-container">
-
-          <div class="timeline-item hidden">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">November 2025</div>
-            <div class="timeline-content">
-              <h4>Beginning of Master of Science Studies at PoliTo</h4>
-              <p>Enrolled in the Artificial Intelligence and Data Analytics program (to be updated...)</p>
-            </div>
-          </div>
-          
-          <div class="timeline-item hidden">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">6th November 2025</div>
-            <div class="timeline-content">
-              <h4>Graduation in Computer Science at UniTo</h4>
-              <p>Completing my bachelor's degree with a focus on software engineering, machine learning, and data science principles. Ready to apply my academic knowledge to real-world jobs and to continue my studies.</p>
-            </div>
-          </div>
-          
-          <div class="timeline-item hidden">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">Summer 2025</div>
-            <div class="timeline-content">
-              <h4>Internal University Internship</h4>
-              <p>Focused on a complex project for the completion of my thesis for the three-year degree course in Computer Science: the development of a comparative analysis of DuckDB, PostGIS, and GeoPandas for geospatial data (OpenStreetMap, vectorial, and raster) processing and analysis.</p>
-            </div>
-          </div>
-          
-          <div class="timeline-item hidden">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">2023 - 2024</div>
-            <div class="timeline-content">
-              <h4>Deep Dive into Core Technologies</h4>
-              <p>Started exploring advanced topics in Java with Spring Boot and Python for data science. Contributed to my first open-source projects on GitHub.</p>
-            </div>
-          </div>
-          
-          <div class="timeline-item hidden">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">September 2022</div>
-            <div class="timeline-content">
-              <h4>Beginning of Bachelor of Science Studies at UniTo</h4>
-              <p>Enrolled in the Computer Science program to build a strong foundation in algorithms, data structures, and object-oriented programming.</p>
-            </div>
-          </div>
-
-          <div class="timeline-item hidden">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">4th July 2022</div>
-            <div class="timeline-content">
-              <h4>Graduated from the ITIS G.B. Pininfarina in Electronics and Automation</h4>
-              <p>Learned the basics of Arduino, soldering, PLC, printed circuit boards and other electronics and automation concepts.</p>
-            </div>
-          </div>
-
-          <div class="timeline-item hidden">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">July 2021</div>
-            <div class="timeline-content">
-              <h4>Summer Internship as a Technical Designer</h4>
-              <p>Technical designer of an E-Bike's electronic architecture draft at the company Interactive Fully Electrical Vehicles SRL (I-FEVS) during the summer internship period, where I learned the basics of MicroPython, extended my knowledge of Arduino with the Portenta H7 board and understood how to create technical documentation.</p>
-            </div>
-          </div>
-          
+    <section id="contact" class="content-section footer-section">
+      <div class="grid-container">
+        <div class="col-12 section-header">
+            <p class="label">/// TERMINATE_SESSION</p>
         </div>
-      </div>
-    </section>
-
-    <section id="contact" class="contact-section">
-      <div class="container">
-        <h2 class="section-title">Get In Touch</h2>
-        <p class="section-subtitle">I'm always open to new ideas and collaborations. Feel free to reach out through any of the channels below.</p>
-        <div class="contact-links">
-          <a href="mailto:will.be.updated@gmail.com" class="contact-link hidden">
-            <i class="fas fa-envelope"></i> Email
-          </a>
-          <a href="https://github.com/dimuzzo" target="_blank" rel="noopener noreferrer" class="contact-link hidden">
-            <i class="fab fa-github"></i> GitHub
-          </a>
-          <a href="https://www.linkedin.com/in/alessandro-demo-b844a8301" target="_blank" rel="noopener noreferrer" class="contact-link hidden">
-            <i class="fab fa-linkedin"></i> LinkedIn
-          </a>
-          <a href="https://t.me/dimuzzo" target="_blank" rel="noopener noreferrer" class="contact-link hidden">
-            <i class="fab fa-telegram"></i> Telegram
-          </a>
+        <div class="col-12 contact-area">
+            <h2>ESTABLISH CONNECTION</h2>
+            <div class="links-row">
+                <a href="https://github.com/dimuzzo" target="_blank">GITHUB</a>
+                <a href="https://www.linkedin.com/in/alessandro-demo-b844a8301" target="_blank">LINKEDIN</a>
+                <a href="https://t.me/dimuzzo" target="_blank">TELEGRAM</a>
+            </div>
         </div>
       </div>
     </section>
   </main>
-
-  <footer>
-    <div class="container">
-      <p>&copy; <span id="current-year"></span> dimuzzo</p>
-    </div>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  <script>
-    particlesJS('particles-js', { "particles": { "number": { "value": 60, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#ffffff" }, "shape": { "type": "circle" }, "opacity": { "value": 0.3, "random": true }, "size": { "value": 2, "random": true }, "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.2, "width": 1 }, "move": { "enable": true, "speed": 1, "direction": "none", "random": true, "straight": false, "out_mode": "out" } }, "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": false }, "onclick": { "enable": false } } }, "retina_detect": true });
-  </script>
 
 </body>
 </html>
