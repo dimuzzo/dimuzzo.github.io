@@ -1,155 +1,98 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AD | AI & Data Engineering</title>
-  <meta name="description" content="Portfolio of Alessandro Demo - AI & Data Analytics Engineering Student" />
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alessandro Demo | AI & Data Engineering</title>
+  <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" href="assets/mylogo.png">
-  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <script defer src="script.js"></script>
 </head>
 <body>
-
-  <div class="grid-background"></div>
-
-  <header class="fixed-header">
-    <div class="header-inner">
-      <div class="logo">DIMUZZO_PORTFOLIO_V3</div>
-      <div class="status-indicator">
-        <span class="dot"></span> SYSTEM: ONLINE <span id="clock"></span>
+  <nav class="nav">
+    <div class="nav-container">
+      <img src="assets/mylogo.png" alt="AD" class="nav-logo">
+      <div class="nav-links">
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
       </div>
     </div>
-  </header>
+  </nav>
 
-  <main>
-    <section class="hero-section">
-      <div class="grid-container">
-        <div class="col-12 hero-text">
-          <p class="label">/// IDENTITY_LOG</p>
-          <h1>ALESSANDRO DEMO</h1>
-          
-          <div class="academic-path">
-            <h2 class="role">M.Sc. STUDENT: AI & DATA ANALYTICS</h2>
-            <h3 class="sub-role">B.Sc. COMPUTER SCIENCE GRADUATE</h3>
-          </div>
-        </div>
-        
-        <div class="col-12 hero-specs">
-          <div class="spec-box">
-            <span class="spec-label">CURRENT FOCUS</span>
-            <span class="spec-value">ENGINEERING & DATA SCIENCE</span>
-          </div>
-          <div class="spec-box">
-            <span class="spec-label">CORE STACK</span>
-            <span class="spec-value">JAVA / PYTHON / SQL</span>
-          </div>
-          <div class="spec-box">
-            <span class="spec-label">HARDWARE EXP</span>
-            <span class="spec-value">ARDUINO / EMBEDDED</span>
-          </div>
-        </div>
+  <div class="container">
+    <header>
+      <h1 class="name">Alessandro Demo</h1>
+      <p class="tagline">AI & Data Analytics Engineering</p>
+      <p class="education">M.Sc. Student • Computer Science Graduate</p>
+      <div class="status">Available for Opportunities</div>
+    </header>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      
+      <div class="project">
+        <h3>Spatial Benchmark</h3>
+        <div class="tech">DuckDB • PostGIS • GeoPandas</div>
+        <p>Comparative performance analysis of geospatial database engines, measuring query execution time and memory footprint on large spatial datasets.</p>
+        <a href="https://github.com/dimuzzo/testing-project/wiki/Tables" target="_blank">View Analysis →</a>
+      </div>
+
+      <div class="project">
+        <h3>Quiz App Engine</h3>
+        <div class="tech">Vanilla JavaScript • DOM • CSS3</div>
+        <p>Responsive, state-managed interactive quiz application built without frameworks to demonstrate core JavaScript proficiency.</p>
+        <a href="https://dimuzzo.github.io/quiz-app/" target="_blank">Live Demo →</a> | 
+        <a href="https://github.com/dimuzzo/quiz-app" target="_blank">Source Code →</a>
+      </div>
+
+      <div class="project">
+        <h3>NBA Predictor</h3>
+        <div class="tech">Python • Scikit-Learn • Pandas</div>
+        <p>Machine learning model predicting NBA game outcomes by analyzing historical team performance data, optimized using Random Forest classifiers.</p>
+        <a href="https://github.com/dimuzzo/nba-score-prediction" target="_blank">View Repository →</a>
       </div>
     </section>
 
-    <section id="projects" class="content-section">
-      <div class="grid-container">
-        <div class="col-12 section-header">
-          <p class="label">/// INDEX_01: SELECTED PROJECTS</p>
-        </div>
+    <section id="skills">
+      <h2>Skills</h2>
+      
+      <div class="skill-group">
+        <div class="skill-title">Core Stack</div>
+        <div class="skill-items">Java, Python, SQL</div>
+      </div>
 
-        <article class="project-row">
-          <div class="col-4 project-meta">
-            <span class="p-id">01</span>
-            <h3>SPATIAL BENCHMARK</h3>
-            <p class="tech-stack">[DUCKDB, POSTGIS, GEOPANDAS]</p>
-          </div>
-          <div class="col-8 project-detail">
-            <p class="description">Comparative performance analysis of geospatial database engines. Measured query execution time and memory footprint on large vector datasets (OpenStreetMap).</p>
-            <a href="https://github.com/dimuzzo/testing-project/wiki/Tables" target="_blank" class="btn-text">READ ANALYSIS -></a>
-          </div>
-        </article>
+      <div class="skill-group">
+        <div class="skill-title">Data Science</div>
+        <div class="skill-items">Jupyter, Pandas, NumPy, R</div>
+      </div>
 
-        <article class="project-row">
-            <div class="col-4 project-meta">
-              <span class="p-id">02</span>
-              <h3>QUIZ APP ENGINE</h3>
-              <p class="tech-stack">[JS VANILLA, DOM, CSS3]</p>
-            </div>
-            <div class="col-8 project-detail">
-              <p class="description">A responsive, state-managed interactive quiz application built without frameworks to demonstrate core JavaScript proficiency and DOM manipulation.</p>
-              <div class="btn-group">
-                  <a href="https://dimuzzo.github.io/quiz-app/" target="_blank" class="btn-text highlight">INITIALIZE DEMO -></a>
-                  <a href="https://github.com/dimuzzo/quiz-app" target="_blank" class="btn-text">SOURCE CODE -></a>
-              </div>
-            </div>
-          </article>
+      <div class="skill-group">
+        <div class="skill-title">Hardware & Systems</div>
+        <div class="skill-items">Arduino, C, RISC-V, Unix, Makefile</div>
+      </div>
 
-          <article class="project-row">
-          <div class="col-4 project-meta">
-            <span class="p-id">03</span>
-            <h3>NBA PREDICTOR</h3>
-            <p class="tech-stack">[PYTHON, SCIKIT-LEARN, PANDAS]</p>
-          </div>
-          <div class="col-8 project-detail">
-            <p class="description">Machine learning model designed to predict NBA game outcomes by analyzing historical team performance data. Optimized using Random Forest classifiers.</p>
-            <a href="https://github.com/dimuzzo/nba-score-prediction" target="_blank" class="btn-text">VIEW REPOSITORY -></a>
-          </div>
-        </article>
-
+      <div class="skill-group">
+        <div class="skill-title">Infrastructure</div>
+        <div class="skill-items">PostGIS, DuckDB, Git</div>
       </div>
     </section>
 
-    <section id="skills" class="content-section">
-        <div class="grid-container">
-            <div class="col-12 section-header">
-                <p class="label">/// INDEX_02: TECHNICAL ARSENAL</p>
-            </div>
-            
-            <div class="col-12 skill-matrix">
-                <div class="skill-row">
-                    <span class="skill-cat">CORE STACK</span>
-                    <div class="skill-list">JAVA / PYTHON / SQL</div>
-                </div>
-                <div class="skill-row">
-                    <span class="skill-cat">DATA SCIENCE</span>
-                    <div class="skill-list">JUPYTER / PANDAS / NUMPY / SCIKIT / R</div>
-                </div>
-                <div class="skill-row">
-                    <span class="skill-cat">HARDWARE / OS</span>
-                    <div class="skill-list">ARDUINO / C / RISC-V / UNIX / MAKEFILE</div>
-                </div>
-                <div class="skill-row">
-                    <span class="skill-cat">INFRASTRUCTURE</span>
-                    <div class="skill-list">POSTGIS / DUCKDB / GIT</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="content-section footer-section">
-      <div class="grid-container">
-        <div class="col-12 section-header">
-            <p class="label">/// INDEX_03: HOW TO CONNECT</p>
-        </div>
-        <div class="col-12 contact-area">
-            <h2>ESTABLISH CONNECTION</h2>
-            <div class="links-row">
-                <a href="https://github.com/dimuzzo" target="_blank">GITHUB</a>
-                <a href="https://www.linkedin.com/in/alessandro-demo-b844a8301" target="_blank">LINKEDIN</a>
-                <a href="https://t.me/dimuzzo" target="_blank">TELEGRAM</a>
-            </div>
-        </div>
-        <div class="col-12 section-header">
-            <p class="label">/// TERMINATE_SESSION</p>
-        </div>
+    <section id="contact">
+      <h2>Connect</h2>
+      <div class="links">
+        <a href="https://github.com/dimuzzo" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/alessandro-demo-b844a8301" target="_blank">LinkedIn</a>
+        <a href="https://t.me/dimuzzo" target="_blank">Telegram</a>
       </div>
     </section>
-  </main>
 
+    <footer>
+      © 2025 Alessandro Demo
+    </footer>
+  </div>
 </body>
 </html>
