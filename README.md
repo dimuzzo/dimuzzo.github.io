@@ -26,7 +26,8 @@ portfolio/
 ├── style.css           # All styling and responsive design
 ├── script.js           # Smooth scroll functionality
 └── assets/
-    └── mylogo.png      # Logo image for navigation
+    ├──  mylogo.png      # Logo image for navigation
+    └── cv_english.pdf
 ```
 
 ## 🛠️ Technologies Used
