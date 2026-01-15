@@ -197,21 +197,34 @@ h2 {
   color: #fff;
 }
 
-/* Contact */
-.links {
+/* Contact with Icons */
+.social-links {
   display: flex;
   gap: 40px;
   flex-wrap: wrap;
 }
 
-.links a {
-  color: #888;
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #fff;
   text-decoration: none;
   font-size: 18px;
   transition: color 0.2s;
 }
 
-.links a:hover {
+.social-link svg {
+  width: 24px;
+  height: 24px;
+  transition: color 0.2s;
+}
+
+.social-link:hover {
+  color: #ff0000;
+}
+
+.social-link:active {
   color: #ff0000;
 }
 
@@ -306,13 +319,18 @@ footer {
     font-size: 14px;
   }
 
-  .links {
+  .social-links {
     flex-direction: column;
     gap: 25px;
   }
 
-  .links a {
+  .social-link {
     font-size: 16px;
+  }
+
+  .social-link svg {
+    width: 20px;
+    height: 20px;
   }
 
   footer {
