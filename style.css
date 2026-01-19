@@ -136,9 +136,34 @@ h2 {
   font-weight: 400;
 }
 
+/* Scroll animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* About section */
+.about-text {
+  color: #aaa;
+  line-height: 1.8;
+  font-size: 16px;
+  max-width: 700px;
+}
+
 /* Projects */
 .project {
   margin-bottom: 50px;
+  transition: transform 0.3s ease;
+}
+
+.project:hover {
+  transform: translateX(4px);
 }
 
 .project:last-child {
@@ -150,6 +175,11 @@ h2 {
   font-weight: 600;
   margin-bottom: 8px;
   color: #fff;
+  transition: color 0.3s ease;
+}
+
+.project:hover h3 {
+  color: #ff0000;
 }
 
 .project .tech {
@@ -185,11 +215,11 @@ h2 {
 }
 
 .skill-title {
-  font-size: 14px;
-  color: #888;
-  margin-bottom: 8px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 10px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
 }
 
 .skill-items {
@@ -335,7 +365,7 @@ footer {
   }
 
   .skill-title {
-    font-size: 12px;
+    font-size: 11px;
   }
 
   .skill-items {
