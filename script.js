@@ -20,4 +20,26 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // Scroll animations with Intersection Observer
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        // Staggered delay for multiple elements
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, index * 100);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Observe all fade-in elements
+  const fadeElements = document.querySelectorAll('.fade-in');
+  fadeElements.forEach(el => observer.observe(el));
 });
