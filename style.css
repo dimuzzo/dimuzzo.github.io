@@ -195,6 +195,30 @@ h2 {
 .skill-items {
   font-size: 16px;
   color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.skill-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.2s;
+}
+
+.skill-item i {
+  font-size: 20px;
+  color: #888;
+  transition: color 0.2s;
+}
+
+.skill-item:hover {
+  color: #ff0000;
+}
+
+.skill-item:hover i {
+  color: #ff0000;
 }
 
 /* Contact with Icons */
@@ -214,9 +238,8 @@ h2 {
   transition: color 0.2s;
 }
 
-.social-link svg {
-  width: 24px;
-  height: 24px;
+.social-link i {
+  font-size: 24px;
   transition: color 0.2s;
 }
 
@@ -317,6 +340,11 @@ footer {
 
   .skill-items {
     font-size: 14px;
+    gap: 12px;
+  }
+
+  .skill-item i {
+    font-size: 18px;
   }
 
   .social-links {
@@ -328,9 +356,8 @@ footer {
     font-size: 16px;
   }
 
-  .social-link svg {
-    width: 20px;
-    height: 20px;
+  .social-link i {
+    font-size: 20px;
   }
 
   footer {
