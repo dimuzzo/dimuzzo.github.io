@@ -8,12 +8,17 @@
   <link rel="icon" type="image/png" href="assets/mylogo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <script defer src="script.js"></script>
 </head>
 <body>
+
+  <div class="noise"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
   <nav class="nav">
     <div class="nav-container">
       <img src="assets/mylogo.png" alt="AD" class="nav-logo">
@@ -28,15 +33,33 @@
 
   <div class="container">
     <header>
-      <h1 class="name">Alessandro Demo</h1>
+      <div class="header-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="eyebrow-text">Portfolio</span>
+      </div>
+      <h1 class="name">
+        <span class="name-first">Alessandro</span>
+        <span class="name-last">Demo</span>
+      </h1>
       <p class="tagline">AI & Data Analytics Engineering</p>
-      <p class="education">M.Sc. Student • Computer Science Graduate</p>
-      <div class="status">Available for Opportunities</div>
-      <a href="assets/cv_english.pdf" class="cv-button" target="_blank" download>Download my CV</a>
+      <p class="education">M.Sc. Student <span class="dot">·</span> Computer Science Graduate</p>
+      <div class="header-actions">
+        <div class="status">
+          <span class="status-dot"></span>
+          Available for Opportunities
+        </div>
+        <a href="assets/cv_english.pdf" class="cv-button" target="_blank" download>
+          <span>Download my CV</span>
+          <i class="fas fa-arrow-down"></i>
+        </a>
+      </div>
     </header>
 
     <section id="about" class="fade-in">
-      <h2>About</h2>
+      <div class="section-label">
+        <span>01</span>
+        <h2>About</h2>
+      </div>
       <p class="about-text">
         I'm a Computer Science graduate currently pursuing my Master's degree, specializing in AI and Data Analytics Engineering. 
         My passion lies in building efficient data pipelines and optimizing database performance. 
@@ -45,117 +68,160 @@
     </section>
 
     <section id="projects" class="fade-in">
-      <h2>Projects</h2>
+      <div class="section-label">
+        <span>02</span>
+        <h2>Projects</h2>
+      </div>
       
-      <div class="project fade-in">
-        <h3>Spatial Benchmark</h3>
-        <div class="tech">DuckDB • PostGIS • GeoPandas</div>
-        <p>Comparative performance analysis of geospatial database engines, measuring query execution time and memory footprint on large spatial datasets.</p>
-        <a href="https://github.com/dimuzzo/testing-project/wiki/Tables" target="_blank">View Analysis</a>
-      </div>
+      <div class="projects-grid">
+        <div class="project fade-in">
+          <div class="project-number">01</div>
+          <div class="project-content">
+            <h3>Spatial Benchmark</h3>
+            <div class="tech">
+              <span>DuckDB</span>
+              <span>PostGIS</span>
+              <span>GeoPandas</span>
+            </div>
+            <p>Comparative performance analysis of geospatial database engines, measuring query execution time and memory footprint on large spatial datasets.</p>
+            <div class="project-links">
+              <a href="https://github.com/dimuzzo/testing-project/wiki/Tables" target="_blank">
+                View Analysis <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
 
-      <div class="project fade-in">
-        <h3>Quiz App Engine</h3>
-        <div class="tech">Vanilla JavaScript • DOM • CSS3</div>
-        <p>Responsive, state-managed interactive quiz application built without frameworks to demonstrate core JavaScript proficiency.</p>
-        <a href="https://dimuzzo.github.io/quiz-app/" target="_blank">Live Demo</a> | 
-        <a href="https://github.com/dimuzzo/quiz-app" target="_blank">Source Code</a>
-      </div>
+        <div class="project fade-in">
+          <div class="project-number">02</div>
+          <div class="project-content">
+            <h3>Quiz App Engine</h3>
+            <div class="tech">
+              <span>Vanilla JavaScript</span>
+              <span>DOM</span>
+              <span>CSS3</span>
+            </div>
+            <p>Responsive, state-managed interactive quiz application built without frameworks to demonstrate core JavaScript proficiency.</p>
+            <div class="project-links">
+              <a href="https://dimuzzo.github.io/quiz-app/" target="_blank">Live Demo <i class="fas fa-arrow-right"></i></a>
+              <a href="https://github.com/dimuzzo/quiz-app" target="_blank">Source Code <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
 
-      <div class="project fade-in">
-        <h3>University Projects</h3>
-        <div class="tech">Java • C • SQL • UML</div>
-        <p>Collection of academic projects covering Database Systems, Algorithms and Data Structures, Java Client-Server architecture, Operating Systems (UNIX), Software Application Development (design patterns, UML diagrams, sequence diagrams), and many others.</p>
-        <a href="https://github.com/dimuzzo?tab=repositories" target="_blank">View Repositories</a>
+        <div class="project fade-in">
+          <div class="project-number">03</div>
+          <div class="project-content">
+            <h3>University Projects</h3>
+            <div class="tech">
+              <span>Java</span>
+              <span>C</span>
+              <span>SQL</span>
+              <span>UML</span>
+            </div>
+            <p>Collection of academic projects covering Database Systems, Algorithms and Data Structures, Java Client-Server architecture, Operating Systems (UNIX), Software Application Development (design patterns, UML diagrams, sequence diagrams), and many others.</p>
+            <div class="project-links">
+              <a href="https://github.com/dimuzzo?tab=repositories" target="_blank">View Repositories <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <section id="skills" class="fade-in">
-      <h2>Skills</h2>
+      <div class="section-label">
+        <span>03</span>
+        <h2>Skills</h2>
+      </div>
       
-      <div class="skill-group fade-in">
-        <div class="skill-title">Core Stack</div>
-        <div class="skill-items">
-          <span class="skill-item">
-            <i class="devicon-java-plain"></i>
-            Java
-          </span>
-          <span class="skill-item">
-            <i class="devicon-python-plain"></i>
-            Python
-          </span>
-          <span class="skill-item">
-            <i class="devicon-azuresqldatabase-plain"></i>
-            SQL
-          </span>
+      <div class="skills-container">
+        <div class="skill-group fade-in">
+          <div class="skill-title">Core Stack</div>
+          <div class="skill-items">
+            <span class="skill-item">
+              <i class="devicon-java-plain"></i>
+              Java
+            </span>
+            <span class="skill-item">
+              <i class="devicon-python-plain"></i>
+              Python
+            </span>
+            <span class="skill-item">
+              <i class="devicon-azuresqldatabase-plain"></i>
+              SQL
+            </span>
+          </div>
         </div>
-      </div>
 
-      <div class="skill-group fade-in">
-        <div class="skill-title">Data Science</div>
-        <div class="skill-items">
-          <span class="skill-item">
-            <i class="devicon-jupyter-plain"></i>
-            Jupyter
-          </span>
-          <span class="skill-item">
-            <i class="devicon-pandas-plain"></i>
-            Pandas
-          </span>
-          <span class="skill-item">
-            <i class="devicon-numpy-plain"></i>
-            NumPy
-          </span>
-          <span class="skill-item">
-            <i class="devicon-r-plain"></i>
-            R
-          </span>
+        <div class="skill-group fade-in">
+          <div class="skill-title">Data Science</div>
+          <div class="skill-items">
+            <span class="skill-item">
+              <i class="devicon-jupyter-plain"></i>
+              Jupyter
+            </span>
+            <span class="skill-item">
+              <i class="devicon-pandas-plain"></i>
+              Pandas
+            </span>
+            <span class="skill-item">
+              <i class="devicon-numpy-plain"></i>
+              NumPy
+            </span>
+            <span class="skill-item">
+              <i class="devicon-r-plain"></i>
+              R
+            </span>
+          </div>
         </div>
-      </div>
 
-      <div class="skill-group fade-in">
-        <div class="skill-title">Hardware & Systems</div>
-        <div class="skill-items">
-          <span class="skill-item">
-            <i class="devicon-arduino-plain"></i>
-            Arduino
-          </span>
-          <span class="skill-item">
-            <i class="devicon-c-plain"></i>
-            C
-          </span>
-          <span class="skill-item">
-            <i class="devicon-unix-original"></i>
-            Unix
-          </span>
-          <span class="skill-item">
-            <i class="devicon-cmake-plain"></i>
-            Makefile
-          </span>
+        <div class="skill-group fade-in">
+          <div class="skill-title">Hardware & Systems</div>
+          <div class="skill-items">
+            <span class="skill-item">
+              <i class="devicon-arduino-plain"></i>
+              Arduino
+            </span>
+            <span class="skill-item">
+              <i class="devicon-c-plain"></i>
+              C
+            </span>
+            <span class="skill-item">
+              <i class="devicon-unix-original"></i>
+              Unix
+            </span>
+            <span class="skill-item">
+              <i class="devicon-cmake-plain"></i>
+              Makefile
+            </span>
+          </div>
         </div>
-      </div>
 
-      <div class="skill-group fade-in">
-        <div class="skill-title">Infrastructure</div>
-        <div class="skill-items">
-          <span class="skill-item">
-            <i class="devicon-postgresql-plain"></i>
-            PostgreSQL/PostGIS
-          </span>
-          <span class="skill-item">
-            <i class="devicon-duckdb-plain"></i>
-            DuckDB
-          </span>
-          <span class="skill-item">
-            <i class="devicon-git-plain"></i>
-            Git
-          </span>
+        <div class="skill-group fade-in">
+          <div class="skill-title">Infrastructure</div>
+          <div class="skill-items">
+            <span class="skill-item">
+              <i class="devicon-postgresql-plain"></i>
+              PostgreSQL/PostGIS
+            </span>
+            <span class="skill-item">
+              <i class="devicon-duckdb-plain"></i>
+              DuckDB
+            </span>
+            <span class="skill-item">
+              <i class="devicon-git-plain"></i>
+              Git
+            </span>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="contact" class="fade-in">
-      <h2>Connect</h2>
+      <div class="section-label">
+        <span>04</span>
+        <h2>Connect</h2>
+      </div>
       <div class="social-links">
         <a href="https://github.com/dimuzzo" target="_blank" class="social-link">
           <i class="fab fa-github"></i>
