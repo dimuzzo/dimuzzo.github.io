@@ -5,24 +5,33 @@
 }
 
 :root {
-  --red: #e8132a;
-  --red-dim: rgba(232, 19, 42, 0.15);
-  --red-glow: rgba(232, 19, 42, 0.4);
-  --bg: #050505;
-  --surface: #0d0d0d;
-  --border: rgba(255,255,255,0.07);
-  --text-primary: #f0f0f0;
-  --text-secondary: #888;
-  --text-dim: #444;
+  --red: #ff2a40;
+  --red-dim: rgba(255, 42, 64, 0.12);
+  --red-glow: rgba(255, 42, 64, 0.4);
+  --bg: #09090b;
+  --surface: #18181b;
+  --border: rgba(255, 255, 255, 0.12);
+  --text-primary: #fafafa;
+  --text-secondary: #a1a1aa;
+  --text-dim: #71717a;
 }
 
 body {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   background: var(--bg);
   color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
   cursor: default;
+}
+
+h1, h2, h3, .tagline {
+  font-family: 'Syne', sans-serif;
+}
+
+a:focus-visible, button:focus-visible {
+  outline: 2px dashed var(--red);
+  outline-offset: 4px;
 }
 
 .noise {
@@ -48,7 +57,7 @@ body {
 .orb-1 {
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(232,19,42,0.12) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255,42,64,0.12) 0%, transparent 70%);
   top: -200px;
   right: -200px;
   animation-duration: 20s;
@@ -57,7 +66,7 @@ body {
 .orb-2 {
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, rgba(232,19,42,0.07) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255,42,64,0.07) 0%, transparent 70%);
   bottom: 10%;
   left: -150px;
   animation-duration: 26s;
@@ -74,7 +83,7 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  background: rgba(5, 5, 5, 0.85);
+  background: rgba(9, 9, 11, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
@@ -186,7 +195,7 @@ header::after {
 .name-last {
   display: block;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(255,255,255,0.35);
+  -webkit-text-stroke: 1px rgba(250,250,250,0.35);
 }
 
 .tagline {
@@ -225,7 +234,7 @@ header::after {
   gap: 10px;
   padding: 10px 18px;
   background: var(--red-dim);
-  border: 1px solid rgba(232,19,42,0.3);
+  border: 1px solid rgba(255,42,64,0.3);
   font-family: 'Space Mono', monospace;
   font-size: 13px;
   color: var(--red);
@@ -253,7 +262,7 @@ header::after {
   gap: 10px;
   padding: 10px 20px;
   background: transparent;
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid rgba(250,250,250,0.2);
   font-family: 'Space Mono', monospace;
   font-size: 13px;
   color: var(--text-primary);
@@ -382,8 +391,8 @@ section:last-of-type {
 }
 
 .project:hover {
-  border-color: rgba(232,19,42,0.25);
-  background: rgba(232,19,42,0.03);
+  border-color: rgba(255,42,64,0.25);
+  background: rgba(255,42,64,0.03);
   transform: translateY(-2px);
 }
 
@@ -430,7 +439,7 @@ section:last-of-type {
   font-size: 12px;
   color: var(--red);
   background: var(--red-dim);
-  border: 1px solid rgba(232,19,42,0.2);
+  border: 1px solid rgba(255,42,64,0.2);
   padding: 3px 10px;
   border-radius: 2px;
   letter-spacing: 0.5px;
@@ -485,7 +494,7 @@ section:last-of-type {
 }
 
 .skill-group:hover {
-  border-color: rgba(255,255,255,0.12);
+  border-color: rgba(250,250,250,0.12);
 }
 
 .skill-title {
@@ -564,7 +573,7 @@ section:last-of-type {
 
 .social-link:hover {
   color: var(--text-primary);
-  border-color: rgba(232,19,42,0.35);
+  border-color: rgba(255,42,64,0.35);
   transform: translateY(-2px);
 }
 
@@ -608,6 +617,10 @@ footer {
 }
 
 @media (max-width: 700px) {
+  .noise {
+    display: none;
+  }
+
   .nav-container {
     padding: 14px 20px;
   }
@@ -637,7 +650,7 @@ footer {
   }
 
   .name-last {
-    -webkit-text-stroke: 1px rgba(255,255,255,0.25);
+    -webkit-text-stroke: 1px rgba(250,250,250,0.25);
   }
 
   .header-actions {
