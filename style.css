@@ -622,16 +622,17 @@ footer {
   }
 
   .nav-container {
-    padding: 14px 20px;
+    padding: 14px 12px;
   }
 
   .nav-links {
-    gap: 4px;
+    gap: 2px;
   }
 
   .nav-links a {
     font-size: 11px;
-    padding: 5px 10px;
+    padding: 5px 6px;
+    letter-spacing: 0;
   }
 
   .container {
@@ -646,7 +647,10 @@ footer {
   header::after { display: none; }
 
   .name {
-    letter-spacing: -2px;
+    font-size: clamp(32px, 10vw, 50px);
+    letter-spacing: -1px;
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
 
   .name-last {
