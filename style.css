@@ -616,6 +616,68 @@ footer {
   color: #fff;
 }
 
+.minor-projects {
+  margin-top: 48px;
+  padding-top: 10px;
+}
+
+.minor-projects h3 {
+  font-family: 'Space Mono', monospace;
+  font-size: 14px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+}
+
+.minor-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.minor-project-link {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  padding: 20px 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.minor-project-link:hover {
+  border-color: rgba(255,42,64,0.35);
+  background: rgba(255,42,64,0.03);
+  transform: translateY(-2px);
+}
+
+.minor-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: color 0.2s;
+}
+
+.minor-project-link:hover .minor-name {
+  color: var(--text-primary);
+}
+
+.minor-project-link i {
+  color: var(--text-dim);
+  font-size: 18px;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.minor-project-link:hover i {
+  color: var(--red);
+  transform: scale(1.15);
+}
+
 @media (max-width: 700px) {
   .noise {
     display: none;
