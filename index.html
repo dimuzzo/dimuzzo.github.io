@@ -4,6 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Alessandro Demo | AI & Data Engineering</title>
+  <meta name="description" content="Portfolio of Alessandro Demo — M.Sc. student at Politecnico di Torino specializing in AI & Data Analytics Engineering.">
+  <meta property="og:title" content="Alessandro Demo | AI & Data Engineering">
+  <meta property="og:description" content="M.Sc. student at Politecnico di Torino. Projects in spatial databases, data pipelines, machine learning and more.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dimuzzo.github.io/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Alessandro Demo | AI & Data Engineering">
+  <meta name="twitter:description" content="M.Sc. student at Politecnico di Torino. Projects in spatial databases, data pipelines, machine learning and more.">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" href="assets/mylogo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,6 +31,7 @@
       <img src="assets/mylogo.png" alt="AD" class="nav-logo">
       <div class="nav-links">
         <a href="#about">About</a>
+        <a href="#education">Education</a>
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
@@ -41,7 +50,7 @@
         <span class="name-last">Demo</span>
       </h1>
       <p class="tagline">AI & Data Analytics Engineering</p>
-      <p class="education">M.Sc. Student <span class="dot">·</span> Computer Science Graduate</p>
+      <p class="education">M.Sc. @ Politecnico di Torino <span class="dot">·</span> Expected 2027</p>
       <div class="header-actions">
         <div class="status">
           <span class="status-dot"></span>
@@ -66,9 +75,64 @@
       </p>
     </section>
 
-    <section id="projects" class="fade-in">
+    <section id="education" class="fade-in">
       <div class="section-label">
         <span>02</span>
+        <h2>Education</h2>
+      </div>
+      <div class="education-grid">
+        <div class="edu-card fade-in">
+          <div class="edu-header">
+            <div>
+              <div class="edu-degree">M.Sc. in Computer Engineering</div>
+              <div class="edu-sub">AI &amp; Data Analytics Engineering</div>
+            </div>
+            <div class="edu-meta">
+              <span class="edu-year">2027</span>
+              <span class="edu-status">In progress</span>
+            </div>
+          </div>
+          <div class="edu-school">
+            <i class="fas fa-university"></i>
+            Politecnico di Torino
+          </div>
+          <div class="edu-courses-label">Relevant Courses</div>
+          <div class="edu-courses">
+            <span>Machine Learning &amp; Pattern Recognition</span>
+            <span>Advanced Machine Learning</span>
+            <span>Big Data Processing &amp; Analytics</span>
+            <span>Data Science &amp; Database Technology</span>
+          </div>
+        </div>
+        <div class="edu-card fade-in">
+          <div class="edu-header">
+            <div>
+              <div class="edu-degree">B.Sc. in Computer Science</div>
+              <div class="edu-sub">Computer Science</div>
+            </div>
+            <div class="edu-meta">
+              <span class="edu-year">2024</span>
+              <span class="edu-status edu-status-done">Completed</span>
+            </div>
+          </div>
+          <div class="edu-school">
+            <i class="fas fa-university"></i>
+            Politecnico di Torino
+          </div>
+          <div class="edu-courses-label">Relevant Courses</div>
+          <div class="edu-courses">
+            <span>Algorithms &amp; Data Structures</span>
+            <span>Database Systems</span>
+            <span>Operating Systems</span>
+            <span>Software Engineering</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="fade-in">
+      <div class="section-label">
+        <span>03</span>
         <h2>Projects</h2>
       </div>
       
@@ -124,6 +188,34 @@
             </div>
           </div>
         </div>
+
+        <div class="project project-featured fade-in">
+          <div class="project-number">04</div>
+          <div class="project-content">
+            <div class="project-header-row">
+              <h3>🦊 Sinner Tracker</h3>
+              <span class="featured-badge">Active</span>
+            </div>
+            <div class="tech">
+              <span>Python</span>
+              <span>Chart.js</span>
+              <span>GitHub Actions</span>
+              <span>PWA</span>
+              <span>RapidAPI</span>
+            </div>
+            <p>High-performance fan dashboard tracking Jannik Sinner's ATP journey in real-time. Features automated daily data updates via GitHub Actions, interactive radar &amp; doughnut charts, H2H rivalry stats (Alcaraz, Djokovic, Zverev), Race to Turin progress bar, and full PWA support — installable on iOS &amp; Android.</p>
+            <div class="project-pills">
+              <span class="pill"><i class="fas fa-robot"></i> Auto-updated daily</span>
+              <span class="pill"><i class="fas fa-mobile-alt"></i> PWA installable</span>
+              <span class="pill"><i class="fas fa-language"></i> EN / IT</span>
+              <span class="pill"><i class="fas fa-moon"></i> Dark mode</span>
+            </div>
+            <div class="project-links">
+              <a href="https://dimuzzo.github.io/sinner-tracker/" target="_blank">Live Dashboard <i class="fas fa-arrow-right"></i></a>
+              <a href="https://github.com/dimuzzo/sinner-tracker" target="_blank">Source Code <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="minor-projects fade-in">
@@ -140,18 +232,13 @@
             <span class="minor-name">AI Terminal</span>
           </a>
 
-          <a href="https://dimuzzo.github.io/sinner-tracker/" target="_blank" class="minor-project-link">
-            <i class="fa-solid fa-square-poll-horizontal"></i>
-            <span class="minor-name">Jannik Sinner Tracker</span>
-          </a>
-
         </div>
       </div>
     </section>
 
     <section id="skills" class="fade-in">
       <div class="section-label">
-        <span>03</span>
+        <span>04</span>
         <h2>Skills</h2>
       </div>
       
@@ -240,7 +327,7 @@
 
     <section id="contact" class="fade-in">
       <div class="section-label">
-        <span>04</span>
+        <span>05</span>
         <h2>Connect</h2>
       </div>
       <div class="social-links">
